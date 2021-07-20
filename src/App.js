@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
-import IndividualFreak from './components/IndividualFreak';
+import FreakTile from './components/FreakTile';
+import Freak from './types/Freak';
 
 function App() {
+  const freak = new Freak();
+
   return (
-    <IndividualFreak />
+    <FreakTile freak={ freak } />
   );
 }
 
