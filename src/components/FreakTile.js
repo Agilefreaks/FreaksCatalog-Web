@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Freak from '../types/Freak';
+import './FreakTile.css';
 
 function FreakTile({ freak }) {
   return (
-    <div>
-      <img src={ freak.picture } alt="Face of the Freak" />
-      <h1>{ freak.name }</h1>
+    <div className="tile">
+      <img src={ freak.picture } alt="Face of the Freak" className="tile__img" />
+      <h1 className="tile__name">{ freak.name }</h1>
     </div>
   );
 }
