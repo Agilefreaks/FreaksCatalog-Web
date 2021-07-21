@@ -1,9 +1,11 @@
 .tile {
-  background: rgb(36, 33, 201);
-  width: 100px;
-  height: 100px;
+  background: rgb(22 20 140);
+  width: 130px;
+  height: 130px;
   border-radius: 10%;
   position: relative;
+  margin: 20px auto;
+  box-shadow: -4px -1px 5px 1px #928c8c;
 }
 
 .tile__img {
@@ -14,9 +16,10 @@
 .tile__name {
   color: #fff;
   text-align: center;
-  font-size: 1em;
+  font-size: 1rem;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0%);
+  text-shadow: 3px 4px 3px #000;
 }

@@ -37,3 +37,26 @@
     transform: rotate(360deg);
   }
 }
+
+.content {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+@media screen and (min-width: 760px) {
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1024px;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .content {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    max-width: 1024px;
+    margin: auto;
+  }
+}

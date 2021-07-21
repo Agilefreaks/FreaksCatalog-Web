@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Freak from '../types/Freak';
 import './FreakTile.css';
 
-function FreakTile({ freak }) {
+function FreakTile({ picture, name }) {
   return (
     <div className="tile">
-      <img src={ freak.picture } alt="Face of the Freak" className="tile__img" />
-      <h1 className="tile__name">{ freak.name }</h1>
+      <img src={ picture } alt="Face of the Freak" className="tile__img" />
+      <h1 className="tile__name">{ name }</h1>
     </div>
   );
 }
 
 FreakTile.propTypes = {
-  freak: PropTypes.instanceOf(Freak).isRequired,
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
 };
 
 export default FreakTile;
