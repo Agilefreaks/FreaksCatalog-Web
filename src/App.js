@@ -9,7 +9,7 @@ function App() {
       id={ user.id }
       name={ user.name }
       picture={ user.picture }
-      key={ user.name }
+      key={ user.id }
     />
   ));
 
