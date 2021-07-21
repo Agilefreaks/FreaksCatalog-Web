@@ -1,23 +1,18 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable array-callback-return */
-/* eslint-disable arrow-parens */
 import React from 'react';
 import './App.css';
 import FreakTile from './components/FreakTile';
-import Freaks from './types/Freaks';
+import { freaks } from './mock-data/freaks.json';
 
 function App() {
-  const result = [];
+  const result = freaks.map((user) => (
+    <FreakTile
+      id={ user.id }
+      name={ user.name }
+      picture={ user.picture }
+      key={ user.name }
+    />
+  ));
 
-  Freaks.map(user => {
-    result.push(
-      <FreakTile
-        name={ user.name }
-        picture={ user.picture }
-        key={ user.name }
-      />
-    );
-  });
   return (
     <div className="content">{ result }</div>
   );

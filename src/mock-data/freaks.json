@@ -1,0 +1,24 @@
+{
+  "freaks": [
+    {
+      "id" : 1,
+      "name" : "Freak ",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+    },
+    {
+      "id" : 2,
+      "name" : "Freak ",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+    },
+    {
+      "id" : 3,
+      "name" : "Freak ",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+    },
+    {
+      "id" : 4,
+      "name" : "Freak ",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+    }
+  ]
+}
