@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import FreakTile from './components/FreakTile';
+import FreakTile from './components/FreakTile/FreakTile';
 import { freaks } from './mock-data/freaks.json';
 
 function App() {

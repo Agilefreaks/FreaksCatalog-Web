@@ -4,7 +4,7 @@ import './FreakTile.css';
 
 function FreakTile({ id, picture, name }) {
   return (
-    <a href={ `https://localhost:4200/freaks/${ id }` } className="tile">
+    <a href={ `/freaks/${ id }` } className="tile" data-testid="freak-tile">
       <img src={ picture } alt="Face of the Freak" className="tile__img" />
       <h1 className="tile__name">{ name }</h1>
     </a>

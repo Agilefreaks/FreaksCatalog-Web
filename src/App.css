@@ -42,7 +42,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px 50px;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 760px) {
