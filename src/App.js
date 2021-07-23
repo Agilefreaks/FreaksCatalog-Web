@@ -1,29 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FreakTile from './components/FreakTile/FreakTile';
+import { freaks } from './mock-data/freaks.json';
 
 function App() {
+  const result = freaks.map((user) => (
+    <FreakTile
+      id={ user.id }
+      name={ user.name }
+      picture={ user.picture }
+      key={ user.id }
+    />
+  ));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={ logo } className="App-logo" alt="logo" />
-        <p>
-          Edit
-          { ' ' }
-          <code>src/App.js</code>
-          { ' ' }
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="content">{ result }</div>
   );
 }
 
