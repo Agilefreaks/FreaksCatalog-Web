@@ -30,7 +30,7 @@ describe('FreakTile', () => {
 
     render(<FreakTile id={ id } picture={ picture } name={ name } />);
 
-    expect(screen.getByTestId('freak-name')).toHaveTextContent('Anda');
+    expect(screen.getByTestId('freak-name')).toHaveTextContent(name);
   });
 
   it('should render a picture for the tile', () => {
@@ -40,6 +40,6 @@ describe('FreakTile', () => {
 
     render(<FreakTile id={ id } picture={ picture } name={ name } />);
 
-    expect(screen.getByTestId('freak-picture')).toHaveAttribute('src', 'some-url');
+    expect(screen.getByTestId('freak-picture')).toHaveAttribute('src', picture);
   });
 });
