@@ -1,0 +1,14 @@
+.modal {
+  background-color: lightgray;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__body {
+  height: 200px;
+  border: 2px solid #000;
+  text-align: center;
+}

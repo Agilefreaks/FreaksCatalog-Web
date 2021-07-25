@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import FreakTile from './components/FreakTile/FreakTile';
 import { freaks } from './mock-data/freaks.json';
+import FreakModal from './components/FreakModal/FreakModal';
 
 function App() {
+  const [ open, setOpen ] = useState(false);
   const result = freaks.map((user) => (
     <FreakTile
       id={ user.id }
@@ -14,7 +16,11 @@ function App() {
   ));
 
   return (
-    <div className="content">{ result }</div>
+    <div>
+      <button type="button" onClick={ () => setOpen(true) }>Skills</button>
+      <FreakModal onClose={ () => setOpen(false) } open={ open } />
+      <div className="content">{ result }</div>
+    </div>
   );
 }
 
