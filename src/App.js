@@ -17,9 +17,9 @@ function App() {
 
   return (
     <div>
-      <button type="button" onClick={ () => setOpen(true) }>Skills</button>
+      <button className="modal__component" type="button" onClick={ () => setOpen(true) }>Skills</button>
       <FreakModal title="Skills" onClose={ () => setOpen(false) } open={ open }>
-        <p>content</p>
+        <p>Modal content</p>
       </FreakModal>
       <div className="content">{ result }</div>
     </div>

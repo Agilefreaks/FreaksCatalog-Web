@@ -9,15 +9,17 @@ function FreakModal({ open, onClose, title, children }) {
       <div className="modal">
         <div className="modal__content">
           <div className="modal__header">
-            <button className="modal__close-button" type="button" onClick={ onClose }>X</button>
+            <button className="modal__close-button" type="button" onClick={ onClose }>
+              <i className="far fa-times" />
+            </button>
             <h1 className="modal__title">{ title }</h1>
-            <button type="button">Reset</button>
+            <button className="modal__reset-button" type="button">Reset</button>
           </div>
           <div className="modal__body">
             { children }
           </div>
-          <div>
-            <button type="button" className="applyButton">Apply</button>
+          <div className="modal__footer">
+            <button type="button" className="modal__apply-button">Apply</button>
           </div>
         </div>
       </div>
