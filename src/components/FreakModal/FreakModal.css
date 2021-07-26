@@ -1,14 +1,57 @@
+
+.modal__wrapper.-hidden {
+  display: none;
+}
+
+.modal__overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .modal {
-  background-color: lightgray;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  max-height: 700px;
+}
+
+.modal__content {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
 }
 
 .modal__header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 10px;
+}
+
+.modal__close-button {
+  color: #2d2f34;
+}
+
+.modal__title {
+  margin: 0;
+  color: #828282;
 }
 
 .modal__body {
   height: 200px;
   border: 2px solid #000;
   text-align: center;
+}
+
+.applyButton {
+  display: block;
+  margin: 0 auto;
 }
