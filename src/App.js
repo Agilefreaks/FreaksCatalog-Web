@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 import FreakTile from './components/FreakTile/FreakTile';
 import { freaks } from './mock-data/freaks.json';
-import FreakModal from './components/FreakModal/FreakModal';
+import Modal from './components/Modal/Modal';
 
 function App() {
-  const [ open, setOpen ] = useState(false);
+  const [ isOpen, setOpen ] = useState(false);
   const result = freaks.map((user) => (
     <FreakTile
       id={ user.id }
@@ -18,9 +18,15 @@ function App() {
   return (
     <div>
       <button className="modal__component" type="button" onClick={ () => setOpen(true) }>Skills</button>
-      <FreakModal title="Skills" onClose={ () => setOpen(false) } open={ open }>
+      <Modal
+        title="Skills"
+        onClose={ () => setOpen(false) }
+        isOpen={ isOpen }
+        headerContent={ null }
+        footerContent={ null }
+      >
         <p>Modal content</p>
-      </FreakModal>
+      </Modal>
       <div className="content">{ result }</div>
     </div>
   );
