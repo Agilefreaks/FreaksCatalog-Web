@@ -32,8 +32,8 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  max-width: 700px;
-  max-height: 700px;
+  max-width: 43.75rem;
+  max-height: 43.75rem;
 }
 
 @media screen and (max-width: 760px) {
@@ -52,7 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 0.6rem 1.2rem;
 }
 
 .modal__left--corner {
@@ -63,7 +63,7 @@
   color: #2d2f34;
   border: none;
   background: transparent;
-  font-size: 23px;
+  font-size: 1.45rem;
   cursor: pointer;
 }
 
@@ -75,7 +75,7 @@
   margin: 0 auto;
   text-align: center;
   color: #828282;
-  font-size: 17px;
+  font-size: 1.1rem;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -86,9 +86,7 @@
 }
 
 .modal__body {
-  height: 80%;
   border-top: 2px solid #e2e2e2;
-  border-bottom: 2px solid #e2e2e2;
   text-align: center;
 }
 

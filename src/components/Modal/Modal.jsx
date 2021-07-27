@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Modal.css';
 
-function header(onClose, title, headerContent) {
+function getHeader(onClose, title, headerContent) {
   return (
     <div className="modal__header">
       <div className="modal__left--corner">
@@ -11,14 +11,14 @@ function header(onClose, title, headerContent) {
         </button>
       </div>
       <div className="modal__center">
-        <h1 className="modal__title">{ title }</h1>
+        <h1 className="modal__title" data-testid="modal-title">{ title }</h1>
       </div>
       <div className="modal__right--corner">{ headerContent }</div>
     </div>
   );
 }
 
-function body(bodyContent) {
+function getBody(bodyContent) {
   return (
     <div className="modal__body">
       { bodyContent }
@@ -26,7 +26,7 @@ function body(bodyContent) {
   );
 }
 
-function footer(footerContent) {
+function getFooter(footerContent) {
   return (
     !!footerContent && (
       <div className="modal__footer">
@@ -49,9 +49,9 @@ function Modal({
       <div className="modal__overlay" />
       <div className="modal">
         <div className="modal__content">
-          { header(onClose, title, headerContent) }
-          { body(children) }
-          { footer(footerContent) }
+          { getHeader(onClose, title, headerContent) }
+          { getBody(children) }
+          { getFooter(footerContent) }
         </div>
       </div>
     </div>
