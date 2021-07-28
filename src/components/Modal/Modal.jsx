@@ -1,26 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Modal.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function getHeader(onClose, title, headerContent) {
   return (
     <div className="modal__header">
-      <div className="modal__left--corner">
+      <div className="modal__header-left-corner">
         <button className="modal__close-button" type="button" onClick={ onClose }>
-          <i className="far fa-times" />
+          <FontAwesomeIcon icon={ [ 'fas', 'times' ] } />
         </button>
       </div>
-      <div className="modal__center">
+      <div className="modal__header-center">
         <h1 className="modal__title" data-testid="modal-title">{ title }</h1>
       </div>
-      <div className="modal__right--corner">{ headerContent }</div>
+      <div className="modal__header-right-corner" data-testid="modal-header-right-corner">{ headerContent }</div>
     </div>
   );
 }
 
 function getBody(bodyContent) {
   return (
-    <div className="modal__body">
+    <div className="modal__body" data-testid="modal-children">
       { bodyContent }
     </div>
   );
@@ -29,7 +30,7 @@ function getBody(bodyContent) {
 function getFooter(footerContent) {
   return (
     !!footerContent && (
-      <div className="modal__footer">
+      <div className="modal__footer" data-testid="modal-footer">
         { footerContent }
       </div>
     )
@@ -45,8 +46,8 @@ function Modal({
   footerContent,
 }) {
   return (
-    <div className={ `modal__wrapper ${ !isOpen ? '--hidden' : '' }` }>
-      <div className="modal__overlay" />
+    <div className={ `modal-wrapper ${ !isOpen ? '--hidden' : '' }` } data-testid="modal">
+      <div className="modal-overlay" />
       <div className="modal">
         <div className="modal__content">
           { getHeader(onClose, title, headerContent) }

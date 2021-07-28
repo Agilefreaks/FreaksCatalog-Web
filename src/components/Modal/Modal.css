@@ -1,5 +1,5 @@
 
-.modal__wrapper {
+.modal-wrapper {
   font-family: Aktiv Grotesk, -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
   position: absolute;
   z-index: 1000;
@@ -9,11 +9,11 @@
   top: 0;
 }
 
-.modal__wrapper.--hidden {
+.modal-wrapper.--hidden {
   display: none;
 }
 
-.modal__overlay {
+.modal-overlay {
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
@@ -55,7 +55,7 @@
   padding: 0.6rem 1.2rem;
 }
 
-.modal__left--corner {
+.modal__header-left-corner {
   width: 20%;
 }
 
@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-.modal__center {
+.modal__header-center {
   width: 60%;
 }
 
@@ -80,7 +80,7 @@
   text-transform: uppercase;
 }
 
-.modal__right--corner {
+.modal__header-right-corner {
   width: 20%;
   text-align: end;
 }
