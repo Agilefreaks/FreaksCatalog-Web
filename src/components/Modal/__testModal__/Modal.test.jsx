@@ -2,6 +2,10 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Modal from '../Modal';
 
+jest.mock('@fortawesome/react-fontawesome', () => ({
+  FontAwesomeIcon: () => <div />,
+}));
+
 describe('Modal', () => {
   const title = 'Skills';
   const onClose = () => false;
@@ -33,7 +37,7 @@ describe('Modal', () => {
       </Modal>,
     );
 
-    expect(screen.getByTestId('modal-children')).toHaveTextContent(children);
+    expect(screen.getByTestId('modal-body')).toHaveTextContent(children);
   });
 
   it('should be hidden if isOpen is false', () => {
@@ -47,7 +51,7 @@ describe('Modal', () => {
       </Modal>,
     );
 
-    expect(screen.getByTestId('modal').className).toContain('--hidden');
+    expect(screen.getByTestId('modal-wrapper').className).toContain('--hidden');
   });
 
   it('should not be hidden if isOpen is true', () => {
@@ -61,7 +65,7 @@ describe('Modal', () => {
       </Modal>,
     );
 
-    expect(screen.getByTestId('modal').className).not.toContain('--hidden');
+    expect(screen.getByTestId('modal-wrapper').className).not.toContain('--hidden');
   });
 
   it('should render the hederContent', () => {

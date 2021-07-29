@@ -8,7 +8,7 @@ function getHeader(onClose, title, headerContent) {
     <div className="modal__header">
       <div className="modal__header-left-corner">
         <button className="modal__close-button" type="button" onClick={ onClose }>
-          <FontAwesomeIcon icon={ [ 'fas', 'times' ] } />
+          <FontAwesomeIcon icon="times" />
         </button>
       </div>
       <div className="modal__header-center">
@@ -21,7 +21,7 @@ function getHeader(onClose, title, headerContent) {
 
 function getBody(bodyContent) {
   return (
-    <div className="modal__body" data-testid="modal-children">
+    <div className="modal__body" data-testid="modal-body">
       { bodyContent }
     </div>
   );
@@ -46,7 +46,7 @@ function Modal({
   footerContent,
 }) {
   return (
-    <div className={ `modal-wrapper ${ !isOpen ? '--hidden' : '' }` } data-testid="modal">
+    <div className={ `modal-wrapper ${ isOpen ? '' : '--hidden' }` } data-testid="modal-wrapper">
       <div className="modal-overlay" />
       <div className="modal">
         <div className="modal__content">
