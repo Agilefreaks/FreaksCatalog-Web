@@ -4,21 +4,21 @@
   grid-gap: 1.87rem 1.87rem;
   margin: 0 auto;
   padding: 10px;
-  max-width: 30.62rem;
+  max-width: 30.625rem;
 }
 
 @media screen and (min-width: 760px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
     margin: auto;
-    max-width: 760px;
+    max-width: 46.875rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .content {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 1024px;
+    max-width: 63.125rem;
   }
 }
 
