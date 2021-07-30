@@ -26,7 +26,8 @@
       "object-curly-newline": [2, { "multiline": true, "consistent": true }],
       "operator-linebreak": [2, "after", { "overrides": { "?": "before", ":": "before" } }],
       "react/jsx-curly-spacing": [2, { "when": "always", "children": true }],
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/jsx-boolean-value": [0]
     },
     "ignorePatterns": ["node_modules/**/*", "build/**/*"]
   }

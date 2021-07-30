@@ -1,0 +1,24 @@
+{
+ "skills": [
+    {
+        "id": 1,
+        "name": "Kotlin"
+    },
+    {
+        "id": 2,
+        "name": "Elm"
+    },
+    {
+        "id": 3,
+        "name": "Swift"
+    },
+    {
+        "id": 4,
+        "name": "Swift UI"
+    },
+    {
+        "id": 5,
+        "name": "JavaScript"
+    }
+  ]
+}
