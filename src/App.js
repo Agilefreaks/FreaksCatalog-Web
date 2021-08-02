@@ -23,13 +23,13 @@ function App() {
   ));
 
   return (
-    <div>
+    <div className="app">
       <button className="app__button" type="button" onClick={ () => setIsOpen(true) }>Skills</button>
       <Modal
         title="Skills"
         onClose={ () => setIsOpen(false) }
         isOpen={ isOpen }
-        headerContent={ <button type="button">Reset</button> }
+        headerContent={ <button className="app__button-reset" type="button" onClick={ () => setCheckedState([]) }>Reset</button> }
         footerContent={ null }
       >
         <CheckBoxList
@@ -38,7 +38,6 @@ function App() {
         />
       </Modal>
       <div className="content">{ tiles }</div>
-      <div>{ checkedState }</div>
     </div>
   );
 }

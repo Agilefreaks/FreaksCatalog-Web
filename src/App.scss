@@ -22,10 +22,23 @@
   }
 }
 
-.app__button {
-  width: 50%;
-  padding: 7px 15px;
-  color: #828282;
-  border: 1px solid #e2e2e2;
-  background-color: #fff;
+.app {
+  width: 100%;
+
+  &__button {
+    width: 50%;
+    padding: 7px 15px;
+    color: #828282;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+  }
+
+  &__button-reset {
+    color: #b5b5b5;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
 }
