@@ -5,14 +5,14 @@ import './App.scss';
 import FreakTile from './components/FreakTile/FreakTile';
 import { freaks } from './mock-data/freaks.json';
 import Modal from './components/Modal/Modal';
-import CheckBoxItem from './components/CheckBoxItem/CheckBoxItem';
+import CheckBoxList from './components/ChecBoxList/CheckBoxList';
 
 library.add(faTimes);
 
 function App() {
   const [ isOpen, setIsOpen ] = useState(false);
-  const [ isSelected, setIsSelected ] = useState(false);
-  const result = freaks.map((user) => (
+
+  const tiles = freaks.map((user) => (
     <FreakTile
       id={ user.id }
       name={ user.name }
@@ -28,12 +28,15 @@ function App() {
         title="Skills"
         onClose={ () => setIsOpen(false) }
         isOpen={ isOpen }
-        headerContent={ null }
+        headerContent={ <button type="button">Reset</button> }
         footerContent={ null }
       >
-        <CheckBoxItem name="jon" id={ 1 } isSelected={ isSelected } onChange={ setIsSelected } />
+        <CheckBoxList onChange={ (result, name, checked) => {
+          console.log(result, name, checked);
+        } }
+        />
       </Modal>
-      <div className="content">{ result }</div>
+      <div className="content">{ tiles }</div>
     </div>
   );
 }

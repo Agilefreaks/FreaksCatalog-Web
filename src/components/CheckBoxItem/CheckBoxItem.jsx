@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function CheckBoxItem({ name, id, onChange, isSelected }) {
   return (
     <label htmlFor={ id }>
-      <input type="checkbox" id={ id } onChange={ onChange } checked={ isSelected } />
+      <input type="checkbox" name={ name } id={ id } onChange={ onChange } checked={ isSelected } />
       { name }
     </label>
   );
