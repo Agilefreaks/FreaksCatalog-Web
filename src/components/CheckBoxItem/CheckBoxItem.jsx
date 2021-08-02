@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './CheckBoxItem.scss';
 
 function CheckBoxItem({ name, id, onChange, isSelected }) {
   return (
-    <label htmlFor={ id }>
+    <label className="checkbox" htmlFor={ id }>
       <input type="checkbox" name={ name } id={ id } onChange={ onChange } checked={ isSelected } />
       { name }
     </label>

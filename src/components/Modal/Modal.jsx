@@ -5,23 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function getHeader(onClose, title, headerContent) {
   return (
-    <div className="modal__header">
-      <div className="modal__header-left-corner">
-        <button className="modal__close-button" type="button" onClick={ onClose }>
+    <div className="af-modal__header">
+      <div className="af-modal__header-left-corner">
+        <button className="af-modal__close-button" type="button" onClick={ onClose }>
           <FontAwesomeIcon icon="times" />
         </button>
       </div>
-      <div className="modal__header-center">
-        <h1 className="modal__title" data-testid="modal-title">{ title }</h1>
+      <div className="af-modal__header-center">
+        <h1 className="af-modal__title" data-testid="modal-title">{ title }</h1>
       </div>
-      <div className="modal__header-right-corner" data-testid="modal-header-right-corner">{ headerContent }</div>
+      <div className="af-modal__header-right-corner" data-testid="modal-header-right-corner">{ headerContent }</div>
     </div>
   );
 }
 
 function getBody(bodyContent) {
   return (
-    <div className="modal__body" data-testid="modal-body">
+    <div className="af-modal__body" data-testid="modal-body">
       { bodyContent }
     </div>
   );
@@ -30,7 +30,7 @@ function getBody(bodyContent) {
 function getFooter(footerContent) {
   return (
     !!footerContent && (
-      <div className="modal__footer" data-testid="modal-footer">
+      <div className="af-modal__footer" data-testid="modal-footer">
         { footerContent }
       </div>
     )
@@ -46,10 +46,10 @@ function Modal({
   footerContent,
 }) {
   return (
-    <div className={ `modal-wrapper ${ isOpen ? '' : '--hidden' }` } data-testid="modal-wrapper">
-      <div className="modal-overlay" />
-      <div className="modal">
-        <div className="modal__content">
+    <div className={ `af-modal-wrapper ${ isOpen ? '' : '--hidden' }` } data-testid="modal-wrapper">
+      <div className="af-modal-overlay" />
+      <div className="af-modal">
+        <div className="af-modal__content">
           { getHeader(onClose, title, headerContent) }
           { getBody(children) }
           { getFooter(footerContent) }

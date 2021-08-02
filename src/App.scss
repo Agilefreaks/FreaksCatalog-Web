@@ -31,6 +31,7 @@
     color: #828282;
     border: 1px solid #e2e2e2;
     background-color: #fff;
+    cursor: pointer;
   }
 
   &__button-reset {
@@ -39,6 +40,11 @@
     background: transparent;
     font-size: 14px;
     font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__button-apply {
+    margin: 20px auto;
     cursor: pointer;
   }
 }
