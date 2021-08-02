@@ -11,6 +11,7 @@ library.add(faTimes);
 
 function App() {
   const [ isOpen, setIsOpen ] = useState(false);
+  const [ checkedState, setCheckedState ] = useState([]);
 
   const tiles = freaks.map((user) => (
     <FreakTile
@@ -31,12 +32,13 @@ function App() {
         headerContent={ <button type="button">Reset</button> }
         footerContent={ null }
       >
-        <CheckBoxList onChange={ (result, name, checked) => {
-          console.log(result, name, checked);
-        } }
+        <CheckBoxList
+          checkedState={ checkedState }
+          onChange={ (result, name, checked) => setCheckedState(result, name, checked) }
         />
       </Modal>
       <div className="content">{ tiles }</div>
+      <div>{ checkedState }</div>
     </div>
   );
 }

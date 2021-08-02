@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { skills } from '../../mock-data/skills.json';
 import CheckBoxItem from '../CheckBoxItem/CheckBoxItem';
 
-function CheckBoxList({ onChange }) {
-  const [ checkedState, setCheckedState ] = useState([]);
-
+function CheckBoxList({ checkedState, onChange }) {
   const handleCheckedState = ({ target: { name, checked } }) => {
     const result = checked
       ? checkedState.concat(name)
       : checkedState.filter((item) => item !== name);
-
-    setCheckedState(result);
     onChange(result, name, checked);
   };
 
@@ -33,6 +29,7 @@ function CheckBoxList({ onChange }) {
 }
 
 CheckBoxList.propTypes = {
+  checkedState: PropTypes.instanceOf(Array).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
