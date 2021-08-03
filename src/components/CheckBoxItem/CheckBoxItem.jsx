@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Form } from 'react-bootstrap';
 import './CheckBoxItem.scss';
 
 function CheckBoxItem({ name, id, onChange, isSelected }) {
   return (
-    <label className="checkbox" htmlFor={ id }>
-      <input type="checkbox" name={ name } id={ id } onChange={ onChange } checked={ isSelected } />
-      { name }
-    </label>
+    <Form.Group controlId="formBasicCheckbox">
+      <Form.Check className="checkbox" type="checkbox" label={ name } name={ name } id={ id } onChange={ onChange } checked={ isSelected } />
+    </Form.Group>
   );
 }
 

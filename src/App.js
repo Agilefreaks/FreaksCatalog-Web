@@ -31,11 +31,11 @@ function App() {
         onClose={ () => setIsOpen(false) }
         isOpen={ isOpen }
         headerContent={ <button className="app__button-reset" type="button" onClick={ () => setCheckedState([]) }>Reset</button> }
-        footerContent={ <Button className="app__button-apply" variant="primary" size="lg">Apply</Button> }
+        footerContent={ <Button className="app__button-apply" variant="primary" size="lg" disabled>Apply</Button> }
       >
         <CheckBoxList
           checkedState={ checkedState }
-          onChange={ (result, name, checked) => setCheckedState(result, name, checked) }
+          onChange={ setCheckedState }
         />
       </Modal>
       <div className="content">{ tiles }</div>

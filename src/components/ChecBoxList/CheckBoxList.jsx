@@ -17,7 +17,7 @@ function CheckBoxList({ checkedState, onChange }) {
       key={ item.id }
       id={ item.id }
       isSelected={ checkedState.includes(item.name) }
-      onChange={ (e) => handleCheckedState(e) }
+      onChange={ handleCheckedState }
     />
   ));
 
