@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { skills } from '../../mock-data/skills.json';
 import CheckBoxItem from '../CheckBoxItem/CheckBoxItem';
+import './CheckBoxList.scss';
 
 function CheckBoxList({ checkedState, onChange }) {
   const handleCheckedState = ({ target: { name, checked } }) => {

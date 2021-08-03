@@ -78,15 +78,22 @@
     text-align: end;
   }
 
+  &__corp {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
   &__body {
     border-top: 2px solid #e2e2e2;
     text-align: center;
+    overflow: scroll;
     height: 80%;
   }
 
   &__footer {
     display: flex;
-    border-top:  2px solid #e2e2e2;
+    border-top: 2px solid #e2e2e2;
   }
 }
 

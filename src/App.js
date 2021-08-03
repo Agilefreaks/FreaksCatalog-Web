@@ -31,7 +31,7 @@ function App() {
         onClose={ () => setIsOpen(false) }
         isOpen={ isOpen }
         headerContent={ <button className="app__button-reset" type="button" onClick={ () => setCheckedState([]) }>Reset</button> }
-        footerContent={ <Button className="app__button-apply" variant="primary" size="lg" disabled>Apply</Button> }
+        footerContent={ <Button className="app__button-apply" variant="primary py-2 px-5 " disabled>Apply</Button> }
       >
         <CheckBoxList
           checkedState={ checkedState }

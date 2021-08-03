@@ -58,6 +58,22 @@
     {
         "id": 15,
         "name": "JavaScript"
+    },
+    {
+        "id": 16,
+        "name": "Elm"
+    },
+    {
+        "id": 17,
+        "name": "Swift"
+    },
+    {
+        "id": 18,
+        "name": "Swift UI"
+    },
+    {
+        "id": 19,
+        "name": "JavaScript"
     }
   ]
 }
