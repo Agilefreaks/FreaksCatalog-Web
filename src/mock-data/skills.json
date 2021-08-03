@@ -22,58 +22,58 @@
     },
     {
         "id": 6,
-        "name": "Kotlin"
+        "name": "Java"
     },
     {
         "id": 7,
-        "name": "Elm"
+        "name": "C"
     },
     {
         "id": 8,
-        "name": "Swift"
+        "name": "C++"
     },
     {
         "id": 9,
-        "name": "Swift UI"
+        "name": "VueJs"
     },
     {
         "id": 10,
-        "name": "JavaScript"
+        "name": "React"
     }, {
         "id": 11,
-        "name": "Kotlin"
+        "name": "C#"
     },
     {
         "id": 12,
-        "name": "Elm"
+        "name": "Pyton"
     },
     {
         "id": 13,
-        "name": "Swift"
+        "name": "Lisp"
     },
     {
         "id": 14,
-        "name": "Swift UI"
+        "name": "Sql"
     },
     {
         "id": 15,
-        "name": "JavaScript"
+        "name": "PHP"
     },
     {
         "id": 16,
-        "name": "Elm"
+        "name": "MongoDB"
     },
     {
         "id": 17,
-        "name": "Swift"
+        "name": "Objective-C"
     },
     {
         "id": 18,
-        "name": "Swift UI"
+        "name": "Rubby"
     },
     {
         "id": 19,
-        "name": "JavaScript"
+        "name": "NodeJs"
     }
   ]
 }

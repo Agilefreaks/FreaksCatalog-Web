@@ -23,7 +23,7 @@ function CheckBoxList({ checkedState, onChange }) {
   ));
 
   return (
-    <div>
+    <div className="cb-list">
       { checkboxes }
     </div>
   );

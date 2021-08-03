@@ -36,9 +36,15 @@
   max-height: 43.75rem;
 
   &__content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     background-color: #fff;
+  }
+
+  &__header-corp {
+    height: 8%;
   }
 
   &__header {
@@ -46,6 +52,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.6rem 1.2rem;
+    height: 100%;
   }
 
   &__header-left-corner {
@@ -81,14 +88,14 @@
   &__corp {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 92%;
   }
 
   &__body {
     border-top: 2px solid #e2e2e2;
     text-align: center;
     overflow: scroll;
-    height: 80%;
+    height: 85%;
   }
 
   &__footer {
