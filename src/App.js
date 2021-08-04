@@ -23,7 +23,13 @@ function App() {
 
   return (
     <div className="app">
-      <button className="app__button" type="button" onClick={ () => setIsOpen(true) }>Skills</button>
+      <button
+        className="app__button"
+        type="button"
+        onClick={ () => setIsOpen(true) }
+      >
+        Skills
+      </button>
       <FilterModal
         title="Skills"
         isOpen={ isOpen }
