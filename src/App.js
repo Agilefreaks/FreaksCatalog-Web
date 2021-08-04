@@ -3,6 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import FreakTile from './components/FreakTile/FreakTile';
 import { freaks } from './mock-data/freaks.json';
+import { skills } from './mock-data/skills.json';
 import './App.scss';
 import FilterModal from './components/FilterModal/FilterModal';
 
@@ -23,7 +24,12 @@ function App() {
   return (
     <div className="app">
       <button className="app__button" type="button" onClick={ () => setIsOpen(true) }>Skills</button>
-      <FilterModal isOpen={ isOpen } onClose={ () => setIsOpen(false) } />
+      <FilterModal
+        title="Skills"
+        isOpen={ isOpen }
+        onClose={ () => setIsOpen(false) }
+        keywords={ skills }
+      />
       <div className="content">{ tiles }</div>
     </div>
   );
