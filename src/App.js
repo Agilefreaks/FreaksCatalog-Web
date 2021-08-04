@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import FreakTile from './components/FreakTile/FreakTile';
@@ -9,6 +9,8 @@ import FilterModal from './components/FilterModal/FilterModal';
 library.add(faTimes);
 
 function App() {
+  const [ isOpen, setIsOpen ] = useState(false);
+
   const tiles = freaks.map((user) => (
     <FreakTile
       id={ user.id }
@@ -20,7 +22,8 @@ function App() {
 
   return (
     <div className="app">
-      <FilterModal />
+      <button className="app__button" type="button" onClick={ () => setIsOpen(true) }>Skills</button>
+      <FilterModal isOpen={ isOpen } onClose={ () => setIsOpen(false) } />
       <div className="content">{ tiles }</div>
     </div>
   );

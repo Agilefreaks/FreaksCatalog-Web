@@ -50,13 +50,9 @@ function Modal({
       <div className="af-modal-overlay" />
       <div className="af-modal">
         <div className="af-modal__content">
-          <div className="af-modal__header-corp">
-            { getHeader(onClose, title, headerContent) }
-          </div>
-          <div className="af-modal__corp">
-            { getBody(children) }
-            { getFooter(footerContent) }
-          </div>
+          { getHeader(onClose, title, headerContent) }
+          { getBody(children) }
+          { getFooter(footerContent) }
         </div>
       </div>
     </div>

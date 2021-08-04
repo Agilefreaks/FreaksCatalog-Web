@@ -22,11 +22,7 @@ function CheckBoxList({ checkedState, onChange }) {
     />
   ));
 
-  return (
-    <div className="cb-list">
-      { checkboxes }
-    </div>
-  );
+  return (checkboxes);
 }
 
 CheckBoxList.propTypes = {
