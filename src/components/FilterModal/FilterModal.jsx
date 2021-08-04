@@ -11,10 +11,10 @@ function FilterModal({ title, isOpen, onClose, keywords }) {
   return (
     <Modal
       title={ title }
-      onClose={ onClose }
       isOpen={ isOpen }
       headerContent={ <button className="filter__button-reset" type="button" onClick={ () => setCheckedState([]) }>Reset</button> }
       footerContent={ <Button className="filter__button-apply" variant="primary py-2 px-5 " disabled>Apply</Button> }
+      onClose={ onClose }
     >
       <CheckBoxList
         keywords={ keywords }
@@ -29,7 +29,7 @@ FilterModal.propTypes = {
   title: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  keywords: PropTypes.objectOf.isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default FilterModal;

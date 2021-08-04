@@ -5,9 +5,10 @@ import './CheckBoxItem.scss';
 
 function CheckBoxItem({ name, id, onChange, isSelected }) {
   return (
-    <Form.Group controlId="formBasicCheckbox">
+    <Form.Group className="checkbox-item" controlId="formBasicCheckbox">
       <Form.Check
         className="checkbox"
+        data-testid="checkbox-input"
         type="checkbox"
         label={ name }
         name={ name }

@@ -22,13 +22,17 @@ function CheckBoxList({ checkedState, onChange, keywords }) {
     />
   ));
 
-  return (checkboxes);
+  return (
+    <div data-testid="checkbox-list">
+      { checkboxes }
+    </div>
+  );
 }
 
 CheckBoxList.propTypes = {
   checkedState: PropTypes.instanceOf(Array).isRequired,
   onChange: PropTypes.func.isRequired,
-  keywords: PropTypes.objectOf.isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CheckBoxList;

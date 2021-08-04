@@ -33,8 +33,8 @@ function App() {
       <FilterModal
         title="Skills"
         isOpen={ isOpen }
-        onClose={ () => setIsOpen(false) }
         keywords={ skills }
+        onClose={ () => setIsOpen(false) }
       />
       <div className="content">{ tiles }</div>
     </div>
