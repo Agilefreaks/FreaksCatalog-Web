@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CheckBoxItem from '../CheckBoxItem';
 
 describe('CheckBoxItem', () => {
-  it('should render a input with a type of checkbox', () => {
+  it('should trigger a change on the checkbox', () => {
     const name = 'Kotlin';
     const id = 1;
     const onChange = jest.fn();
@@ -23,6 +23,12 @@ describe('CheckBoxItem', () => {
 
     // trigger a virtual change on the checkbox
 
+    const input = screen.getByTestId('checkbox-input');
+
+    expect(input).toBeInTheDocument();
+
+    fireEvent.click(input);
+    expect(input).toBeChecked();
     expect(onChange).toHaveBeenCalled();
   });
 });
