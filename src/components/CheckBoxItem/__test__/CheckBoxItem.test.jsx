@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import CheckBoxItem from '../CheckBoxItem';
 
 describe('CheckBoxItem', () => {
@@ -21,6 +21,8 @@ describe('CheckBoxItem', () => {
       />,
     );
 
-    expect(screen.getByTestId('checkbox-input')).toHaveAttribute('type', checkbox);
+    // trigger a virtual change on the checkbox
+
+    expect(onChange).toHaveBeenCalled();
   });
 });

@@ -12,7 +12,7 @@ function CheckBoxItem({ name, id, onChange, isSelected }) {
         type="checkbox"
         label={ name }
         name={ name }
-        id={ id }
+        id={ `${ id }--${ name }` }
         onChange={ onChange }
         checked={ isSelected }
       />
