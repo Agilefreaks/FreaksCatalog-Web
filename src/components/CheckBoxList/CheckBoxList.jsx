@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CheckBoxItem from '../CheckBoxItem/CheckBoxItem';
-import './CheckBoxList.scss';
 
 function CheckBoxList({ checkedState, onChange, keywords }) {
   const handleCheckedState = ({ target: { name, checked } }) => {
