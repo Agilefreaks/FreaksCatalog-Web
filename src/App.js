@@ -64,6 +64,7 @@ function App() {
       </div>
       <div className="app__add-user">
         <Button
+          className="app__button--user"
           variant="outline-secondary"
           onClick={ () => setOpenModal(modals.ADD) }
         >

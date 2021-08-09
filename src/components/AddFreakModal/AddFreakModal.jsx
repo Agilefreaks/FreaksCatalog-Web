@@ -10,7 +10,7 @@ function AddFreakModal({ title, isOpen, onClose }) {
       title={ title }
       isOpen={ isOpen }
       headerContent={ <button className="filter__button-reset" type="button">Reset</button> }
-      footerContent={ <Button className="filter__button-apply" variant="primary py-2 px-5 " disabled>Summit</Button> }
+      footerContent={ <Button className="filter__button-apply" variant="primary py-2 px-5 ">Submit</Button> }
       onClose={ onClose }
     >
       <EditFreakForm />

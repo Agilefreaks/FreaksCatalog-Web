@@ -31,30 +31,55 @@ function EditFreakForm() {
   return (
     <Form className=" mx-2 p-3">
       <Form.Group className="mb-3">
-        <Form.Label>Your name</Form.Label>
+        <Form.Label>Your name*</Form.Label>
         <Row>
           <Col>
-            <Form.Control placeholder="First name" value={ values.firstName } onChange={ set(FreakModelKeys.firstName) } />
+            <Form.Control
+              required
+              placeholder="First name"
+              value={ values.firstName }
+              onChange={ set(FreakModelKeys.firstName) }
+            />
           </Col>
           <Col>
-            <Form.Control placeholder="Last name" value={ values.lastName } onChange={ set(FreakModelKeys.lastName) } />
+            <Form.Control
+              required
+              placeholder="Last name"
+              value={ values.lastName }
+              onChange={ set(FreakModelKeys.lastName) }
+            />
           </Col>
         </Row>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" value={ values.email } onChange={ set(FreakModelKeys.email) } />
+        <Form.Label>Email address*</Form.Label>
+        <Form.Control
+          required
+          type="email"
+          placeholder="Enter email"
+          value={ values.email }
+          onChange={ set(FreakModelKeys.email) }
+        />
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" rows={ 3 } value={ values.description } onChange={ set(FreakModelKeys.description) } />
+        <Form.Control
+          as="textarea"
+          rows={ 3 }
+          value={ values.description }
+          onChange={ set(FreakModelKeys.description) }
+        />
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Role</Form.Label>
-        <Form.Select value={ values.role } onChange={ set(FreakModelKeys.role) }>
+        <Form.Label>Role*</Form.Label>
+        <Form.Select
+          required
+          value={ values.role }
+          onChange={ set(FreakModelKeys.role) }
+        >
           <option>Founder</option>
           <option>Frontend Dev</option>
           <option>Backend Dev</option>
@@ -62,8 +87,12 @@ function EditFreakForm() {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Level</Form.Label>
-        <Form.Select value={ values.level } onChange={ set(FreakModelKeys.level) }>
+        <Form.Label>Level*</Form.Label>
+        <Form.Select
+          required
+          value={ values.level }
+          onChange={ set(FreakModelKeys.level) }
+        >
           <option>Master</option>
           <option>Expert</option>
           <option>Proficient</option>
@@ -74,8 +103,12 @@ function EditFreakForm() {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Norm</Form.Label>
-        <Form.Select value={ values.norm } onChange={ set(FreakModelKeys.norm) }>
+        <Form.Label>Norm*</Form.Label>
+        <Form.Select
+          required
+          value={ values.norm }
+          onChange={ set(FreakModelKeys.norm) }
+        >
           <option>Full time</option>
           <option>Part time</option>
         </Form.Select>
@@ -87,7 +120,12 @@ function EditFreakForm() {
           <br />
           Example (Elm, JS, Swift...)
         </Form.Text>
-        <Form.Control as="textarea" rows={ 3 } value={ values.skills } onChange={ set(FreakModelKeys.skills) } />
+        <Form.Control
+          as="textarea"
+          rows={ 3 }
+          value={ values.skills }
+          onChange={ set(FreakModelKeys.skills) }
+        />
       </Form.Group>
     </Form>
   );
