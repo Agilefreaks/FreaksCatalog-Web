@@ -27,8 +27,8 @@
 
   &__add-user {
     border-top: 2px solid black;
-    width: 100%;
-    margin: 10px auto;
+    text-align: center;
+    padding: 20px;
   }
 
   &__button {
@@ -38,12 +38,5 @@
     border: 1px solid #e2e2e2;
     background-color: #fff;
     cursor: pointer;
-
-    &--user {
-      border: none;
-      background: #fff;
-      margin: 10px auto;
-      display: block;
-    }
   }
 }

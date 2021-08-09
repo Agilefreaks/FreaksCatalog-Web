@@ -63,15 +63,12 @@ function App() {
         { tiles }
       </div>
       <div className="app__add-user">
-        <button
-          className="app__button--user"
-          type="button"
+        <Button
+          variant="outline-secondary"
           onClick={ () => setOpenModal(modals.ADD) }
         >
-          <Button variant="outline-secondary">
-            <FontAwesomeIcon icon="user-plus" />
-          </Button>
-        </button>
+          <FontAwesomeIcon icon="user-plus" />
+        </Button>
         <AddFreakModal
           title="Add Freak"
           isOpen={ openModal === modals.ADD }
