@@ -9,7 +9,7 @@ import { skills } from './mock-data/skills.json';
 import { projects } from './mock-data/projects.json';
 import './App.scss';
 import FilterModal from './components/FilterModal/FilterModal';
-import AddFilterModal from './components/AddFreakModal/AddFreakModal';
+import AddFreakModal from './components/AddFreakModal/AddFreakModal';
 
 library.add(faTimes, faUserPlus);
 
@@ -72,7 +72,7 @@ function App() {
             <FontAwesomeIcon icon="user-plus" />
           </Button>
         </button>
-        <AddFilterModal
+        <AddFreakModal
           title="Add Freak"
           isOpen={ openModal === modals.ADD }
           onClose={ () => setOpenModal(null) }
