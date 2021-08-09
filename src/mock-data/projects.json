@@ -1,0 +1,20 @@
+{
+  "projects": [
+     {
+         "id": 1,
+         "name": "EPIX"
+     },
+     {
+         "id": 2,
+         "name": "Freaks Catalog"
+     },
+     {
+         "id": 3,
+         "name": "reAsig"
+     },
+     {
+         "id": 4,
+         "name": "Pasaj Catering"
+     }
+  ]
+}

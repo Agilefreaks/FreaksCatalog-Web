@@ -1,0 +1,79 @@
+{
+ "skills": [
+    {
+        "id": 1,
+        "name": "Kotlin"
+    },
+    {
+        "id": 2,
+        "name": "Elm"
+    },
+    {
+        "id": 3,
+        "name": "Swift"
+    },
+    {
+        "id": 4,
+        "name": "Swift UI"
+    },
+    {
+        "id": 5,
+        "name": "JavaScript"
+    },
+    {
+        "id": 6,
+        "name": "Java"
+    },
+    {
+        "id": 7,
+        "name": "C"
+    },
+    {
+        "id": 8,
+        "name": "C++"
+    },
+    {
+        "id": 9,
+        "name": "VueJs"
+    },
+    {
+        "id": 10,
+        "name": "React"
+    }, {
+        "id": 11,
+        "name": "C#"
+    },
+    {
+        "id": 12,
+        "name": "Pyton"
+    },
+    {
+        "id": 13,
+        "name": "Lisp"
+    },
+    {
+        "id": 14,
+        "name": "Sql"
+    },
+    {
+        "id": 15,
+        "name": "PHP"
+    },
+    {
+        "id": 16,
+        "name": "MongoDB"
+    },
+    {
+        "id": 17,
+        "name": "Objective-C"
+    },
+    {
+        "id": 18,
+        "name": "Rubby"
+    },
+    {
+        "id": 19,
+        "name": "NodeJs"
+    }
+  ]
+}

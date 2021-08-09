@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import './App.scss';
 import FreakTile from './components/FreakTile/FreakTile';
 import { freaks } from './mock-data/freaks.json';
-import Modal from './components/Modal/Modal';
+import { skills } from './mock-data/skills.json';
+import { projects } from './mock-data/projects.json';
+import './App.scss';
+import FilterModal from './components/FilterModal/FilterModal';
 
 library.add(faTimes);
 
+const modals = {
+  SKILLS: 'skills',
+  PROJECTS: 'projects',
+};
+
 function App() {
-  const [ isOpen, setIsOpen ] = useState(false);
-  const result = freaks.map((user) => (
+  const [ openModal, setOpenModal ] = useState(null);
+
+  const tiles = freaks.map((user) => (
     <FreakTile
       id={ user.id }
       name={ user.name }
@@ -20,18 +28,34 @@ function App() {
   ));
 
   return (
-    <div>
-      <button className="app__button" type="button" onClick={ () => setIsOpen(true) }>Skills</button>
-      <Modal
-        title="Skills"
-        onClose={ () => setIsOpen(false) }
-        isOpen={ isOpen }
-        headerContent={ null }
-        footerContent={ null }
+    <div className="app">
+      <button
+        className="app__button"
+        type="button"
+        onClick={ () => setOpenModal(modals.SKILLS) }
       >
-        <p>Modal</p>
-      </Modal>
-      <div className="content">{ result }</div>
+        Skills
+      </button>
+      <FilterModal
+        title="Skills"
+        isOpen={ openModal === modals.SKILLS }
+        keywords={ skills }
+        onClose={ () => setOpenModal(null) }
+      />
+      <button
+        className="app__button"
+        type="button"
+        onClick={ () => setOpenModal(modals.PROJECTS) }
+      >
+        Projects
+      </button>
+      <FilterModal
+        title="Projects"
+        isOpen={ openModal === modals.PROJECTS }
+        keywords={ projects }
+        onClose={ () => setOpenModal(null) }
+      />
+      <div className="content">{ tiles }</div>
     </div>
   );
 }
