@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { FreakModelDefault, FreakModelKeys } from '../../models/freaks';
 
 function EditFreakForm({ freak, onChange }) {
-  function set(name) {
+  function triggerChange(name) {
     return ({ target: { value } }) => {
-      const newFreak = ({ ...freak, [name]: value });
+      const newFreak = { ...freak, [name]: value };
       onChange(newFreak);
     };
   }
@@ -22,7 +22,7 @@ function EditFreakForm({ freak, onChange }) {
               data-testid="first-name-input"
               placeholder="First name"
               value={ freak.firstName }
-              onChange={ set(FreakModelKeys.firstName) }
+              onChange={ triggerChange(FreakModelKeys.firstName) }
             />
           </Col>
           <Col>
@@ -31,7 +31,7 @@ function EditFreakForm({ freak, onChange }) {
               data-testid="last-name-input"
               placeholder="Last name"
               value={ freak.lastName }
-              onChange={ set(FreakModelKeys.lastName) }
+              onChange={ triggerChange(FreakModelKeys.lastName) }
             />
           </Col>
         </Row>
@@ -41,10 +41,11 @@ function EditFreakForm({ freak, onChange }) {
         <Form.Label>Email address*</Form.Label>
         <Form.Control
           required
+          data-testid="email-input"
           type="email"
           placeholder="Enter email"
           value={ freak.email }
-          onChange={ set(FreakModelKeys.email) }
+          onChange={ triggerChange(FreakModelKeys.email) }
         />
       </Form.Group>
 
@@ -52,9 +53,10 @@ function EditFreakForm({ freak, onChange }) {
         <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea"
+          data-testid="description-input"
           rows={ 3 }
           value={ freak.description }
-          onChange={ set(FreakModelKeys.description) }
+          onChange={ triggerChange(FreakModelKeys.description) }
         />
       </Form.Group>
 
@@ -62,8 +64,9 @@ function EditFreakForm({ freak, onChange }) {
         <Form.Label>Role*</Form.Label>
         <Form.Select
           required
+          data-testid="role-input"
           value={ freak.role }
-          onChange={ set(FreakModelKeys.role) }
+          onChange={ triggerChange(FreakModelKeys.role) }
         >
           <option>Founder</option>
           <option>Frontend Dev</option>
@@ -75,8 +78,9 @@ function EditFreakForm({ freak, onChange }) {
         <Form.Label>Level*</Form.Label>
         <Form.Select
           required
+          data-testid="level-input"
           value={ freak.level }
-          onChange={ set(FreakModelKeys.level) }
+          onChange={ triggerChange(FreakModelKeys.level) }
         >
           <option>Master</option>
           <option>Expert</option>
@@ -91,8 +95,9 @@ function EditFreakForm({ freak, onChange }) {
         <Form.Label>Norm*</Form.Label>
         <Form.Select
           required
+          data-testid="norm-input"
           value={ freak.norm }
-          onChange={ set(FreakModelKeys.norm) }
+          onChange={ triggerChange(FreakModelKeys.norm) }
         >
           <option>Full time</option>
           <option>Part time</option>
@@ -109,7 +114,7 @@ function EditFreakForm({ freak, onChange }) {
           as="textarea"
           rows={ 3 }
           value={ freak.skills }
-          onChange={ set(FreakModelKeys.skills) }
+          onChange={ triggerChange(FreakModelKeys.skills) }
         />
       </Form.Group>
     </Form>
