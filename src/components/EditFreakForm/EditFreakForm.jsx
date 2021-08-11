@@ -1,32 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { FreakModelDefault, FreakModelKeys } from '../../models/freaks';
 
-const FreakModelKeys = {
-  firstName: 'firstName',
-  lastName: 'lastname',
-  email: 'email',
-  description: 'description',
-  role: 'role',
-  level: 'level',
-  norm: 'norm',
-  skills: 'skills',
-};
-
-function EditFreakForm() {
-  const [ values, setValues ] = useState({
-    [FreakModelKeys.firstName]: '',
-    [FreakModelKeys.lastName]: '',
-    [FreakModelKeys.email]: '',
-    [FreakModelKeys.description]: '',
-    [FreakModelKeys.role]: '',
-    [FreakModelKeys.level]: '',
-    [FreakModelKeys.norm]: '',
-    [FreakModelKeys.skills]: '',
-  });
-
-  const set = (name) => ({ target: { value } }) => {
-    setValues((oldValues) => ({ ...oldValues, [name]: value }));
-  };
+function EditFreakForm({ freak, onChange }) {
+  function set(name) {
+    return ({ target: { value } }) => {
+      const newFreak = ({ ...freak, [name]: value });
+      onChange(newFreak);
+    };
+  }
 
   return (
     <Form className=" mx-2 p-3">
@@ -36,16 +19,18 @@ function EditFreakForm() {
           <Col>
             <Form.Control
               required
+              data-testid="first-name-input"
               placeholder="First name"
-              value={ values.firstName }
+              value={ freak.firstName }
               onChange={ set(FreakModelKeys.firstName) }
             />
           </Col>
           <Col>
             <Form.Control
               required
+              data-testid="last-name-input"
               placeholder="Last name"
-              value={ values.lastName }
+              value={ freak.lastName }
               onChange={ set(FreakModelKeys.lastName) }
             />
           </Col>
@@ -58,7 +43,7 @@ function EditFreakForm() {
           required
           type="email"
           placeholder="Enter email"
-          value={ values.email }
+          value={ freak.email }
           onChange={ set(FreakModelKeys.email) }
         />
       </Form.Group>
@@ -68,7 +53,7 @@ function EditFreakForm() {
         <Form.Control
           as="textarea"
           rows={ 3 }
-          value={ values.description }
+          value={ freak.description }
           onChange={ set(FreakModelKeys.description) }
         />
       </Form.Group>
@@ -77,7 +62,7 @@ function EditFreakForm() {
         <Form.Label>Role*</Form.Label>
         <Form.Select
           required
-          value={ values.role }
+          value={ freak.role }
           onChange={ set(FreakModelKeys.role) }
         >
           <option>Founder</option>
@@ -90,7 +75,7 @@ function EditFreakForm() {
         <Form.Label>Level*</Form.Label>
         <Form.Select
           required
-          value={ values.level }
+          value={ freak.level }
           onChange={ set(FreakModelKeys.level) }
         >
           <option>Master</option>
@@ -106,7 +91,7 @@ function EditFreakForm() {
         <Form.Label>Norm*</Form.Label>
         <Form.Select
           required
-          value={ values.norm }
+          value={ freak.norm }
           onChange={ set(FreakModelKeys.norm) }
         >
           <option>Full time</option>
@@ -123,12 +108,21 @@ function EditFreakForm() {
         <Form.Control
           as="textarea"
           rows={ 3 }
-          value={ values.skills }
+          value={ freak.skills }
           onChange={ set(FreakModelKeys.skills) }
         />
       </Form.Group>
     </Form>
   );
 }
+
+EditFreakForm.propTypes = {
+  freak: PropTypes.shape(FreakModelDefault),
+  onChange: PropTypes.func.isRequired,
+};
+
+EditFreakForm.defaultProps = {
+  freak: FreakModelDefault,
+};
 
 export default EditFreakForm;
