@@ -9,13 +9,13 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.0.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.4",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-select": "^4.3.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -48,6 +48,8 @@
   "devDependencies": {
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
+    "@testing-library/dom": "^8.1.0",
+    "@testing-library/user-event": "^12.8.3",
     "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
     "sass": "^1.36.0",

@@ -1,6 +1,6 @@
 export const FreakModelKeys = {
   firstName: 'firstName',
-  lastName: 'lastname',
+  lastName: 'lastName',
   email: 'email',
   description: 'description',
   role: 'role',

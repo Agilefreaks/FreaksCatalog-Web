@@ -16,7 +16,7 @@ library.add(faTimes, faUserPlus);
 const modals = {
   SKILLS: 'skills',
   PROJECTS: 'projects',
-  ADD: 'addFreack',
+  ADD: 'addFreak',
 };
 
 function App() {

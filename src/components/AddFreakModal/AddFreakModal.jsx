@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import Modal from '../Modal/Modal';
 import EditFreakForm from '../EditFreakForm/EditFreakForm';
 import { FreakModelDefault } from '../../models/freaks';
+import ResetButton from '../ResetButton/ResetButton';
 
 function AddFreakModal({ title, isOpen, onClose }) {
   const [ freak, setFreak ] = useState(FreakModelDefault);
@@ -12,8 +13,8 @@ function AddFreakModal({ title, isOpen, onClose }) {
     <Modal
       title={ title }
       isOpen={ isOpen }
-      headerContent={ <button className="filter__button-reset" type="button">Reset</button> }
-      footerContent={ <Button className="filter__button-apply" variant="primary py-2 px-5 ">Submit</Button> }
+      headerContent={ <ResetButton /> }
+      footerContent={ <Button className="filter__button-apply py-2 px-5 " variant="primary">Submit</Button> }
       onClose={ onClose }
     >
       <EditFreakForm

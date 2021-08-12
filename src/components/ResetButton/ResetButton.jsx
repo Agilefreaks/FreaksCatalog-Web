@@ -5,7 +5,6 @@ function ResetButton() {
     <button
       className="filter__button-reset"
       type="button"
-      onClick="onChange"
     >
       Reset
     </button>

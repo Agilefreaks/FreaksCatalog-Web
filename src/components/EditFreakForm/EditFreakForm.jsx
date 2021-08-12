@@ -112,6 +112,7 @@ function EditFreakForm({ freak, onChange }) {
         </Form.Text>
         <Form.Control
           as="textarea"
+          data-testid="skills-input"
           rows={ 3 }
           value={ freak.skills }
           onChange={ triggerChange(FreakModelKeys.skills) }
