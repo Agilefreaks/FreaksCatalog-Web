@@ -68,9 +68,10 @@ function EditFreakForm({ freak, onChange }) {
           value={ freak.role }
           onChange={ triggerChange(FreakModelKeys.role) }
         >
-          <option>Founder</option>
-          <option>Frontend Dev</option>
-          <option>Backend Dev</option>
+          <option data-testid="role-option" value="">Pick One</option>
+          <option data-testid="role-option" value="Founder">Founder</option>
+          <option data-testid="role-option" value="Developer">Developer</option>
+          <option data-testid="role-option" value="QA">QA</option>
         </Form.Select>
       </Form.Group>
 
@@ -82,12 +83,13 @@ function EditFreakForm({ freak, onChange }) {
           value={ freak.level }
           onChange={ triggerChange(FreakModelKeys.level) }
         >
-          <option>Master</option>
-          <option>Expert</option>
-          <option>Proficient</option>
-          <option>Competent</option>
-          <option>Advanced</option>
-          <option>Novice</option>
+          <option data-testid="level-option" value="">Pick One</option>
+          <option data-testid="level-option" value="Master">Master</option>
+          <option data-testid="level-option" value="Expert">Expert</option>
+          <option data-testid="level-option" value="Proficient">Proficient</option>
+          <option data-testid="level-option" value="Competent">Competent</option>
+          <option data-testid="level-option" value="Advanced">Advanced</option>
+          <option data-testid="level-option" value="novice">Novice</option>
         </Form.Select>
       </Form.Group>
 
@@ -99,8 +101,9 @@ function EditFreakForm({ freak, onChange }) {
           value={ freak.norm }
           onChange={ triggerChange(FreakModelKeys.norm) }
         >
-          <option>Full time</option>
-          <option>Part time</option>
+          <option data-testid="norm-option" value="">Pick One</option>
+          <option data-testid="norm-option" value="Full time">Full time</option>
+          <option data-testid="norm-option" value="Part time">Part time</option>
         </Form.Select>
       </Form.Group>
 

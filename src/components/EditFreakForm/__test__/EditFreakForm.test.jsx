@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import EditFreakForm from '../EditFreakForm';
 import { FreakModelDefault, FreakModelKeys } from '../../../models/freaks';
-// import userEvent from '@testing-library/user-event';
 
 describe('EditFreakForm', () => {
   const onChange = jest.fn();
@@ -89,7 +88,7 @@ describe('EditFreakForm', () => {
       [FreakModelKeys.description]: 'I am Marian',
     });
   });
-  it('should trigger onChange when the role is changed', async () => {
+  it('should trigger onChange when the role is changed', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
@@ -97,17 +96,34 @@ describe('EditFreakForm', () => {
     );
 
     const roleInput = screen.queryByTestId('role-input');
+    const roleOptions = screen.queryAllByTestId('role-option');
+    const secondOptionText = roleOptions[1].textContent;
 
-    // expect(onChange).toHaveBeenCalledTimes(0);
+    fireEvent.change(roleInput, { target: { value: secondOptionText } });
 
-    fireEvent.click(roleInput);
-    const founderOption = screen.getByText('Founder');
-    fireEvent.click(founderOption);
-    expect(onChange).toHaveBeenCalledTimes(1);
-    /* expect(onChange).toBeCalledWith({
+    expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.role]: 'Founder',
-    }); */
+      [FreakModelKeys.role]: secondOptionText,
+    });
+  });
+
+  it('should trigger onChange when the level is changed with one of the options', () => {
+    render(
+      <EditFreakForm
+        onChange={ onChange }
+      />,
+    );
+
+    const levelInput = screen.queryByTestId('level-input');
+    const levelOptions = screen.queryAllByTestId('level-option');
+    const fifthOptionText = levelOptions[5].textContent;
+
+    fireEvent.change(levelInput, { target: { value: fifthOptionText } });
+
+    expect(onChange).toBeCalledWith({
+      ...FreakModelDefault,
+      [FreakModelKeys.level]: fifthOptionText,
+    });
   });
 
   it('should trigger onChange when the level is changed', () => {
@@ -119,11 +135,11 @@ describe('EditFreakForm', () => {
 
     const levelInput = screen.getByTestId('level-input');
 
-    fireEvent.change(levelInput, { target: { value: 'Novice' } });
+    fireEvent.change(levelInput, { target: { value: 'Advanced' } });
 
     expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.level]: 'Novice',
+      [FreakModelKeys.level]: 'Advanced',
     });
   });
 
@@ -134,13 +150,15 @@ describe('EditFreakForm', () => {
       />,
     );
 
-    const normInput = screen.getByTestId('norm-input');
+    const normInput = screen.queryByTestId('norm-input');
+    const normOptions = screen.queryAllByTestId('norm-option');
+    const thirdOptionText = normOptions[2].textContent;
 
-    fireEvent.change(normInput, { target: { value: 'Full time' } });
+    fireEvent.change(normInput, { target: { value: thirdOptionText } });
 
     expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.norm]: 'Full time',
+      [FreakModelKeys.norm]: thirdOptionText,
     });
   });
 
@@ -173,7 +191,18 @@ describe('EditFreakForm', () => {
     expect(lastNameInput.value).toEqual(freak.lastName);
   });
 
-  it('should trigger onChange when the firstName is changed', () => {
+  it('should display default data if not given any data', () => {
+    render(
+      <EditFreakForm
+        onChange={ onChange }
+      />,
+    );
+
+    const lastNameInput = screen.getByTestId('last-name-input');
+    expect(lastNameInput.value).toEqual('');
+  });
+
+  it('should trigger onChange when the firstName is given some data', () => {
     render(
       <EditFreakForm
         freak={ freak }
@@ -186,7 +215,6 @@ describe('EditFreakForm', () => {
 
     fireEvent.change(firstNameInput, { target: { value: 'Luis' } });
 
-    expect(firstNameInput.value).toEqual(freak.firstName);
     expect(onChange).toBeCalledWith({
       ...freak,
       [FreakModelKeys.firstName]: 'Luis',
