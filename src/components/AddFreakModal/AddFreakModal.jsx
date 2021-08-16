@@ -4,7 +4,6 @@ import { Button } from 'react-bootstrap';
 import Modal from '../Modal/Modal';
 import EditFreakForm from '../EditFreakForm/EditFreakForm';
 import { FreakModelDefault } from '../../models/freaks';
-import './AddFreakModal.scss';
 
 function AddFreakModal({ title, isOpen, onClose }) {
   const [ freak, setFreak ] = useState(FreakModelDefault);
@@ -14,12 +13,32 @@ function AddFreakModal({ title, isOpen, onClose }) {
     console.log(freak);
   }
 
+  const getHeader = () => (
+    <Button
+      className="app-button -gray"
+      variant="default"
+    >
+      Reset
+    </Button>
+  );
+
+  const getFooter = () => (
+    <Button
+      className="app-button -large"
+      form="add-freak-form"
+      type="submit"
+      variant="primary"
+    >
+      Submit
+    </Button>
+  );
+
   return (
     <Modal
       title={ title }
       isOpen={ isOpen }
-      headerContent={ <Button className="app-button gray" variant="default">Reset</Button> }
-      footerContent={ <Button form="add-freak-form" type="submit" className="py-2 px-5 app-button apply" variant="primary">Submit</Button> }
+      headerContent={ getHeader() }
+      footerContent={ getFooter() }
       onClose={ onClose }
     >
       <EditFreakForm
