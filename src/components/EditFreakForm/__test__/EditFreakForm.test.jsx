@@ -97,13 +97,12 @@ describe('EditFreakForm', () => {
 
     const roleInput = screen.queryByTestId('role-input');
     const roleOptions = screen.queryAllByTestId('role-option');
-    const secondOptionText = roleOptions[1].textContent;
-
-    fireEvent.change(roleInput, { target: { value: secondOptionText } });
+    const firstOptionText = roleOptions[0].textContent;
+    fireEvent.change(roleInput, { target: { value: firstOptionText } });
 
     expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.role]: secondOptionText,
+      [FreakModelKeys.role]: firstOptionText,
     });
   });
 
@@ -135,11 +134,11 @@ describe('EditFreakForm', () => {
 
     const levelInput = screen.getByTestId('level-input');
 
-    fireEvent.change(levelInput, { target: { value: 'Advanced' } });
+    fireEvent.change(levelInput, { target: { value: 'Novice' } });
 
     expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.level]: 'Advanced',
+      [FreakModelKeys.level]: 'Novice',
     });
   });
 
@@ -152,7 +151,7 @@ describe('EditFreakForm', () => {
 
     const normInput = screen.queryByTestId('norm-input');
     const normOptions = screen.queryAllByTestId('norm-option');
-    const thirdOptionText = normOptions[2].textContent;
+    const thirdOptionText = normOptions[1].textContent;
 
     fireEvent.change(normInput, { target: { value: thirdOptionText } });
 

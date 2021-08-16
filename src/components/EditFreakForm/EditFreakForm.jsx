@@ -3,7 +3,7 @@ import { Form, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { FreakModelDefault, FreakModelKeys } from '../../models/freaks';
 
-function EditFreakForm({ freak, onChange }) {
+function EditFreakForm({ freak, onChange, onSubmit }) {
   function triggerChange(name) {
     return ({ target: { value } }) => {
       const newFreak = { ...freak, [name]: value };
@@ -12,7 +12,7 @@ function EditFreakForm({ freak, onChange }) {
   }
 
   return (
-    <Form className=" mx-2 p-3">
+    <Form id="add-freak-form" className=" mx-2 p-3" onSubmit={ onSubmit }>
       <Form.Group className="mb-3">
         <Form.Label>Your name*</Form.Label>
         <Row>
@@ -68,7 +68,7 @@ function EditFreakForm({ freak, onChange }) {
           value={ freak.role }
           onChange={ triggerChange(FreakModelKeys.role) }
         >
-          <option data-testid="role-option" value="">Pick One</option>
+          <option value="">Pick One</option>
           <option data-testid="role-option" value="Founder">Founder</option>
           <option data-testid="role-option" value="Developer">Developer</option>
           <option data-testid="role-option" value="QA">QA</option>
@@ -83,13 +83,13 @@ function EditFreakForm({ freak, onChange }) {
           value={ freak.level }
           onChange={ triggerChange(FreakModelKeys.level) }
         >
-          <option data-testid="level-option" value="">Pick One</option>
+          <option value="">Pick One</option>
           <option data-testid="level-option" value="Master">Master</option>
           <option data-testid="level-option" value="Expert">Expert</option>
           <option data-testid="level-option" value="Proficient">Proficient</option>
           <option data-testid="level-option" value="Competent">Competent</option>
           <option data-testid="level-option" value="Advanced">Advanced</option>
-          <option data-testid="level-option" value="novice">Novice</option>
+          <option data-testid="level-option" value="Novice">Novice</option>
         </Form.Select>
       </Form.Group>
 
@@ -101,7 +101,7 @@ function EditFreakForm({ freak, onChange }) {
           value={ freak.norm }
           onChange={ triggerChange(FreakModelKeys.norm) }
         >
-          <option data-testid="norm-option" value="">Pick One</option>
+          <option value="">Pick One</option>
           <option data-testid="norm-option" value="Full time">Full time</option>
           <option data-testid="norm-option" value="Part time">Part time</option>
         </Form.Select>
@@ -127,6 +127,7 @@ function EditFreakForm({ freak, onChange }) {
 
 EditFreakForm.propTypes = {
   freak: PropTypes.shape(FreakModelDefault),
+  onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

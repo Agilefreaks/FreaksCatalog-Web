@@ -30,7 +30,6 @@ function App() {
       key={ user.id }
     />
   ));
-
   return (
     <div className="app">
       <button
