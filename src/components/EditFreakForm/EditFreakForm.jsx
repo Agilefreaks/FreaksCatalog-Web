@@ -37,7 +37,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         </Row>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3">
         <Form.Label>Email address*</Form.Label>
         <Form.Control
           required

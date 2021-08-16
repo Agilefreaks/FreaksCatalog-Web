@@ -5,6 +5,7 @@ import { FreakModelDefault, FreakModelKeys } from '../../../models/freaks';
 
 describe('EditFreakForm', () => {
   const onChange = jest.fn();
+  const onSubmit = jest.fn();
 
   const freak = {
     [FreakModelKeys.firstName]: 'Marian',
@@ -25,6 +26,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -42,6 +44,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -59,6 +62,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -76,6 +80,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -92,6 +97,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -110,6 +116,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -129,6 +136,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -146,6 +154,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -165,6 +174,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -183,6 +193,7 @@ describe('EditFreakForm', () => {
       <EditFreakForm
         freak={ freak }
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -194,6 +205,7 @@ describe('EditFreakForm', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 
@@ -201,11 +213,12 @@ describe('EditFreakForm', () => {
     expect(lastNameInput.value).toEqual('');
   });
 
-  it('should trigger onChange when the firstName is given some data', () => {
+  it('should trigger onChange when there is an update, and it gives the entry data with the new change', () => {
     render(
       <EditFreakForm
         freak={ freak }
         onChange={ onChange }
+        onSubmit={ onSubmit }
       />,
     );
 

@@ -12,8 +12,8 @@ function FilterModal({ title, isOpen, onClose, keywords }) {
     <Modal
       title={ title }
       isOpen={ isOpen }
-      headerContent={ <button className="filter__button-reset" type="button" onClick={ () => setCheckedState([]) }>Reset</button> }
-      footerContent={ <Button className="filter__button-apply" variant="primary py-2 px-5 " disabled>Apply</Button> }
+      headerContent={ <Button className="filter-button reset" type="button" variant="default" onClick={ () => setCheckedState([]) }> Reset </Button> }
+      footerContent={ <Button className="filter-button apply" variant="primary py-2 px-5 " disabled>Apply</Button> }
       onClose={ onClose }
     >
       <CheckBoxList

@@ -1,5 +1,5 @@
-.filter {
-  &__button-reset {
+.filter-button {
+  &.reset {
     color: #b5b5b5;
     border: none;
     background: transparent;
@@ -8,7 +8,7 @@
     cursor: pointer;
   }
 
-  &__button-apply {
+  &.apply {
     margin: 0 auto;
     text-transform: uppercase;
     cursor: pointer;

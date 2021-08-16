@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 import Modal from '../Modal/Modal';
 import EditFreakForm from '../EditFreakForm/EditFreakForm';
 import { FreakModelDefault } from '../../models/freaks';
-import AppButton from '../AppButton/AppButton';
+import './AddFreakModal.scss';
 
 function AddFreakModal({ title, isOpen, onClose }) {
   const [ freak, setFreak ] = useState(FreakModelDefault);
@@ -17,8 +18,8 @@ function AddFreakModal({ title, isOpen, onClose }) {
     <Modal
       title={ title }
       isOpen={ isOpen }
-      headerContent={ <AppButton btnText="Reset" btnStyle="gray" /> }
-      footerContent={ <AppButton form="add-freak-form" btnText="Submit" btnType="submit" btnVariant="primary" btnStyle="py-2 px-5" /> }
+      headerContent={ <Button className="app-button gray" variant="default">Reset</Button> }
+      footerContent={ <Button form="add-freak-form" type="submit" className="py-2 px-5 app-button apply" variant="primary">Submit</Button> }
       onClose={ onClose }
     >
       <EditFreakForm
