@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import EditFreakForm from '../EditFreakForm';
-import { FreakModelDefault, FreakModelKeys } from '../../../models/freaks';
+import { FreakModelDefault, FreakModelKeys } from '../../../models/freak';
 
 describe('EditFreakForm', () => {
   const onChange = jest.fn();

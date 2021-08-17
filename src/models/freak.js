@@ -17,5 +17,5 @@ export const FreakModelDefault = {
   [FreakModelKeys.role]: '',
   [FreakModelKeys.level]: '',
   [FreakModelKeys.norm]: '',
-  [FreakModelKeys.skills]: '',
+  [FreakModelKeys.skills]: [],
 };

@@ -1,7 +1,24 @@
 import React from 'react';
+import Select from 'react-select';
+// import makeAnimated from 'react-select/animated';
 import { Form, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { FreakModelDefault, FreakModelKeys } from '../../models/freaks';
+import { FreakModelDefault, FreakModelKeys } from '../../models/freak';
+import { skills } from '../../mock-data/skills.json';
+
+function mapSkill(skill) {
+  return {
+    value: skill.value,
+    label: skill.name,
+  };
+}
+
+function unmapSkill(skill) {
+  return {
+    value: skill.value,
+    name: skill.label,
+  };
+}
 
 function EditFreakForm({ freak, onChange, onSubmit }) {
   function triggerChange(name) {
@@ -10,6 +27,15 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
       onChange(newFreak);
     };
   }
+
+  function handleSelectChange(name) {
+    return (values) => {
+      const newFreak = { ...freak, [name]: values.map(unmapSkill) };
+      onChange(newFreak);
+    };
+  }
+
+  const skillOptions = skills.map(mapSkill);
 
   return (
     <Form id="add-freak-form" className=" mx-2 p-3" onSubmit={ onSubmit }>
@@ -109,16 +135,12 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
 
       <Form.Group className="mb-3">
         <Form.Label>Skills</Form.Label>
-        <Form.Text className="text-muted">
-          <br />
-          Example (Elm, JS, Swift...)
-        </Form.Text>
-        <Form.Control
-          as="textarea"
+        <Select
+          options={ skillOptions }
+          isMulti
           data-testid="skills-input"
-          rows={ 3 }
-          value={ freak.skills }
-          onChange={ triggerChange(FreakModelKeys.skills) }
+          defaultValue={ freak.skills.map(mapSkill) }
+          onChange={ handleSelectChange(FreakModelKeys.skills) }
         />
       </Form.Group>
     </Form>

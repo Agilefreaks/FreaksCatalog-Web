@@ -2,78 +2,97 @@
  "skills": [
     {
         "id": 1,
-        "name": "Kotlin"
+        "name": "Kotlin",
+        "value": "kotlin"
     },
     {
         "id": 2,
-        "name": "Elm"
+        "name": "Elm",
+        "value": "elm"
     },
     {
         "id": 3,
-        "name": "Swift"
+        "name": "Swift",
+        "value": "swift"
     },
     {
         "id": 4,
-        "name": "Swift UI"
+        "name": "Swift UI",
+        "value": "swift UI"
     },
     {
         "id": 5,
-        "name": "JavaScript"
+        "name": "JavaScript",
+        "value": "javascript"
     },
     {
         "id": 6,
-        "name": "Java"
+        "name": "Java",
+        "value": "java"
     },
     {
         "id": 7,
-        "name": "C"
+        "name": "C",
+        "value": "c"
     },
     {
         "id": 8,
-        "name": "C++"
+        "name": "C++",
+        "value": "c++"
     },
     {
         "id": 9,
-        "name": "VueJs"
+        "name": "VueJs",
+        "value": "vuejs"
     },
     {
         "id": 10,
-        "name": "React"
+        "name": "React",
+        "value": "react"
     }, {
         "id": 11,
-        "name": "C#"
+        "name": "C#",
+        "value": "c#"
     },
     {
         "id": 12,
-        "name": "Pyton"
+        "name": "Pyton",
+        "value": "pyton"
     },
     {
         "id": 13,
-        "name": "Lisp"
+        "name": "Lisp",
+        "value": "lisp"
     },
     {
         "id": 14,
-        "name": "Sql"
+        "name": "Sql",
+        "value": "sql"
     },
     {
         "id": 15,
-        "name": "PHP"
+        "name": "PHP",
+        "value": "php"
     },
     {
         "id": 16,
-        "name": "MongoDB"
+        "name": "MongoDB",
+        "value": "mongodb"
     },
     {
         "id": 17,
-        "name": "Objective-C"
+        "name": "Objective-C",
+        "value": "objective-c"
     },
     {
         "id": 18,
-        "name": "Rubby"
+        "name": "Ruby",
+        "value": "ruby"
     },
     {
         "id": 19,
-        "name": "NodeJs"
+        "name": "NodeJs",
+        "value": "nodejs"
     }
   ]
 }
