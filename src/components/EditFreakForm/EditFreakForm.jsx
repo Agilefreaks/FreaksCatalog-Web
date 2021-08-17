@@ -137,9 +137,10 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Label>Skills</Form.Label>
         <Select
           options={ skillOptions }
+          menuPlacement="top"
           isMulti
           data-testid="skills-input"
-          defaultValue={ freak.skills.map(mapSkill) }
+          defaultValue={ freak.skills }
           onChange={ handleSelectChange(FreakModelKeys.skills) }
         />
       </Form.Group>
