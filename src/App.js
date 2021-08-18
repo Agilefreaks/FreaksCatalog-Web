@@ -8,6 +8,7 @@ import { freaks } from './mock-data/freaks.json';
 import { skills } from './mock-data/skills.json';
 import { projects } from './mock-data/projects.json';
 import './App.scss';
+import './styles/button-add-user.scss';
 import FilterModal from './components/FilterModal/FilterModal';
 import AddFreakModal from './components/AddFreakModal/AddFreakModal';
 
@@ -30,40 +31,45 @@ function App() {
       key={ user.id }
     />
   ));
+
   return (
     <div className="app">
-      <button
-        className="app__button"
-        type="button"
-        onClick={ () => setOpenModal(modals.SKILLS) }
-      >
-        Skills
-      </button>
-      <FilterModal
-        title="Skills"
-        isOpen={ openModal === modals.SKILLS }
-        keywords={ skills }
-        onClose={ () => setOpenModal(null) }
-      />
-      <button
-        className="app__button"
-        type="button"
-        onClick={ () => setOpenModal(modals.PROJECTS) }
-      >
-        Projects
-      </button>
-      <FilterModal
-        title="Projects"
-        isOpen={ openModal === modals.PROJECTS }
-        keywords={ projects }
-        onClose={ () => setOpenModal(null) }
-      />
-      <div className="content">
-        { tiles }
+      <div>
+        <button
+          className="app__button"
+          type="button"
+          onClick={ () => setOpenModal(modals.SKILLS) }
+        >
+          Skills
+        </button>
+        <FilterModal
+          title="Skills"
+          isOpen={ openModal === modals.SKILLS }
+          keywords={ skills }
+          onClose={ () => setOpenModal(null) }
+        />
+        <button
+          className="app__button"
+          type="button"
+          onClick={ () => setOpenModal(modals.PROJECTS) }
+        >
+          Projects
+        </button>
+        <FilterModal
+          title="Projects"
+          isOpen={ openModal === modals.PROJECTS }
+          keywords={ projects }
+          onClose={ () => setOpenModal(null) }
+        />
       </div>
-      <div className="app__add-user">
+      <div className="app__tiles-content">
+        <div className="tiles">
+          { tiles }
+        </div>
+      </div>
+      <div>
         <Button
-          className="app__button--user"
+          className="button-add-user"
           variant="outline-secondary"
           onClick={ () => setOpenModal(modals.ADD) }
         >

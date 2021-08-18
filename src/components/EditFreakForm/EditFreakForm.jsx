@@ -148,8 +148,22 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
   );
 }
 
+const skillShape = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+};
+
 EditFreakForm.propTypes = {
-  freak: PropTypes.shape(FreakModelDefault),
+  freak: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    email: PropTypes.string,
+    description: PropTypes.string,
+    role: PropTypes.string,
+    level: PropTypes.string,
+    norm: PropTypes.string,
+    skills: PropTypes.arrayOf(PropTypes.shape(skillShape)),
+  }),
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
 };
