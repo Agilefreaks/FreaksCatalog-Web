@@ -138,8 +138,8 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Select
           options={ skillOptions }
           menuPlacement="top"
+          testid="skills-input"
           isMulti
-          data-testid="skills-input"
           defaultValue={ freak.skills }
           onChange={ handleSelectChange(FreakModelKeys.skills) }
         />

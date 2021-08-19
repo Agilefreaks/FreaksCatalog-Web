@@ -1,7 +1,28 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import EditFreakForm from '../EditFreakForm';
 import { FreakModelDefault, FreakModelKeys } from '../../../models/freak';
+
+jest.mock('react-select', () => ({ options, value, onChange, testid }) => {
+  function handleChange(event) {
+    const option = options.filter(
+      (element) => element.value === event.currentTarget.value,
+    );
+
+    onChange(option);
+  }
+
+  return (
+    <select data-testid={ testid } value={ value } onChange={ handleChange }>
+      { options.map(({ label, value: val }) => (
+        <option key={ val } value={ val }>
+          { label }
+        </option>
+      )) }
+    </select>
+  );
+});
 
 describe('EditFreakForm', () => {
   const onChange = jest.fn();
@@ -15,13 +36,12 @@ describe('EditFreakForm', () => {
     [FreakModelKeys.role]: 'Frontend',
     [FreakModelKeys.level]: 'Novice',
     [FreakModelKeys.norm]: 'Full time',
-    [FreakModelKeys.skills]: 'JS',
+    [FreakModelKeys.skills]: [ { id: 1, value: 'js', name: 'JS' } ],
   };
 
   beforeEach(() => {
     onChange.mockReset();
   });
-
   it('should trigger onChange when the firstName is changed', () => {
     render(
       <EditFreakForm
@@ -179,12 +199,13 @@ describe('EditFreakForm', () => {
     );
 
     const skillsInput = screen.getByTestId('skills-input');
+    const newValue = { value: 'elm', name: 'Elm' };
 
-    fireEvent.change(skillsInput, { target: { value: 'Elm' } });
+    fireEvent.change(skillsInput, { target: { value: newValue.value } });
 
-    expect(onChange).toBeCalledWith({
+    expect(onChange).toHaveBeenCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.skills]: 'Elm',
+      [FreakModelKeys.skills]: [ newValue ],
     });
   });
 

@@ -3,7 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
-import FreakTile from './components/FreakTile/FreakTile';
+import FreaksGrid from './components/FreaksGrid/FreaksGrid';
 import { freaks } from './mock-data/freaks.json';
 import { skills } from './mock-data/skills.json';
 import { projects } from './mock-data/projects.json';
@@ -22,15 +22,6 @@ const modals = {
 
 function App() {
   const [ openModal, setOpenModal ] = useState(null);
-
-  const tiles = freaks.map((user) => (
-    <FreakTile
-      id={ user.id }
-      name={ user.name }
-      picture={ user.picture }
-      key={ user.id }
-    />
-  ));
 
   return (
     <div className="app">
@@ -63,9 +54,7 @@ function App() {
         />
       </div>
       <div className="app__tiles-content">
-        <div className="tiles">
-          { tiles }
-        </div>
+        <FreaksGrid freaks={ freaks } />
       </div>
       <div>
         <Button
