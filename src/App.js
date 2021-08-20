@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from 'react-bootstrap';
 import FreakTile from './components/FreakTile/FreakTile';
 import { freaks } from './mock-data/freaks.json';
 import { skills } from './mock-data/skills.json';
 import { projects } from './mock-data/projects.json';
 import './App.scss';
 import FilterModal from './components/FilterModal/FilterModal';
+import AddFreakModal from './components/AddFreakModal/AddFreakModal';
 
-library.add(faTimes);
+library.add(faTimes, faUserPlus);
 
 const modals = {
   SKILLS: 'skills',
   PROJECTS: 'projects',
+  ADD: 'addFreak',
 };
 
 function App() {
@@ -26,7 +30,6 @@ function App() {
       key={ user.id }
     />
   ));
-
   return (
     <div className="app">
       <button
@@ -55,7 +58,23 @@ function App() {
         keywords={ projects }
         onClose={ () => setOpenModal(null) }
       />
-      <div className="content">{ tiles }</div>
+      <div className="content">
+        { tiles }
+      </div>
+      <div className="app__add-user">
+        <Button
+          className="app__button--user"
+          variant="outline-secondary"
+          onClick={ () => setOpenModal(modals.ADD) }
+        >
+          <FontAwesomeIcon icon="user-plus" />
+        </Button>
+        <AddFreakModal
+          title="Add Freak"
+          isOpen={ openModal === modals.ADD }
+          onClose={ () => setOpenModal(null) }
+        />
+      </div>
     </div>
   );
 }

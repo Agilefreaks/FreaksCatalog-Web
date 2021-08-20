@@ -1,5 +1,5 @@
-.filter {
-  &__button-reset {
+.app-button {
+  &.-gray {
     color: #b5b5b5;
     border: none;
     background: transparent;
@@ -8,9 +8,11 @@
     cursor: pointer;
   }
 
-  &__button-apply {
+  &.-large {
     margin: 0 auto;
+    padding: 0.6rem 3rem;
     text-transform: uppercase;
+    font-weight: bold;
     cursor: pointer;
   }
 }
