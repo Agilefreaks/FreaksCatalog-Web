@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const FreakModelKeys = {
   firstName: 'firstName',
   lastName: 'lastName',
@@ -18,4 +20,20 @@ export const FreakModelDefault = {
   [FreakModelKeys.level]: '',
   [FreakModelKeys.norm]: '',
   [FreakModelKeys.skills]: [],
+};
+
+const skillShape = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+};
+
+export const FreakModelProps = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  email: PropTypes.string,
+  description: PropTypes.string,
+  role: PropTypes.string,
+  level: PropTypes.string,
+  norm: PropTypes.string,
+  skills: PropTypes.arrayOf(PropTypes.shape(skillShape)),
 };

@@ -9,7 +9,6 @@ function AddFreakModal({ title, isOpen, onClose }) {
   const [ freak, setFreak ] = useState(FreakModelDefault);
 
   function handleSubmit(e) {
-    console.log(freak);
     e.preventDefault();
   }
 

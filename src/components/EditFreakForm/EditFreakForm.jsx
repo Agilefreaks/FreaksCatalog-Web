@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import { Form, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { FreakModelDefault, FreakModelKeys } from '../../models/freak';
+import { FreakModelDefault, FreakModelKeys, FreakModelProps } from '../../models/freak';
 import { skills } from '../../mock-data/skills.json';
 
 function mapSkill(skill) {
@@ -147,22 +147,8 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
   );
 }
 
-const skillShape = {
-  value: PropTypes.string,
-  name: PropTypes.string,
-};
-
 EditFreakForm.propTypes = {
-  freak: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    email: PropTypes.string,
-    description: PropTypes.string,
-    role: PropTypes.string,
-    level: PropTypes.string,
-    norm: PropTypes.string,
-    skills: PropTypes.arrayOf(PropTypes.shape(skillShape)),
-  }),
+  freak: PropTypes.shape(FreakModelProps),
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
 };
