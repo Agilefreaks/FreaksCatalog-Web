@@ -17,6 +17,7 @@ function AddFreakModal({ title, isOpen, onClose }) {
     <Button
       className="app-button -gray"
       variant="default"
+      onClick={ () => setFreak(FreakModelDefault) }
     >
       Reset
     </Button>

@@ -1,6 +1,5 @@
 import React from 'react';
 import Select from 'react-select';
-// import makeAnimated from 'react-select/animated';
 import { Form, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { FreakModelDefault, FreakModelKeys } from '../../models/freak';
@@ -140,7 +139,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           menuPlacement="top"
           testid="skills-input"
           isMulti
-          defaultValue={ freak.skills }
+          value={ freak.skills.map(mapSkill) }
           onChange={ handleSelectChange(FreakModelKeys.skills) }
         />
       </Form.Group>
