@@ -1,46 +1,23 @@
-.content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.87rem 1.87rem;
-  margin: 0 auto;
-  padding: 10px;
-  max-width: 30.62rem;
-}
-
-@media screen and (min-width: 760px) {
-  .content {
-    grid-template-columns: repeat(3, 1fr);
-    margin: auto;
-    max-width: 46.875rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .content {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1024px;
-  }
-}
-
 .app {
   width: 100%;
-
-  &__add-user {
-    border-top: 2px solid black;
-    padding: 20px;
-  }
+  height: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
   &__button {
     width: 50%;
-    padding: 7px 15px;
+    padding: 0.475rem 1rem;
     color: #828282;
     border: 1px solid #e2e2e2;
     background-color: #fff;
     cursor: pointer;
+    max-width: 64rem;
+  }
 
-    &--user {
-      display: block !important;
-      margin: 0 auto;
-    }
+  &__tiles-content{
+    flex-grow: 1;
+    overflow: auto;
   }
 }
