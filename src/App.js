@@ -25,7 +25,8 @@ function App() {
 
   return (
     <div className="app">
-      <div>
+      <div><h1 className="app__title">FREAKS</h1></div>
+      <div className="app__filter-nav">
         <button
           className="app__button"
           type="button"
@@ -55,8 +56,6 @@ function App() {
       </div>
       <div className="app__tiles-content">
         <FreaksGrid freaks={ freaks } />
-      </div>
-      <div>
         <Button
           className="button-add-user"
           variant="outline-secondary"
@@ -70,6 +69,7 @@ function App() {
           onClose={ () => setOpenModal(null) }
         />
       </div>
+      <div className="app__nav"><p>Navigation</p></div>
     </div>
   );
 }

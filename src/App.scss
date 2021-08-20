@@ -1,10 +1,41 @@
 .app {
   width: 100%;
   height: 100%;
-  max-width: 64rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+  &__title {
+    background-color: #317ff9;
+    margin: 0;
+    color: white;
+    text-align: center;
+    height: 4rem;
+    padding: 1rem;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+  }
+
+  &__filter-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+  }
+
+  &__nav {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background: white;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    color: black;
+    border-top: 2px solid black;
+    font-size: 2rem;
+  }
 
   &__button {
     width: 50%;
@@ -14,10 +45,10 @@
     background-color: #fff;
     cursor: pointer;
     max-width: 64rem;
+    margin-top: 4rem;
   }
 
-  &__tiles-content{
-    flex-grow: 1;
-    overflow: auto;
+  &__tiles-content {
+    margin: 6rem 0 4rem;
   }
 }
