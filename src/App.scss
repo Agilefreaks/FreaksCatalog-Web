@@ -54,4 +54,14 @@
   &__tiles-content {
     margin: 0 0 4rem;
   }
+
+  &__agile {
+    border: none;
+    background: white;
+
+    &-img {
+      height: 3.75rem;
+      padding: 0.5rem;
+    }
+  }
 }

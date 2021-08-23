@@ -22,7 +22,7 @@ function Home() {
   const [ openModal, setOpenModal ] = useState(null);
 
   return (
-    <div>
+    <div className="home">
       <div className="app__filter-nav">
         <button
           className="app__button"
@@ -66,7 +66,11 @@ function Home() {
           onClose={ () => setOpenModal(null) }
         />
       </div>
-      <div className="app__nav"><p>Navigation</p></div>
+      <div className="app__nav">
+        <button type="button" className="app__agile">
+          <img className="app__agile-img" src="https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png" alt="Nav" />
+        </button>
+      </div>
     </div>
   );
 }
