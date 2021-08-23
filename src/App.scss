@@ -17,6 +17,10 @@
     width: 100%;
   }
 
+  &-content {
+    padding-top: 4rem;
+  }
+
   &__filter-nav {
     position: fixed;
     width: 100%;
@@ -45,10 +49,9 @@
     background-color: #fff;
     cursor: pointer;
     max-width: 64rem;
-    margin-top: 4rem;
   }
 
   &__tiles-content {
-    margin: 6rem 0 4rem;
+    margin: 0 0 4rem;
   }
 }
