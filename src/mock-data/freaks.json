@@ -3,42 +3,106 @@
     {
       "id" : 1,
       "name" : "Bob",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+      "firstName" : "Bob",
+      "lastName": "Hunt",
+      "email": "bob@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     },
     {
       "id" : 2,
       "name" : "Anda",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+      "firstName" : "Anda",
+      "lastName": "Hunt",
+      "email": "anda@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     },
     {
       "id" : 3,
       "name" : "Jim",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+       "firstName" : "Jim",
+      "lastName": "Hunt",
+      "email": "jim@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     },
     {
       "id" : 4,
       "name" : "Mike",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+      "firstName" : "Mike",
+      "lastName": "Hunt",
+      "email": "Mike@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     },
     {
       "id" : 5,
       "name" : "Bob",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+      "firstName" : "Bob",
+      "lastName": "Hunt",
+      "email": "bob@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     },
     {
       "id" : 6,
       "name" : "Anda",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+      "firstName" : "Anda",
+      "lastName": "Hunt",
+      "email": "anda@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     },
     {
       "id" : 7,
       "name" : "Jim",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+      "firstName" : "Jim",
+      "lastName": "Hunt",
+      "email": "jim@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     },
     {
       "id" : 8,
       "name" : "Mike",
-      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png"
+      "firstName" : "Mike",
+      "lastName": "Hunt",
+      "email": "Mike@gmail.com",
+      "description": "Description here",
+      "role": "Developer",
+      "level": "Novice",
+      "norm": "Full time",
+      "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
+      "skills" : [{"value": "javascript", "name": "JavaScript"}]
     }
   ]
 }
