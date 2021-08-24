@@ -1,0 +1,29 @@
+.view-page {
+  border-radius: 3.5rem;
+  text-align: center;
+  margin: 10rem auto;
+  border: 2rem solid;
+  background: #002430;
+  color: white;
+  padding: 3.5rem;
+  max-width: 64rem;
+  position: relative;
+
+  &__img {
+    border: 3px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background: white;
+    top: -2.5rem;
+    width: 10rem;
+    max-width: 60%;
+  }
+
+  &__description {
+    text-align: justify;
+    padding-top: 1rem;
+  }
+}

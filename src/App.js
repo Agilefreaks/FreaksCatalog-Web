@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
-import EditFreakPage from './pages/EditFreakPage/EditFreakPage';
+import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/freaks/:id/edit">
-              <EditFreakPage />
+            <Route exact path="/freaks/:id">
+              <ViewFreakPage />
             </Route>
           </Switch>
         </div>
