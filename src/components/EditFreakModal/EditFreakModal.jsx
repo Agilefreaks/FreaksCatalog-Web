@@ -16,7 +16,7 @@ function EditFreakModal({ title, isOpen, onClose, freak }) {
     <Button
       className="app-button -gray"
       variant="default"
-      onClick={ () => setFindFreak(FreakModelDefault) }
+      onClick={ () => setFindFreak(freak) }
     >
       Reset
     </Button>
