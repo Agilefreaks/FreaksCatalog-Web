@@ -1,17 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { freaks } from '../../mock-data/freaks.json';
+import PropTypes from 'prop-types';
+import { FreakModelDefault, FreakModelProps } from '../../models/freak';
 import './FreakDetails.scss';
 
-function findFreak(id) {
-  return (freak) => freak.id === id;
-}
-
-function FreakDetails() {
-  let { id } = useParams();
-  id = parseInt(id, 10);
-  const freak = freaks.find(findFreak(id));
-
+function FreakDetails({ freak }) {
   const freakSkills = freak.skills.map((skill) => skill.name).join((', '));
   const freakProjects = freak.projects.map((project) => project.name).join((', '));
 
@@ -27,5 +19,13 @@ function FreakDetails() {
     </div>
   );
 }
+
+FreakDetails.propTypes = {
+  freak: PropTypes.shape(FreakModelProps),
+};
+
+FreakDetails.defaultProps = {
+  freak: FreakModelDefault,
+};
 
 export default FreakDetails;

@@ -1,14 +1,26 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import { freaks } from '../../mock-data/freaks.json';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
 import './ViewFreakPage.scss';
 
+function findFreak(id) {
+  return (freak) => freak.id === id;
+}
+
 function ViewFreakPage() {
+  let { id } = useParams();
+  id = parseInt(id, 10);
+  const freak = freaks.find(findFreak(id));
+
   return (
-    <div>
-      <FreakDetails />
-      <Button type="button" className="btn btn-secondary">Edit</Button>
-      <Button type="button" className="btn btn-danger">Delete</Button>
+    <div className="view-freak">
+      <FreakDetails freak={ freak } />
+      <div className="view-freak__buttons">
+        <Button type="button" className="btn btn-danger app-button -medium">Delete</Button>
+        <Button type="button" className="btn btn-outline-secondary app-button -medium " variant="default">Edit</Button>
+      </div>
     </div>
   );
 }

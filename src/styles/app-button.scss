@@ -15,4 +15,12 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+  &.-medium {
+    margin: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    width: 7rem;
+  }
 }
