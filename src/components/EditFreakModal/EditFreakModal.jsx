@@ -5,8 +5,8 @@ import Modal from '../Modal/Modal';
 import EditFreakForm from '../EditFreakForm/EditFreakForm';
 import { FreakModelDefault, FreakModelProps } from '../../models/freak';
 
-function EditFreakModal({ title, isOpen, onClose, freak }) {
-  const [ findFreak, setFindFreak ] = useState(freak);
+function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
+  const [ freak, setFreak ] = useState(initialFreak);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,7 +16,7 @@ function EditFreakModal({ title, isOpen, onClose, freak }) {
     <Button
       className="app-button -gray"
       variant="default"
-      onClick={ () => setFindFreak(freak) }
+      onClick={ () => setFreak(initialFreak) }
     >
       Reset
     </Button>
@@ -42,8 +42,8 @@ function EditFreakModal({ title, isOpen, onClose, freak }) {
       onClose={ onClose }
     >
       <EditFreakForm
-        freak={ findFreak }
-        onChange={ setFindFreak }
+        freak={ freak }
+        onChange={ setFreak }
         onSubmit={ handleSubmit }
       />
     </Modal>
