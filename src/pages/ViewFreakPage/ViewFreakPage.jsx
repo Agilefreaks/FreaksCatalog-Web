@@ -22,8 +22,8 @@ const modals = {
 function ViewFreakPage() {
   const query = useQuery();
   const editQueryParam = query.get('edit');
-
-  const [ openModal, setOpenModal ] = useState(modals.EDIT);
+  const initialModalState = editQueryParam === '' ? modals.EDIT : modals.NONE;
+  const [ openModal, setOpenModal ] = useState(initialModalState);
 
   const { id } = useParams();
   const parsedId = parseInt(id, 10);
@@ -71,8 +71,5 @@ function ViewFreakPage() {
     </div>
   );
 }
-
-ViewFreakPage.propTypes = {
-};
 
 export default ViewFreakPage;
