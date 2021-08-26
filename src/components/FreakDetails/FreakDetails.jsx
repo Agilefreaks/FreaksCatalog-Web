@@ -13,9 +13,9 @@ function FreakDetails({ freak }) {
       <img className="freak-details__img" src={ freak.picture } alt={ freak.firstName } />
       <h2>{ `${ freak.role } - ${ freak.norm }` }</h2>
       <p className="freak-details__description">{ freak.description }</p>
-      <p>{ `Skills: ${ freakSkills }` }</p>
-      <p>{ `Projects: ${ freakProjects }` }</p>
-      <p>{ `Level: ${ freak.level }` }</p>
+      <h5>{ `Skills: ${ freakSkills }` }</h5>
+      <h5>{ `Projects: ${ freakProjects }` }</h5>
+      <h5>{ `Level: ${ freak.level }` }</h5>
     </div>
   );
 }
