@@ -15,11 +15,24 @@ function ViewFreakPage() {
   const freak = freaks.find(findFreak(id));
 
   return (
-    <div className="view-freak">
+    <div className="view-freak" data-testid="view-freak">
       <FreakDetails freak={ freak } />
       <div className="view-freak__buttons">
-        <Button type="button" className="btn btn-danger app-button -medium">Delete</Button>
-        <Button type="button" className="btn btn-outline-secondary app-button -medium " variant="default">Edit</Button>
+        <Button
+          type="button"
+          className="btn btn-danger app-button -medium"
+          data-testid="view-freak-delete-button"
+        >
+          Delete
+        </Button>
+        <Button
+          type="button"
+          className="btn btn-outline-secondary app-button -medium "
+          variant="default"
+          data-testid="view-freak-edit-button"
+        >
+          Edit
+        </Button>
       </div>
     </div>
   );

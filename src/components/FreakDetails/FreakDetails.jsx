@@ -8,7 +8,7 @@ function FreakDetails({ freak }) {
   const freakProjects = freak.projects.map((project) => project.name).join((', '));
 
   return (
-    <div className="freak-details">
+    <div className="freak-details" data-testid="freak-details">
       <h1 data-testid="freak-name">{ `${ freak.firstName } ${ freak.lastName }` }</h1>
       <img className="freak-details__img" data-testid="freak-img" src={ freak.picture } alt={ freak.firstName } />
       <h2 data-testid="freak-role-norm">{ `${ freak.role } - ${ freak.norm }` }</h2>

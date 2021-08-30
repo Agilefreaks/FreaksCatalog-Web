@@ -9,6 +9,7 @@ import { freaks } from '../../mock-data/freaks.json';
 import { projects } from '../../mock-data/projects.json';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
+import './Home.scss';
 
 library.add(faTimes, faUserPlus);
 
@@ -23,9 +24,9 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="app__filter-nav">
+      <div className="home__filter-nav">
         <button
-          className="app__button"
+          className="home__button"
           type="button"
           onClick={ () => setOpenModal(modals.SKILLS) }
         >
@@ -38,7 +39,7 @@ function Home() {
           onClose={ () => setOpenModal(null) }
         />
         <button
-          className="app__button"
+          className="home__button"
           type="button"
           onClick={ () => setOpenModal(modals.PROJECTS) }
         >
@@ -51,7 +52,7 @@ function Home() {
           onClose={ () => setOpenModal(null) }
         />
       </div>
-      <div className="app__tiles-content">
+      <div className="home__tiles-content">
         <FreaksGrid freaks={ freaks } />
         <Button
           className="button-add-user"
@@ -65,11 +66,6 @@ function Home() {
           isOpen={ openModal === modals.ADD }
           onClose={ () => setOpenModal(null) }
         />
-      </div>
-      <div className="app__nav">
-        <button type="button" className="app__agile">
-          <img className="app__agile-img" src="https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png" alt="Nav" />
-        </button>
       </div>
     </div>
   );

@@ -20,6 +20,11 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <div className="app__nav">
+          <button type="button" className="app__agile">
+            <img className="app__agile-img" src="https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png" alt="Nav" />
+          </button>
+        </div>
       </div>
     </Router>
   );

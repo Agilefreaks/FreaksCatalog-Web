@@ -1,4 +1,6 @@
 .view-freak {
+  overflow: auto;
+
   &__buttons {
     display: flex;
     flex-direction: row;
