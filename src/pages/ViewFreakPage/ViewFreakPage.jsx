@@ -10,9 +10,9 @@ function findFreak(id) {
 }
 
 function ViewFreakPage() {
-  let { id } = useParams();
-  id = parseInt(id, 10);
-  const freak = freaks.find(findFreak(id));
+  const { id } = useParams();
+  const parsedId = parseInt(id, 10);
+  const freak = freaks.find(findFreak(parsedId));
 
   return (
     <div className="view-freak" data-testid="view-freak">

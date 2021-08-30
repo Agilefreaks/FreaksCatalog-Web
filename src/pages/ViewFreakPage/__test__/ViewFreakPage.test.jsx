@@ -6,8 +6,9 @@ import '@testing-library/jest-dom';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useParams: jest.fn().mockReturnValue({ environment: 'dev', service: 'fakeService' }),
+  useParams: jest.fn().mockReturnValue({ id: 1 }),
 }));
+
 describe('FreakDetails', () => {
   const freak = {
     [FreakModelKeys.firstName]: 'Marian',
