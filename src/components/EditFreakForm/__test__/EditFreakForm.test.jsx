@@ -4,17 +4,16 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import EditFreakForm from '../EditFreakForm';
 import { FreakModelDefault, FreakModelKeys } from '../../../models/freak';
 
-jest.mock('react-select', () => ({ options, value, onChange, testid }) => {
+jest.mock('react-select', () => ({ options, value, onChange, testid, multiple }) => {
   function handleChange(event) {
     const option = options.filter(
       (element) => element.value === event.currentTarget.value,
     );
-
     onChange(option);
   }
 
   return (
-    <select data-testid={ testid } value={ value } onChange={ handleChange }>
+    <select data-testid={ testid } value={ value } multiple={ multiple } onChange={ handleChange }>
       { options.map(({ label, value: val }) => (
         <option key={ val } value={ val }>
           { label }

@@ -9,7 +9,7 @@ jest.mock('react-router-dom', () => ({
   useParams: jest.fn().mockReturnValue({ id: 1 }),
 }));
 
-describe('FreakDetails', () => {
+describe('ViewFreakPage', () => {
   const freak = {
     [FreakModelKeys.firstName]: 'Marian',
     [FreakModelKeys.lastName]: 'Badea',
@@ -22,6 +22,11 @@ describe('FreakDetails', () => {
     [FreakModelKeys.skills]: [ { id: 1, value: 'js', name: 'JS' }, { id: 2, value: 'elm', name: 'Elm' } ],
     [FreakModelKeys.projects]: [ { value: 'epix', name: 'EPIX' } ],
   };
+
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
   it('should render a page with freak details', () => {
     render(
       <ViewFreakPage freak={ freak } />,
@@ -29,6 +34,7 @@ describe('FreakDetails', () => {
     const freakDetails = screen.getByTestId('view-freak');
     expect(freakDetails).toBeInTheDocument();
   });
+
   it('should render an delete button for the freak', () => {
     render(
       <ViewFreakPage freak={ freak } />,
@@ -36,6 +42,7 @@ describe('FreakDetails', () => {
     const freakDeleteButton = screen.getByTestId('view-freak-delete-button');
     expect(freakDeleteButton).toBeInTheDocument();
   });
+
   it('should render an edit button for the freak', () => {
     render(
       <ViewFreakPage freak={ freak } />,

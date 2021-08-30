@@ -144,6 +144,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           menuPlacement="top"
           testid="skills-input"
           isMulti
+          multiple={ true }
           value={ freak.skills.map(mapSkill) }
           onChange={ handleSelectChange(FreakModelKeys.skills) }
         />

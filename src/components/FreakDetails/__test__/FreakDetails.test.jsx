@@ -17,6 +17,7 @@ describe('FreakDetails', () => {
     [FreakModelKeys.skills]: [ { id: 1, value: 'js', name: 'JS' }, { id: 2, value: 'elm', name: 'Elm' } ],
     [FreakModelKeys.projects]: [ { value: 'epix', name: 'EPIX' } ],
   };
+
   it('should render the freak firstName and lastName', () => {
     render(
       <FreakDetails freak={ freak } />,
@@ -24,6 +25,7 @@ describe('FreakDetails', () => {
     const freakName = screen.getByTestId('freak-name');
     expect(freakName).toHaveTextContent(`${ freak.firstName } ${ freak.lastName }`);
   });
+
   it('should render the freak picture', () => {
     render(
       <FreakDetails freak={ freak } />,
@@ -31,6 +33,7 @@ describe('FreakDetails', () => {
     const freakPicture = screen.getByTestId('freak-img');
     expect(freakPicture).toHaveAttribute('src', freak.picture);
   });
+
   it('should render the freak role and the freak norm', () => {
     render(
       <FreakDetails freak={ freak } />,
@@ -38,6 +41,7 @@ describe('FreakDetails', () => {
     const freakRole = screen.getByTestId('freak-role-norm');
     expect(freakRole).toHaveTextContent(`${ freak.role } - ${ freak.norm }`);
   });
+
   it('should render the freak description', () => {
     render(
       <FreakDetails freak={ freak } />,
@@ -45,6 +49,7 @@ describe('FreakDetails', () => {
     const freakDescription = screen.getByTestId('freak-description');
     expect(freakDescription).toHaveTextContent(freak.description);
   });
+
   it('should render the freak skills', () => {
     render(
       <FreakDetails freak={ freak } />,
@@ -55,6 +60,7 @@ describe('FreakDetails', () => {
 
     expect(freakSkills).toHaveTextContent(skillNames);
   });
+
   it('should render the freak projects', () => {
     render(
       <FreakDetails freak={ freak } />,
@@ -65,6 +71,7 @@ describe('FreakDetails', () => {
 
     expect(freakProjects).toHaveTextContent(projectNames);
   });
+
   it('should render the freak level', () => {
     render(
       <FreakDetails freak={ freak } />,

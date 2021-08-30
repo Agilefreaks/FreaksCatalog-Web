@@ -17,7 +17,8 @@
   }
 
   &__content {
-    overflow: hidden;
+    height: 100%;
+    overflow: auto;
   }
 
   &__nav {
