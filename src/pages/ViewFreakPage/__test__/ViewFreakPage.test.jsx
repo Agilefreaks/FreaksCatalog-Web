@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useParams: jest.fn().mockReturnValue({ id: 1 }),
+  useParams: () => ({ id: 1 }),
 }));
 
 describe('ViewFreakPage', () => {
@@ -22,10 +22,6 @@ describe('ViewFreakPage', () => {
     [FreakModelKeys.skills]: [ { id: 1, value: 'js', name: 'JS' }, { id: 2, value: 'elm', name: 'Elm' } ],
     [FreakModelKeys.projects]: [ { value: 'epix', name: 'EPIX' } ],
   };
-
-  afterAll(() => {
-    jest.restoreAllMocks();
-  });
 
   it('should render a page with freak details', () => {
     render(
