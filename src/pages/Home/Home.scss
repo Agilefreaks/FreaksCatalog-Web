@@ -18,12 +18,11 @@
     border: 1px solid #e2e2e2;
     background-color: #fff;
     cursor: pointer;
-    max-width: 64rem;
   }
 
   &__tiles-content {
     height: 100%;
-    padding: 2rem 0;
-    overflow: scroll;
+    padding: clamp(2.5rem, 2.5vw, 2.5rem);
+    overflow: auto;
   }
 }
