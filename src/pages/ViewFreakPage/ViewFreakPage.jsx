@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'react-bootstrap';
-import { useParams, useHistory, useLocation } from 'react-router-dom';
+import { useParams, useHistory, useLocation, Link } from 'react-router-dom';
 import { freaks } from '../../mock-data/freaks.json';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
 import './ViewFreakPage.scss';
@@ -23,6 +23,7 @@ function ViewFreakPage() {
   const query = useQuery();
   const editQueryParam = query.get('edit');
   const initialModalState = editQueryParam === '' ? modals.EDIT : modals.NONE;
+
   const [ openModal, setOpenModal ] = useState(initialModalState);
 
   const { id } = useParams();
@@ -32,17 +33,27 @@ function ViewFreakPage() {
 
   useEffect(() => {
     const editModalIsOpen = openModal === modals.EDIT;
-    if (editModalIsOpen) {
-      history.push(`/freaks/${ id }?edit`);
-    } else {
-      history.push(`/freaks/${ id }`);
-    }
+    const newUrl = editModalIsOpen ? `/freaks/${ id }?edit` : `/freaks/${ id }`;
+    history.replace(newUrl);
   }, [ openModal ]);
+
+  const freakMemo = useMemo(() => {});
+  console.log(freakMemo);
 
   const freak = freaks.find(findFreak(parsedId));
 
   return (
     <div className="view-freak" data-testid="view-freak">
+      <Link to="/">
+        <Button
+          type="button"
+          variant="default"
+          className="btn btn-outline-secondary btn-sm m-3"
+          data-testid="view-freak-back-button"
+        >
+          Back
+        </Button>
+      </Link>
       <FreakDetails freak={ freak } />
       <div className="view-freak__buttons">
         <Button
