@@ -27,20 +27,21 @@ function ViewFreakPage() {
   const [ openModal, setOpenModal ] = useState(initialModalState);
 
   const { id } = useParams();
-  const parsedId = parseInt(id, 10);
 
   const history = useHistory();
 
   useEffect(() => {
     const editModalIsOpen = openModal === modals.EDIT;
     const newUrl = editModalIsOpen ? `/freaks/${ id }?edit` : `/freaks/${ id }`;
+
     history.replace(newUrl);
   }, [ openModal ]);
 
-  const freakMemo = useMemo(() => {});
-  console.log(freakMemo);
+  const freak = useMemo(() => {
+    const parsedId = parseInt(id, 10);
 
-  const freak = freaks.find(findFreak(parsedId));
+    return freaks.find(findFreak(parsedId));
+  }, [ id ]);
 
   return (
     <div className="view-freak" data-testid="view-freak">
