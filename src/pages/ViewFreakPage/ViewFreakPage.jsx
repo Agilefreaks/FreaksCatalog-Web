@@ -5,7 +5,7 @@ import { freaks } from '../../mock-data/freaks.json';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
 import './ViewFreakPage.scss';
 import EditFreakModal from '../../components/EditFreakModal/EditFreakModal';
-import DeleteFreakModal from '../../components/DeleteFreakModal/DeleteFreakModal';
+import ConfirmDeleteModal from '../../components/ConfirmDeleteModal/ConfirmDeleteModal';
 
 function findFreak(id) {
   return (freak) => freak.id === id;
@@ -67,7 +67,7 @@ function ViewFreakPage() {
         >
           Delete
         </Button>
-        <DeleteFreakModal
+        <ConfirmDeleteModal
           freak={ freak }
           title="Delete Freak"
           isOpen={ openModal === modals.DELETE }

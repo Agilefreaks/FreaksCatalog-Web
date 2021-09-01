@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import Modal from '../Modal/Modal';
-import './DeleteFreakModal.scss';
+import './ConfirmDeleteModal.scss';
 
-function DeleteFreakModal({ title, isOpen, onClose }) {
+function ConfirmDeleteModal({ title, isOpen, onClose }) {
   const getFooter = () => (
     <div>
       <Button
@@ -43,10 +43,10 @@ function DeleteFreakModal({ title, isOpen, onClose }) {
   );
 }
 
-DeleteFreakModal.propTypes = {
+ConfirmDeleteModal.propTypes = {
   title: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
-export default DeleteFreakModal;
+export default ConfirmDeleteModal;
