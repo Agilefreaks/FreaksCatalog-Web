@@ -1,0 +1,29 @@
+.freak-details {
+  border-radius: 2rem;
+  text-align: center;
+  margin: 9rem auto 0;
+  border: 1rem solid;
+  background: rgba(16, 95, 191, 0.9);
+  color: white;
+  padding: 3.5rem 0.5rem;
+  max-width: 47rem;
+  position: relative;
+
+  &__img {
+    border: 3px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    background: white;
+    top: -2.5rem;
+    width: 10rem;
+    max-width: 60%;
+  }
+
+  &__description {
+    text-align: justify;
+    padding-top: 1rem;
+  }
+}

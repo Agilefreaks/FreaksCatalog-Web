@@ -7,7 +7,7 @@ function FreaksGrid({ freaks }) {
   const tiles = freaks.map((user) => (
     <FreakTile
       id={ user.id }
-      name={ user.name }
+      name={ user.firstName }
       picture={ user.picture }
       key={ user.id }
     />

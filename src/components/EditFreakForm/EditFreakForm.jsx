@@ -43,6 +43,8 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Row>
           <Col>
             <Form.Control
+              type="text"
+              pattern="^[a-zA-Z]+$"
               required
               data-testid="first-name-input"
               placeholder="First name"
@@ -52,6 +54,8 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           </Col>
           <Col>
             <Form.Control
+              type="text"
+              pattern="^[A-Za-z]+$"
               required
               data-testid="last-name-input"
               placeholder="Last name"
@@ -66,6 +70,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Label>Email address*</Form.Label>
         <Form.Control
           required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           data-testid="email-input"
           type="email"
           placeholder="Enter email"
@@ -139,6 +144,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           menuPlacement="top"
           testid="skills-input"
           isMulti
+          multiple={ true }
           value={ freak.skills.map(mapSkill) }
           onChange={ handleSelectChange(FreakModelKeys.skills) }
         />

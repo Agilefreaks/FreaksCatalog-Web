@@ -22,16 +22,15 @@
 
 .af-modal {
   position: fixed;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%;
+  left: 0;
+  top: 0;
   right: 0;
   bottom: 0;
   z-index: 2;
   width: 100%;
   height: 100%;
-  max-width: 43.75rem;
-  max-height: 43.75rem;
+  max-width: 47.5rem;
+  max-height: 47.5rem;
 
   &__content {
     display: flex;
@@ -94,5 +93,13 @@
 @media screen and (max-width: 760px) {
   .af-modal {
     max-height: 100%;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .af-modal {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
   }
 }
