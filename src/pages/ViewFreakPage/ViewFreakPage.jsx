@@ -5,6 +5,7 @@ import { freaks } from '../../mock-data/freaks.json';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
 import './ViewFreakPage.scss';
 import EditFreakModal from '../../components/EditFreakModal/EditFreakModal';
+import DeleteFreakModal from '../../components/DeleteFreakModal/DeleteFreakModal';
 
 function findFreak(id) {
   return (freak) => freak.id === id;
@@ -17,6 +18,7 @@ function useQuery() {
 const modals = {
   EDIT: 'editFreak',
   NONE: '',
+  DELETE: 'deleteFreak',
 };
 
 function ViewFreakPage() {
@@ -61,9 +63,16 @@ function ViewFreakPage() {
           type="button"
           className="btn btn-danger app-button -medium"
           data-testid="view-freak-delete-button"
+          onClick={ () => setOpenModal(modals.DELETE) }
         >
           Delete
         </Button>
+        <DeleteFreakModal
+          freak={ freak }
+          title="Delete Freak"
+          isOpen={ openModal === modals.DELETE }
+          onClose={ () => setOpenModal(modals.NONE) }
+        />
         <Button
           type="button"
           className="btn btn-outline-secondary app-button -medium "
