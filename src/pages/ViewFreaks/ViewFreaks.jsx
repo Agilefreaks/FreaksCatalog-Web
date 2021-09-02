@@ -25,9 +25,9 @@ function ViewFreaks() {
   let result;
 
   if (loading) {
-    result = (<h1>Loading</h1>);
+    result = (<h1>Loading...</h1>);
   } else if (error) {
-    result = (<h1>Buba</h1>);
+    result = (<h1>Error</h1>);
   } else {
     console.log(data.freaks.nodes);
     const freaks = data.freaks.nodes;

@@ -12,6 +12,7 @@ export const FreakModelKeys = {
   norm: 'norm',
   skills: 'skills',
   projects: 'projects',
+  technologies: 'technologies',
 };
 
 export const PhotoModelProps = {
@@ -30,9 +31,35 @@ export const FreakModelDefault = {
   [FreakModelKeys.norm]: '',
   [FreakModelKeys.skills]: [],
   [FreakModelKeys.projects]: [],
+  [FreakModelKeys.technologies]: [],
+};
+
+export const roleShape = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+};
+
+export const normShape = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+};
+
+export const levelShape = {
+  id: PropTypes.string,
+  name: PropTypes.string,
 };
 
 const skillShape = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+};
+
+const projectShape = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+};
+
+const technologiesShape = {
   value: PropTypes.string,
   name: PropTypes.string,
 };
@@ -44,8 +71,10 @@ export const FreakModelProps = {
   email: PropTypes.string,
   photo: PropTypes.shape(PhotoModelProps),
   description: PropTypes.string,
-  role: PropTypes.string,
-  level: PropTypes.string,
-  norm: PropTypes.string,
+  role: PropTypes.shape(roleShape),
+  level: PropTypes.shape(levelShape),
+  norm: PropTypes.shape(normShape),
   skills: PropTypes.arrayOf(PropTypes.shape(skillShape)),
+  projects: PropTypes.arrayOf(PropTypes.shape(projectShape)),
+  technologies: PropTypes.arrayOf(PropTypes.shape(technologiesShape)),
 };
