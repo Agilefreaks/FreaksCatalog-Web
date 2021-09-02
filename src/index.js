@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
 
 const client = new ApolloClient({
-  uri: 'https://freaks-catalog.herokuapp.com/graphiql',
+  uri: 'https://freaks-catalog.herokuapp.com/graphql',
   cache: new InMemoryCache(),
 });
 

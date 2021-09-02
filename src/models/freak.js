@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const FreakModelKeys = {
+  id: 'id',
   firstName: 'firstName',
   lastName: 'lastName',
   email: 'email',
@@ -13,7 +14,12 @@ export const FreakModelKeys = {
   projects: 'projects',
 };
 
+export const PhotoModelProps = {
+  uri: PropTypes.string,
+};
+
 export const FreakModelDefault = {
+  [FreakModelKeys.id]: '',
   [FreakModelKeys.firstName]: '',
   [FreakModelKeys.lastName]: '',
   [FreakModelKeys.email]: '',
@@ -32,9 +38,11 @@ const skillShape = {
 };
 
 export const FreakModelProps = {
+  id: PropTypes.string,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   email: PropTypes.string,
+  photo: PropTypes.shape(PhotoModelProps),
   description: PropTypes.string,
   role: PropTypes.string,
   level: PropTypes.string,
