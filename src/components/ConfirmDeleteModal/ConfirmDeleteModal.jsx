@@ -29,7 +29,6 @@ function ConfirmDeleteModal({ title, isOpen, onClose }) {
 
   return (
     <Modal
-      className="af-modal__fit-to-content"
       title={ title }
       isOpen={ isOpen }
       footerContent={ getFooter() }

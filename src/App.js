@@ -1,9 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHome, faTasks, faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.scss';
 import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
+import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
+import logo from './images/logo-only-blue.svg';
+
+library.add(faTimes, faUserPlus, faHome, faTasks);
 
 function App() {
   return (
@@ -15,15 +22,33 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
+            <Route exact path="/freaks">
+              <ViewFreaks />
+            </Route>
             <Route exact path="/freaks/:id">
               <ViewFreakPage />
             </Route>
           </Switch>
         </div>
         <div className="app__nav">
-          <button type="button" className="app__agile">
-            <img className="app__agile-img" src="https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png" alt="Nav" />
-          </button>
+          <Link to="/">
+            <button type="button" className="app__agile">
+              <FontAwesomeIcon icon="home" />
+              <p>Home</p>
+            </button>
+          </Link>
+          <Link to="/freaks">
+            <button type="button" className="app__agile">
+              <img className="app__agile-img" src={ logo } alt="Nav" />
+              <p>Freaks</p>
+            </button>
+          </Link>
+          <Link to="/">
+            <button type="button" className="app__agile">
+              <FontAwesomeIcon icon="tasks" />
+              <p>Projects</p>
+            </button>
+          </Link>
         </div>
       </div>
     </Router>

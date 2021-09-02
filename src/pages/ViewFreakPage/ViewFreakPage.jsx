@@ -47,7 +47,7 @@ function ViewFreakPage() {
 
   return (
     <div className="view-freak" data-testid="view-freak">
-      <Link to="/">
+      <Link to="/freaks">
         <Button
           type="button"
           variant="default"
