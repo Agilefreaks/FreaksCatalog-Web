@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
+import {
+  useQuery,
+} from '@apollo/client';
 import FilterModal from '../../components/FilterModal/FilterModal';
 import { skills } from '../../mock-data/skills.json';
 import { freaks } from '../../mock-data/freaks.json';
@@ -8,6 +11,7 @@ import { projects } from '../../mock-data/projects.json';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
+import FreaksQueries from '../../graphql/queries/freaks';
 
 const modals = {
   SKILLS: 'skills',
@@ -17,6 +21,9 @@ const modals = {
 
 function ViewFreaks() {
   const [ openModal, setOpenModal ] = useState(null);
+
+  const { loading, error, data } = useQuery(FreaksQueries.getAll);
+  console.log({ loading, error, data });
 
   return (
     <div className="home">
