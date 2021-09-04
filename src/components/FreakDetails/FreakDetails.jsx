@@ -4,7 +4,7 @@ import { FreakModelDefault, FreakModelProps } from '../../models/freak';
 import './FreakDetails.scss';
 
 function FreakDetails({ freak }) {
-  const freakTechnologies = freak.technologies.map((skill) => skill.name).join((', '));
+  const freakTechnologies = freak.technologies.map((technology) => technology.name).join((', '));
   const freakProjects = freak.projects.map((project) => project.name).join((', '));
 
   return (

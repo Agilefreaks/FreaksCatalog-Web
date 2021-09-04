@@ -17,7 +17,11 @@ function FreakTile({ id, photo, name }) {
 FreakTile.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  photo: PropTypes.shape(PhotoModelProps).isRequired,
+  photo: PropTypes.shape(PhotoModelProps),
+};
+
+FreakTile.defaultProps = {
+  photo: null,
 };
 
 export default FreakTile;

@@ -39,6 +39,13 @@ function ViewFreakPage() {
     history.replace(newUrl);
   }, [ openModal ]);
 
+  const deleteMessage = (
+    <div>
+      <h1>Warning!</h1>
+      <p>Are you sure you want to delete this freak?</p>
+    </div>
+  );
+
   let result;
 
   if (loading) {
@@ -73,6 +80,7 @@ function ViewFreakPage() {
           <ConfirmDeleteModal
             freak={ freak }
             title="Delete Freak"
+            deleteMessage={ deleteMessage }
             isOpen={ openModal === modals.DELETE }
             onClose={ () => setOpenModal(modals.NONE) }
           />

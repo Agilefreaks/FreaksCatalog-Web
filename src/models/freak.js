@@ -26,9 +26,9 @@ export const FreakModelDefault = {
   [FreakModelKeys.email]: '',
   [FreakModelKeys.picture]: '',
   [FreakModelKeys.description]: '',
-  [FreakModelKeys.role]: '',
-  [FreakModelKeys.level]: '',
-  [FreakModelKeys.norm]: '',
+  [FreakModelKeys.role]: null,
+  [FreakModelKeys.level]: null,
+  [FreakModelKeys.norm]: null,
   [FreakModelKeys.skills]: [],
   [FreakModelKeys.projects]: [],
   [FreakModelKeys.technologies]: [],
@@ -59,7 +59,7 @@ const projectShape = {
   name: PropTypes.string,
 };
 
-const technologiesShape = {
+const technologyShape = {
   value: PropTypes.string,
   name: PropTypes.string,
 };
@@ -76,5 +76,5 @@ export const FreakModelProps = {
   norm: PropTypes.shape(normShape),
   skills: PropTypes.arrayOf(PropTypes.shape(skillShape)),
   projects: PropTypes.arrayOf(PropTypes.shape(projectShape)),
-  technologies: PropTypes.arrayOf(PropTypes.shape(technologiesShape)),
+  technologies: PropTypes.arrayOf(PropTypes.shape(technologyShape)),
 };

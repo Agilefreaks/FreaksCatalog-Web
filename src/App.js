@@ -1,7 +1,6 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHome, faTasks, faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.scss';
 import './styles/button-add-user.scss';
@@ -9,8 +8,10 @@ import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
 import logo from './images/logo-only-blue.svg';
+import projectLogo from './images/logo-projects.png';
+import homeLogo from './images/home.png';
 
-library.add(faTimes, faUserPlus, faHome, faTasks);
+library.add(faTimes, faUserPlus);
 
 function App() {
   return (
