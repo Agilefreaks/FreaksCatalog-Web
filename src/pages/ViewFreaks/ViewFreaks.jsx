@@ -32,10 +32,10 @@ function ViewFreaks() {
     console.log(data.freaks.nodes);
     const freaks = data.freaks.nodes;
     result = (
-      <div className="home">
-        <div className="home__filter-nav">
+      <div className="view-freaks">
+        <div className="view-freaks__filter-nav">
           <button
-            className="home__button"
+            className="view-freaks__button"
             type="button"
             onClick={ () => setOpenModal(modals.SKILLS) }
           >
@@ -48,7 +48,7 @@ function ViewFreaks() {
             onClose={ () => setOpenModal(null) }
           />
           <button
-            className="home__button"
+            className="view-freaks__button"
             type="button"
             onClick={ () => setOpenModal(modals.PROJECTS) }
           >
@@ -61,7 +61,7 @@ function ViewFreaks() {
             onClose={ () => setOpenModal(null) }
           />
         </div>
-        <div className="home__tiles-content">
+        <div className="view-freaks__tiles-content">
           <FreaksGrid freaks={ freaks } />
           <Button
             className="button-add-user"
