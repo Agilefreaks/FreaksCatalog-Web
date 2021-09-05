@@ -16,6 +16,15 @@ const getAll = gql`
   }
 `;
 
+const getTechnologies = gql`
+  query GetTechnologies {
+      technologies {
+        id
+        name
+      }
+  }
+`;
+
 const get = (id) => gql`
   query Get {
     freak(id: ${ id }) {
@@ -61,5 +70,5 @@ const get = (id) => gql`
 `;
 
 export default {
-  getAll, get,
+  getAll, get, getTechnologies,
 };
