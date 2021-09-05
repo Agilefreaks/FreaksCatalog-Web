@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import FilterModal from '../../components/FilterModal/FilterModal';
-import { projects } from '../../mock-data/projects.json';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
@@ -24,16 +23,20 @@ function ViewFreaks() {
   const { loading: loadTechnologies, error: errorTechnologies, data: dataTechnologies } =
   useQuery(FreaksQueries.getTechnologies);
 
+  const { loading: loadProjects, error: errorProjects, data: dataProjects } =
+  useQuery(FreaksQueries.getProjects);
+
   let result;
 
-  if (loading || loadTechnologies) {
+  if (loading || loadTechnologies || loadProjects) {
     result = (<h1>Loading...</h1>);
-  } else if (error || errorTechnologies) {
+  } else if (error || errorTechnologies || errorProjects) {
     result = (<h1>Error</h1>);
   } else {
     console.log(data.freaks.nodes);
     const freaks = data.freaks.nodes;
     const allTechnologies = dataTechnologies.technologies;
+    const allProjects = dataProjects.projects;
     result = (
       <div className="view-freaks">
         <div className="view-freaks__filter-nav">
@@ -60,7 +63,7 @@ function ViewFreaks() {
           <FilterModal
             title="Projects"
             isOpen={ openModal === modals.PROJECTS }
-            keywords={ projects }
+            keywords={ allProjects }
             onClose={ () => setOpenModal(null) }
           />
         </div>

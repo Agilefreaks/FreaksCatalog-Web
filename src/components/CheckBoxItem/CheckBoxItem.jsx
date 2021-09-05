@@ -4,7 +4,6 @@ import { Form } from 'react-bootstrap';
 import './CheckBoxItem.scss';
 
 function CheckBoxItem({ name, id, onChange, isSelected }) {
-  console.log(name, id);
   return (
     <Form.Group className="checkbox-item" controlId="formBasicCheckbox">
       <Form.Check

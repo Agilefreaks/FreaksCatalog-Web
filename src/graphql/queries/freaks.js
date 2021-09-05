@@ -25,6 +25,28 @@ const getTechnologies = gql`
   }
 `;
 
+const getProjects = gql`
+  query GetProjects {
+    projects {
+      id
+      name
+      description
+      logoUrl{
+        id
+        uri
+      }
+      freaks{
+        id
+        description
+      }
+      technologies{
+        id
+        description
+      }
+    }
+  }
+`;
+
 const get = (id) => gql`
   query Get {
     freak(id: ${ id }) {
@@ -70,5 +92,5 @@ const get = (id) => gql`
 `;
 
 export default {
-  getAll, get, getTechnologies,
+  getAll, get, getTechnologies, getProjects,
 };
