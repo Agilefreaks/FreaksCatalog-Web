@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
-import FilterModal from '../../components/FilterModal/FilterModal';
+import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
@@ -17,76 +17,52 @@ const modals = {
 function ViewFreaks() {
   const [ openModal, setOpenModal ] = useState(null);
 
-  const { loading, error, data } = useQuery(FreaksQueries.getAll);
-  console.log({ data });
+  const { loading, error, data } = useQuery(FreaksQueries.getAll());
 
-  const { loading: loadTechnologies, error: errorTechnologies, data: dataTechnologies } =
-  useQuery(FreaksQueries.getTechnologies);
+  if (loading) return <p>Loading</p>;
+  if (error) return <p>ERROR</p>;
+  if (!data) return <p>Not found</p>;
 
-  const { loading: loadProjects, error: errorProjects, data: dataProjects } =
-  useQuery(FreaksQueries.getProjects);
+  console.log(5555555555, data);
+  const freaks = data.freaks.nodes;
+  const { technologies, projects } = data;
+  console.log(666666, technologies, projects);
 
-  let result;
-
-  if (loading || loadTechnologies || loadProjects) {
-    result = (<h1>Loading...</h1>);
-  } else if (error || errorTechnologies || errorProjects) {
-    result = (<h1>Error</h1>);
-  } else {
-    console.log(data.freaks.nodes);
-    const freaks = data.freaks.nodes;
-    const allTechnologies = dataTechnologies.technologies;
-    const allProjects = dataProjects.projects;
-    result = (
-      <div className="view-freaks">
-        <div className="view-freaks__filter-nav">
-          <button
-            className="view-freaks__button"
-            type="button"
-            onClick={ () => setOpenModal(modals.SKILLS) }
-          >
-            Skills
-          </button>
-          <FilterModal
-            title="Skills"
-            isOpen={ openModal === modals.SKILLS }
-            keywords={ allTechnologies }
-            onClose={ () => setOpenModal(null) }
-          />
-          <button
-            className="view-freaks__button"
-            type="button"
-            onClick={ () => setOpenModal(modals.PROJECTS) }
-          >
-            Projects
-          </button>
-          <FilterModal
-            title="Projects"
-            isOpen={ openModal === modals.PROJECTS }
-            keywords={ allProjects }
-            onClose={ () => setOpenModal(null) }
-          />
-        </div>
-        <div className="view-freaks__tiles-content">
-          <FreaksGrid freaks={ freaks } />
-          <Button
-            className="button-add-user"
-            variant="outline-secondary"
-            onClick={ () => setOpenModal(modals.ADD) }
-          >
-            <FontAwesomeIcon icon="user-plus" />
-          </Button>
-          <AddFreakModal
-            title="Add Freak"
-            isOpen={ openModal === modals.ADD }
-            onClose={ () => setOpenModal(null) }
-          />
-        </div>
+  return (
+    <div className="view-freaks">
+      <div className="view-freaks__filter-nav">
+        <QueryFilterModal
+          title="Skills"
+          keywords={ technologies }
+          modalId={ modals.SKILLS }
+          isOpen={ openModal === modals.SKILLS }
+          setOpenModal={ setOpenModal }
+        />
+        <QueryFilterModal
+          title="Projects"
+          keywords={ projects }
+          modalId={ modals.PROJECTS }
+          isOpen={ openModal === modals.PROJECTS }
+          setOpenModal={ setOpenModal }
+        />
       </div>
-    );
-  }
-
-  return result;
+      <div className="view-freaks__tiles-content">
+        <FreaksGrid freaks={ freaks } />
+        <Button
+          className="button-add-user"
+          variant="outline-secondary"
+          onClick={ () => setOpenModal(modals.ADD) }
+        >
+          <FontAwesomeIcon icon="user-plus" />
+        </Button>
+        <AddFreakModal
+          title="Add Freak"
+          isOpen={ openModal === modals.ADD }
+          onClose={ () => setOpenModal(null) }
+        />
+      </div>
+    </div>
+  );
 }
 
 export default ViewFreaks;

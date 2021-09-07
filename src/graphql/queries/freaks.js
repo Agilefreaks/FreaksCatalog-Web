@@ -2,47 +2,24 @@ import {
   gql,
 } from '@apollo/client';
 
-const getAll = gql`
-  query GetFreaks {
+const getAll = () => gql`
+  query GetAll {
     freaks {
-      nodes { 
-        id, 
-        firstName, 
+      nodes {
+        id
+        firstName
         photo {
           uri
         }
       }
     }
-  }
-`;
-
-const getTechnologies = gql`
-  query GetTechnologies {
-      technologies {
-        id
-        name
-      }
-  }
-`;
-
-const getProjects = gql`
-  query GetProjects {
+    technologies {
+      id
+      name
+    }
     projects {
       id
       name
-      description
-      logoUrl{
-        id
-        uri
-      }
-      freaks{
-        id
-        description
-      }
-      technologies{
-        id
-        description
-      }
     }
   }
 `;
@@ -91,6 +68,4 @@ const get = (id) => gql`
   }
 `;
 
-export default {
-  getAll, get, getTechnologies, getProjects,
-};
+export default { getAll, get };
