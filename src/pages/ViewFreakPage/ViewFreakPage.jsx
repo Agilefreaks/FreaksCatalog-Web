@@ -27,7 +27,7 @@ function ViewFreakPage() {
 
   const { id } = useParams();
 
-  const { loading, error, data } = useQuery(FreaksQueries.get(id));
+  const { loading, error, data } = useQuery(FreaksQueries.getFreak(id));
 
   const history = useHistory();
 

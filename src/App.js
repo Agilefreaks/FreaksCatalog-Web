@@ -34,7 +34,7 @@ function App() {
         <div className="app__nav">
           <Link to="/">
             <button type="button" className="nav__button">
-              <FontAwesomeIcon icon="home" />
+              <img className="nav__button-img" src={ homeLogo } alt="Nav" />
               <p>Home</p>
             </button>
           </Link>
@@ -46,7 +46,7 @@ function App() {
           </Link>
           <Link to="/">
             <button type="button" className="nav__button">
-              <FontAwesomeIcon icon="tasks" />
+              <img className="nav__button-img" src={ projectLogo } alt="Nav" />
               <p>Projects</p>
             </button>
           </Link>

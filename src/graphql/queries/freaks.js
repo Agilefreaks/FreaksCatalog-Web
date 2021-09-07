@@ -24,7 +24,7 @@ const getAll = () => gql`
   }
 `;
 
-const get = (id) => gql`
+const getFreak = (id) => gql`
   query Get {
     freak(id: ${ id }) {
       id
@@ -68,4 +68,4 @@ const get = (id) => gql`
   }
 `;
 
-export default { getAll, get };
+export default { getAll, getFreak };

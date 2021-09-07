@@ -23,18 +23,16 @@ function unmapTechnology(technology) {
 function EditFreakForm({ freak, onChange, onSubmit }) {
   const { loading, error, data } = useQuery(FreaksQueries.getAll());
 
-  console.log(33333333333, data);
-
-  function triggerChange(name) {
+  function triggerChange(propertyName) {
     return ({ target: { value } }) => {
-      const newFreak = { ...freak, [name]: value };
+      const newFreak = { ...freak, [propertyName]: value };
       onChange(newFreak);
     };
   }
 
-  function triggerObjectChange(name) {
+  function triggerObjectChange(propertyName) {
     return ({ target: { value } }) => {
-      const newFreak = { ...freak, [name]: { name: value } };
+      const newFreak = { ...freak, [propertyName]: { id: value } };
       onChange(newFreak);
     };
   }
@@ -51,7 +49,6 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
   if (!data) return <p>Not found</p>;
 
   const { technologies } = data;
-  console.log(33333333333, technologies);
   const technologyOptions = technologies.map(mapTechnology);
 
   return (
@@ -111,13 +108,13 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Select
           required
           data-testid="role-input"
-          value={ freak.role?.name ?? '' }
+          value={ freak.role?.id ?? '' }
           onChange={ triggerObjectChange(FreakModelKeys.role) }
         >
           <option value="">Pick One</option>
-          <option data-testid="role-option" value="Founder">Founder</option>
-          <option data-testid="role-option" value="Developer">Developer</option>
-          <option data-testid="role-option" value="QA">QA</option>
+          <option data-testid="role-option" value="1">Founder</option>
+          <option data-testid="role-option" value="2">Developer</option>
+          <option data-testid="role-option" value="3">QA</option>
         </Form.Select>
       </Form.Group>
 
@@ -126,17 +123,17 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Select
           required
           data-testid="level-input"
-          value={ freak.level?.name ?? '' }
+          value={ freak.level?.id ?? '' }
           onChange={ triggerObjectChange(FreakModelKeys.level) }
         >
           <option value="">Pick One</option>
-          <option data-testid="level-option" value="Master">Master</option>
-          <option data-testid="level-option" value="Expert">Expert</option>
-          <option data-testid="level-option" value="Proficient">Proficient</option>
-          <option data-testid="level-option" value="Competent">Competent</option>
-          <option data-testid="level-option" value="Advanced">Advanced</option>
-          <option data-testid="level-option" value="Novice">Novice</option>
-          <option data-testid="level-option" value="Intern">Intern</option>
+          <option data-testid="level-option" value="1">Master</option>
+          <option data-testid="level-option" value="2">Expert</option>
+          <option data-testid="level-option" value="3">Proficient</option>
+          <option data-testid="level-option" value="4">Competent</option>
+          <option data-testid="level-option" value="5">Advanced</option>
+          <option data-testid="level-option" value="6">Novice</option>
+          <option data-testid="level-option" value="7">Intern</option>
         </Form.Select>
       </Form.Group>
 
@@ -145,12 +142,12 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Select
           required
           data-testid="norm-input"
-          value={ freak.norm?.name ?? '' }
+          value={ freak.norm?.id ?? '' }
           onChange={ triggerObjectChange(FreakModelKeys.norm) }
         >
           <option value="">Pick One</option>
-          <option data-testid="norm-option" value="Full time">Full time</option>
-          <option data-testid="norm-option" value="Part time">Part time</option>
+          <option data-testid="norm-option" value="1">Full time</option>
+          <option data-testid="norm-option" value="2">Part time</option>
         </Form.Select>
       </Form.Group>
 
