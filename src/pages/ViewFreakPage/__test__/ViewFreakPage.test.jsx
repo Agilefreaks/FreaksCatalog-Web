@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import ViewFreakPage from '../ViewFreakPage';
 import { FreakModelKeys } from '../../../models/freak';
 import '@testing-library/jest-dom';
@@ -7,6 +8,11 @@ import '@testing-library/jest-dom';
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useParams: () => ({ id: 1 }),
+  useLocation: () => ({ search: 'edit' }),
+}));
+
+jest.mock('@fortawesome/react-fontawesome', () => ({
+  FontAwesomeIcon: () => <div />,
 }));
 
 describe('ViewFreakPage', () => {
@@ -25,7 +31,9 @@ describe('ViewFreakPage', () => {
 
   it('should render a page with freak details', () => {
     render(
-      <ViewFreakPage freak={ freak } />,
+      <BrowserRouter>
+        <ViewFreakPage freak={ freak } />
+      </BrowserRouter>,
     );
     const freakDetails = screen.getByTestId('view-freak');
     expect(freakDetails).toBeInTheDocument();
@@ -33,7 +41,9 @@ describe('ViewFreakPage', () => {
 
   it('should render an delete button for the freak', () => {
     render(
-      <ViewFreakPage freak={ freak } />,
+      <BrowserRouter>
+        <ViewFreakPage freak={ freak } />
+      </BrowserRouter>,
     );
     const freakDeleteButton = screen.getByTestId('view-freak-delete-button');
     expect(freakDeleteButton).toBeInTheDocument();
@@ -41,7 +51,9 @@ describe('ViewFreakPage', () => {
 
   it('should render an edit button for the freak', () => {
     render(
-      <ViewFreakPage freak={ freak } />,
+      <BrowserRouter>
+        <ViewFreakPage freak={ freak } />
+      </BrowserRouter>,
     );
     const freakEditButton = screen.getByTestId('view-freak-edit-button');
     expect(freakEditButton).toBeInTheDocument();

@@ -70,7 +70,6 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Label>Email address*</Form.Label>
         <Form.Control
           required
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           data-testid="email-input"
           type="email"
           placeholder="Enter email"
