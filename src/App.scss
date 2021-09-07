@@ -37,19 +37,19 @@
     color: black;
     border-top: 2px solid black;
   }
+}
 
-  &__agile {
-    border: none;
-    background: white;
-    font-size: 1.5rem;
+.nav__button {
+  border: none;
+  background: white;
+  font-size: 1.5rem;
 
-    &-img {
-      height: 2rem;
-    }
+  &-img {
+    height: 2rem;
+  }
 
-    p {
-      font-size: 0.7rem;
-      margin: 0;
-    }
+  p {
+    font-size: 0.7rem;
+    margin: 0;
   }
 }

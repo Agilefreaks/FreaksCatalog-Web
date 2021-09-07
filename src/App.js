@@ -32,19 +32,19 @@ function App() {
         </div>
         <div className="app__nav">
           <Link to="/">
-            <button type="button" className="app__agile">
+            <button type="button" className="nav__button">
               <FontAwesomeIcon icon="home" />
               <p>Home</p>
             </button>
           </Link>
           <Link to="/freaks">
-            <button type="button" className="app__agile">
-              <img className="app__agile-img" src={ logo } alt="Nav" />
+            <button type="button" className="nav__button">
+              <img className="nav__button-img" src={ logo } alt="Nav" />
               <p>Freaks</p>
             </button>
           </Link>
           <Link to="/">
-            <button type="button" className="app__agile">
+            <button type="button" className="nav__button">
               <FontAwesomeIcon icon="tasks" />
               <p>Projects</p>
             </button>
