@@ -5,8 +5,8 @@ import './Home.scss';
 function Home() {
   return (
     <div className="home">
-      <h1>Who are we?</h1>
-      <p>
+      <h1 className="home__title">Who are we?</h1>
+      <p className="home__description">
         The short version, we are a company founded in 2014, by developers for developers,
         with 26 freaks and still counting.
         <hr />
