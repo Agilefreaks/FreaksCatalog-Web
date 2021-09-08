@@ -32,14 +32,15 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
 
   function triggerObjectChange(propertyName) {
     return ({ target: { value } }) => {
+      console.log('value', value);
       const newFreak = { ...freak, [propertyName]: { id: value } };
       onChange(newFreak);
     };
   }
 
-  function handleSelectChange(name) {
+  function handleSelectChange(propertyName) {
     return (values) => {
-      const newFreak = { ...freak, [name]: values.map(unmapTechnology) };
+      const newFreak = { ...freak, [propertyName]: values.map(unmapTechnology) };
       onChange(newFreak);
     };
   }
@@ -47,7 +48,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
   if (loading) return <p>Loading</p>;
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
-
+  console.log('level', freak.level);
   const { technologies } = data;
   const technologyOptions = technologies.map(mapTechnology);
 
@@ -113,8 +114,9 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         >
           <option value="">Pick One</option>
           <option data-testid="role-option" value="1">Founder</option>
-          <option data-testid="role-option" value="2">Developer</option>
-          <option data-testid="role-option" value="3">QA</option>
+          <option data-testid="role-option" value="2">IT Sibiu</option>
+          <option data-testid="role-option" value="3">IT Cluj</option>
+          <option data-testid="role-option" value="4">Team assistant</option>
         </Form.Select>
       </Form.Group>
 
@@ -127,13 +129,13 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           onChange={ triggerObjectChange(FreakModelKeys.level) }
         >
           <option value="">Pick One</option>
-          <option data-testid="level-option" value="1">Master</option>
-          <option data-testid="level-option" value="2">Expert</option>
-          <option data-testid="level-option" value="3">Proficient</option>
+          <option data-testid="level-option" value="1">Intern</option>
+          <option data-testid="level-option" value="2">Novice</option>
+          <option data-testid="level-option" value="3">Advanced</option>
           <option data-testid="level-option" value="4">Competent</option>
-          <option data-testid="level-option" value="5">Advanced</option>
-          <option data-testid="level-option" value="6">Novice</option>
-          <option data-testid="level-option" value="7">Intern</option>
+          <option data-testid="level-option" value="5">Proficient</option>
+          <option data-testid="level-option" value="6">Expert</option>
+          <option data-testid="level-option" value="7">Master</option>
         </Form.Select>
       </Form.Group>
 

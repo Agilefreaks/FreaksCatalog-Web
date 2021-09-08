@@ -49,9 +49,7 @@ function ViewFreakPage() {
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
 
-  console.log(data);
   const { freak } = data;
-
   return (
     <div className="view-freak" data-testid="view-freak">
       <Link to="/freaks">

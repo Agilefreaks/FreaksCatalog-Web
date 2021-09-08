@@ -1,15 +1,38 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
 import Modal from '../Modal/Modal';
 import EditFreakForm from '../EditFreakForm/EditFreakForm';
 import { FreakModelDefault, FreakModelProps } from '../../models/freak';
+import UpdateFreakMutation from '../../graphql/queries/mutations/Freak';
+
+function mapFreak(freak) {
+  console.log(freak);
+  return {
+    id: freak.id,
+    firstName: freak.firstName,
+    lastName: freak.lastName,
+    description: freak.description,
+    email: freak.email,
+    normId: parseInt(freak.norm.id, 10),
+    roleId: parseInt(freak.role.id, 10),
+    levelId: parseInt(freak.level.id, 10),
+  };
+}
 
 function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
   const [ freak, setFreak ] = useState(initialFreak);
 
+  const [ updateFunction, {
+    loading,
+    error,
+  } ] = useMutation(UpdateFreakMutation.FreakUpdate());
+
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(freak);
+    updateFunction({ variables: mapFreak(freak) });
   }
 
   const getHeader = () => (
@@ -32,6 +55,9 @@ function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
       Submit
     </Button>
   );
+
+  if (loading) return 'Submitting...';
+  if (error) return `Submission error! ${ error.message }`;
 
   return (
     <Modal
