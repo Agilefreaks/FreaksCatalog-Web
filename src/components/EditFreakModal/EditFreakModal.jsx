@@ -21,7 +21,7 @@ function mapFreak(freak) {
   };
 }
 
-function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
+function EditFreakModal({ title, isOpen, onClose, onSubmit, freak: initialFreak }) {
   const [ freak, setFreak ] = useState(initialFreak);
 
   const [ updateFunction, {
@@ -29,10 +29,10 @@ function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
     error,
   } ] = useMutation(UpdateFreakMutation.FreakUpdate());
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(freak);
-    updateFunction({ variables: mapFreak(freak) });
+    await updateFunction({ variables: mapFreak(freak) });
+    onSubmit();
   }
 
   const getHeader = () => (
@@ -81,6 +81,7 @@ EditFreakModal.propTypes = {
   title: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 EditFreakModal.defaultProps = {

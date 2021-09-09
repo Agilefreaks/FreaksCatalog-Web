@@ -27,9 +27,14 @@ function ViewFreakPage() {
 
   const { id } = useParams();
 
-  const { loading, error, data } = useQuery(FreaksQueries.getFreak(id));
+  const { loading, error, refetch, data } = useQuery(FreaksQueries.getFreak(id));
 
   const history = useHistory();
+
+  function handleSubmit() {
+    refetch();
+    setOpenModal(modals.NONE);
+  }
 
   useEffect(() => {
     const editModalIsOpen = openModal === modals.EDIT;
@@ -93,6 +98,7 @@ function ViewFreakPage() {
           title="Edit Freak"
           isOpen={ openModal === modals.EDIT }
           onClose={ () => setOpenModal(modals.NONE) }
+          onSubmit={ handleSubmit }
         />
       </div>
     </div>
