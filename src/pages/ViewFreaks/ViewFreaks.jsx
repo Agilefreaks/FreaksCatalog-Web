@@ -23,10 +23,8 @@ function ViewFreaks() {
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
 
-  console.log(5555555555, data);
   const freaks = data.freaks.nodes;
   const { technologies, projects } = data;
-  console.log(666666, technologies, projects);
 
   return (
     <div className="view-freaks">

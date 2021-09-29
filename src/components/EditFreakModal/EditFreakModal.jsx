@@ -8,7 +8,6 @@ import { FreakModelDefault, FreakModelProps } from '../../models/freak';
 import UpdateFreakMutation from '../../graphql/queries/mutations/Freak';
 
 function mapFreak(freak) {
-  console.log(freak);
   return {
     id: freak.id,
     firstName: freak.firstName,

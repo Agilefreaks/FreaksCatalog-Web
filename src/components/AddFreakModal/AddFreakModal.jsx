@@ -18,7 +18,6 @@ import CreateFreakMutation from '../../graphql/queries/mutations/Freak';
 // };
 
 function mapFreak(freak) {
-  console.log(freak);
   return {
     firstName: freak.firstName,
     lastName: freak.lastName,

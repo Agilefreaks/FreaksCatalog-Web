@@ -32,7 +32,6 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
 
   function triggerObjectChange(propertyName) {
     return ({ target: { value } }) => {
-      console.log('value', value);
       const newFreak = { ...freak, [propertyName]: { id: value } };
       onChange(newFreak);
     };
@@ -48,7 +47,6 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
   if (loading) return <p>Loading</p>;
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
-  console.log('level', freak.level);
   const { technologies } = data;
   const technologyOptions = technologies.map(mapTechnology);
 

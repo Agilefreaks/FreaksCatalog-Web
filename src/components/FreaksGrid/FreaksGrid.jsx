@@ -5,7 +5,6 @@ import './FreaksGrid.scss';
 import { PhotoModelProps } from '../../models/freak';
 
 function FreaksGrid({ freaks }) {
-  console.log({ freaksGrid: freaks });
   const tiles = freaks.map((freak) => (
     <FreakTile
       id={ freak.id }

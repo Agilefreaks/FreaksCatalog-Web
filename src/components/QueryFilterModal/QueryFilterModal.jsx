@@ -4,7 +4,6 @@ import FilterModal from '../FilterModal/FilterModal';
 import './QueryFilterModal.scss';
 
 function QueryFilterModal({ keywords, title, modalId, isOpen, setOpenModal }) {
-  console.log(11111111, keywords);
   return (
     <div className="query-modal">
       <button
