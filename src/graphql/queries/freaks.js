@@ -2,6 +2,19 @@ import {
   gql,
 } from '@apollo/client';
 
+const getMetadata = () => gql`
+  query GetMetadata {
+    technologies {
+      id
+      name
+    }
+    projects {
+      id
+      name
+    }
+  }
+`;
+
 const getAll = () => gql`
   query GetAll {
     freaks {
@@ -68,4 +81,4 @@ const getFreak = (id) => gql`
   }
 `;
 
-export default { getAll, getFreak };
+export default { getMetadata, getAll, getFreak };

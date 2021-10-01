@@ -21,7 +21,7 @@ function unmapTechnology(technology) {
 }
 
 function EditFreakForm({ freak, onChange, onSubmit }) {
-  const { loading, error, data } = useQuery(FreaksQueries.getAll());
+  const { loading, error, data } = useQuery(FreaksQueries.getMetadata());
 
   function triggerChange(propertyName) {
     return ({ target: { value } }) => {
@@ -47,8 +47,8 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
   if (loading) return <p>Loading</p>;
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
-  const { technologies } = data;
-  const technologyOptions = technologies.map(mapTechnology);
+
+  const technologyOptions = data.technologies.map(mapTechnology);
 
   return (
     <Form id="add-freak-form" className=" mx-2 p-3" onSubmit={ onSubmit }>
