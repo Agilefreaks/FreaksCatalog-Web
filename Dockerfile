@@ -1,5 +1,10 @@
+FROM node:14-alpine AS builder
+
+WORKDIR /app
+COPY . .
+RUN npm i && npm run build
+
 FROM nginx:alpine
 
-COPY build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /usr/share/nginx/html
+COPY --from=builder /app/build .
