@@ -49,12 +49,6 @@ or
 $ docker-compose up
 ```
 
-## Helm chart
-
-```
-$ helm install freakscatalog-web .
-```
-
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
