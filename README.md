@@ -44,6 +44,12 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ```
 $ helm install freakscatalog-web .
 ```
+#### Note: Be sure to have running K8s proxy
+```
+kubectl proxy
+```
+#### New you can access the app using: <CLUSTER-IP>:3000
+
 
 ## Learn More
 
