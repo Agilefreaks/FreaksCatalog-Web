@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "freakscatalog-web.fullname" . }}
+  labels:
+    {{- include "freakscatalog-web.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 80
+      port: 8080
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "freakscatalog-web.selectorLabels" . | nindent 4 }}
