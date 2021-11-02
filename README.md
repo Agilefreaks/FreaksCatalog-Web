@@ -39,6 +39,16 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Docker build
+
+##### Using Dockerfile or docker-compose
+```
+$ docker build -t freakscatalog-web .
+$ docker run -it --rm freakscatalog-web
+or
+$ docker-compose up
+```
+
 ## Helm chart
 
 ```
@@ -48,8 +58,7 @@ $ helm install freakscatalog-web .
 ```
 kubectl proxy
 ```
-#### New you can access the app using: <CLUSTER-IP>:3000
-
+#### New you can access the app on port 8080
 
 ## Learn More
 
