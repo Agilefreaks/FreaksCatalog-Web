@@ -20,7 +20,6 @@
       "jest": true
     },
     "rules": {
-      "linebreak-style": ["error", "windows"],
       "import/prefer-default-export": [0],
       "array-bracket-spacing": [2, "always"],
       "template-curly-spacing": [2, "always"],
