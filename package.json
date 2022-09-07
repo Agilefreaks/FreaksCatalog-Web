@@ -9,7 +9,7 @@
     "eject": "react-scripts eject",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "npx eslint \"**/*.js\"",
-    "lint:css": "npx stylelint \"**/*.css\""
+    "lint:css": "npx stylelint \"**/*.scss\""
   },
   "eslintConfig": {
     "extends": [
