@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams, useHistory, useLocation, Link } from 'react-router-dom';
-import { freaks } from '../../mock-data/freaks.json';
+import freaks from '../../mock-data/freaks.json';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
 import './ViewFreakPage.scss';
 import EditFreakModal from '../../components/EditFreakModal/EditFreakModal';
@@ -42,7 +42,7 @@ function ViewFreakPage() {
   const freak = useMemo(() => {
     const parsedId = parseInt(id, 10);
 
-    return freaks.find(findFreak(parsedId));
+    return freaks.freaks.find(findFreak(parsedId));
   }, [ id ]);
 
   return (

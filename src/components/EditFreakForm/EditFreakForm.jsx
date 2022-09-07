@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { Form, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { FreakModelDefault, FreakModelKeys, FreakModelProps } from '../../models/freak';
-import { skills } from '../../mock-data/skills.json';
+import skills from '../../mock-data/skills.json';
 
 function mapSkill(skill) {
   return {
@@ -34,7 +34,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
     };
   }
 
-  const skillOptions = skills.map(mapSkill);
+  const skillOptions = skills.skills.map(mapSkill);
 
   return (
     <Form id="add-freak-form" className=" mx-2 p-3" onSubmit={ onSubmit }>

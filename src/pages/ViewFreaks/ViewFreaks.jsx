@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
 import FilterModal from '../../components/FilterModal/FilterModal';
-import { skills } from '../../mock-data/skills.json';
-import { freaks } from '../../mock-data/freaks.json';
-import { projects } from '../../mock-data/projects.json';
+import skills from '../../mock-data/skills.json';
+import freaks from '../../mock-data/freaks.json';
+import projects from '../../mock-data/projects.json';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
@@ -31,7 +31,7 @@ function ViewFreaks() {
         <FilterModal
           title="Skills"
           isOpen={ openModal === modals.SKILLS }
-          keywords={ skills }
+          keywords={ skills.skills }
           onClose={ () => setOpenModal(null) }
         />
         <button
@@ -44,12 +44,12 @@ function ViewFreaks() {
         <FilterModal
           title="Projects"
           isOpen={ openModal === modals.PROJECTS }
-          keywords={ projects }
+          keywords={ projects.projects }
           onClose={ () => setOpenModal(null) }
         />
       </div>
       <div className="home__tiles-content">
-        <FreaksGrid freaks={ freaks } />
+        <FreaksGrid freaks={ freaks.freaks } />
         <Button
           className="button-add-user"
           variant="outline-secondary"

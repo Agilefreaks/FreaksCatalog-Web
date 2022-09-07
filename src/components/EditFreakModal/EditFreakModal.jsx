@@ -8,9 +8,9 @@ import { FreakModelDefault, FreakModelProps } from '../../models/freak';
 function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
   const [ freak, setFreak ] = useState(initialFreak);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-  }
+  };
 
   const getHeader = () => (
     <Button
