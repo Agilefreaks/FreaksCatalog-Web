@@ -27,7 +27,8 @@
       "operator-linebreak": [2, "after", { "overrides": { "?": "before", ":": "before" } }],
       "react/jsx-curly-spacing": [2, { "when": "always", "children": true }],
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-      "react/jsx-boolean-value": [0]
+      "react/jsx-boolean-value": [0],
+      "max-len": [2, { "code": 100 }]
     },
     "ignorePatterns": ["node_modules/**/*", "build/**/*"]
   }
