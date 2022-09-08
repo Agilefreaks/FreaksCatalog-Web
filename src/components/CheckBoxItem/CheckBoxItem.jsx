@@ -24,7 +24,7 @@ CheckBoxItem.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   isSelected: PropTypes.bool.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default CheckBoxItem;

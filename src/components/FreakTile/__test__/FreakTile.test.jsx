@@ -5,14 +5,14 @@ import FreakTile from '../FreakTile';
 import '@testing-library/jest-dom';
 
 describe('FreakTile', () => {
-  const id = 1;
-  const picture = 'some-url';
+  const id = '1';
+  const photo = { uri: 'some-url' };
   const name = 'Anda';
 
   it('should render the freak tile', () => {
     render(
       <BrowserRouter>
-        <FreakTile id={ id } picture={ picture } name={ name } />
+        <FreakTile id={ id } photo={ photo } name={ name } />
       </BrowserRouter>,
     );
 
@@ -22,7 +22,7 @@ describe('FreakTile', () => {
   it('should render the tile as a hyperlink', () => {
     render(
       <BrowserRouter>
-        <FreakTile id={ id } picture={ picture } name={ name } />
+        <FreakTile id={ id } photo={ photo } name={ name } />
       </BrowserRouter>,
     );
 
@@ -32,7 +32,7 @@ describe('FreakTile', () => {
   it('should render a name on the tile', () => {
     render(
       <BrowserRouter>
-        <FreakTile id={ id } picture={ picture } name={ name } />
+        <FreakTile id={ id } photo={ photo } name={ name } />
       </BrowserRouter>,
     );
 
@@ -42,10 +42,10 @@ describe('FreakTile', () => {
   it('should render a picture for the tile', () => {
     render(
       <BrowserRouter>
-        <FreakTile id={ id } picture={ picture } name={ name } />
+        <FreakTile id={ id } photo={ photo } name={ name } />
       </BrowserRouter>,
     );
 
-    expect(screen.getByTestId('freak-picture')).toHaveAttribute('src', picture);
+    expect(screen.getByTestId('freak-picture')).toHaveAttribute('src', photo.uri);
   });
 });
