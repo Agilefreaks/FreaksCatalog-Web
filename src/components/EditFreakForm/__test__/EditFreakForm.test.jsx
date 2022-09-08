@@ -23,26 +23,6 @@ jest.mock('react-select', () => ({ options, value, onChange, testid, multiple })
   );
 });
 
-jest.mock('@apollo/client', () => ({
-  ...jest.requireActual('@apollo/client'),
-  useQuery: () => ({
-    loading: false,
-    error: false,
-    data: {
-      technologies: [
-        {
-          id: 'javascript',
-          name: 'Javascript',
-        },
-        {
-          id: 'elm',
-          name: 'Elm',
-        },
-      ],
-    },
-  }),
-}));
-
 describe('EditFreakForm', () => {
   const onChange = jest.fn();
   const onSubmit = jest.fn();
@@ -52,10 +32,10 @@ describe('EditFreakForm', () => {
     [FreakModelKeys.lastName]: 'Badea',
     [FreakModelKeys.email]: 'badea@email.com',
     [FreakModelKeys.description]: 'I am Marian',
-    [FreakModelKeys.role]: { id: 'Frontend', value: 'Frontend' },
-    [FreakModelKeys.level]: { id: 'Novice', value: 'Novice' },
-    [FreakModelKeys.norm]: { id: 'Full time', value: 'Full time' },
-    [FreakModelKeys.technologies]: [ { id: 1, value: 'js', name: 'JS' } ],
+    [FreakModelKeys.role]: 'Frontend',
+    [FreakModelKeys.level]: 'Novice',
+    [FreakModelKeys.norm]: 'Full time',
+    [FreakModelKeys.skills]: [ { id: 1, value: 'js', name: 'JS' } ],
   };
 
   beforeEach(() => {
@@ -141,13 +121,33 @@ describe('EditFreakForm', () => {
     );
 
     const roleInput = screen.queryByTestId('role-input');
-    fireEvent.change(roleInput, { target: { value: '1' } });
+    const roleOptions = screen.queryAllByTestId('role-option');
+    const firstOptionText = roleOptions[0].textContent;
+    fireEvent.change(roleInput, { target: { value: firstOptionText } });
 
     expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.role]: {
-        id: '1',
-      },
+      [FreakModelKeys.role]: firstOptionText,
+    });
+  });
+
+  it('should trigger onChange when the level is changed with one of the options', () => {
+    render(
+      <EditFreakForm
+        onChange={ onChange }
+        onSubmit={ onSubmit }
+      />,
+    );
+
+    const levelInput = screen.queryByTestId('level-input');
+    const levelOptions = screen.queryAllByTestId('level-option');
+    const fifthOptionText = levelOptions[5].textContent;
+
+    fireEvent.change(levelInput, { target: { value: fifthOptionText } });
+
+    expect(onChange).toBeCalledWith({
+      ...FreakModelDefault,
+      [FreakModelKeys.level]: fifthOptionText,
     });
   });
 
@@ -161,13 +161,11 @@ describe('EditFreakForm', () => {
 
     const levelInput = screen.getByTestId('level-input');
 
-    fireEvent.change(levelInput, { target: { value: '1' } });
+    fireEvent.change(levelInput, { target: { value: 'Novice' } });
 
     expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.level]: {
-        id: '1',
-      },
+      [FreakModelKeys.level]: 'Novice',
     });
   });
 
@@ -180,18 +178,18 @@ describe('EditFreakForm', () => {
     );
 
     const normInput = screen.queryByTestId('norm-input');
+    const normOptions = screen.queryAllByTestId('norm-option');
+    const thirdOptionText = normOptions[1].textContent;
 
-    fireEvent.change(normInput, { target: { value: '1' } });
+    fireEvent.change(normInput, { target: { value: thirdOptionText } });
 
     expect(onChange).toBeCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.norm]: {
-        id: '1',
-      },
+      [FreakModelKeys.norm]: thirdOptionText,
     });
   });
 
-  it('should trigger onChange when the technologies is changed', () => {
+  it('should trigger onChange when the skills is changed', () => {
     render(
       <EditFreakForm
         onChange={ onChange }
@@ -200,13 +198,13 @@ describe('EditFreakForm', () => {
     );
 
     const skillsInput = screen.getByTestId('skills-input');
-    const newValue = { id: 'elm', name: 'Elm' };
+    const newValue = { value: 'elm', name: 'Elm' };
 
-    fireEvent.change(skillsInput, { target: { value: newValue.id } });
+    fireEvent.change(skillsInput, { target: { value: newValue.value } });
 
     expect(onChange).toHaveBeenCalledWith({
       ...FreakModelDefault,
-      [FreakModelKeys.technologies]: [ newValue ],
+      [FreakModelKeys.skills]: [ newValue ],
     });
   });
 

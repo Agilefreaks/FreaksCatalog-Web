@@ -1,54 +1,40 @@
 import React from 'react';
 import Select from 'react-select';
 import { Form, Row, Col } from 'react-bootstrap';
-import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
 import { FreakModelDefault, FreakModelKeys, FreakModelProps } from '../../models/freak';
-import FreaksQueries from '../../graphql/queries/freaks';
+import skills from '../../mock-data/skills.json';
 
-function mapTechnology(technology) {
+function mapSkill(skill) {
   return {
-    value: technology.id,
-    label: technology.name,
+    value: skill.value,
+    label: skill.name,
   };
 }
 
-function unmapTechnology(technology) {
+function unmapSkill(skill) {
   return {
-    id: technology.value,
-    name: technology.label,
+    value: skill.value,
+    name: skill.label,
   };
 }
 
 function EditFreakForm({ freak, onChange, onSubmit }) {
-  const { loading, error, data } = useQuery(FreaksQueries.getMetadata());
-
-  function triggerChange(propertyName) {
+  function triggerChange(name) {
     return ({ target: { value } }) => {
-      const newFreak = { ...freak, [propertyName]: value };
+      const newFreak = { ...freak, [name]: value };
       onChange(newFreak);
     };
   }
 
-  function triggerObjectChange(propertyName) {
-    return ({ target: { value } }) => {
-      const newFreak = { ...freak, [propertyName]: { id: value } };
-      onChange(newFreak);
-    };
-  }
-
-  function handleSelectChange(propertyName) {
+  function handleSelectChange(name) {
     return (values) => {
-      const newFreak = { ...freak, [propertyName]: values.map(unmapTechnology) };
+      const newFreak = { ...freak, [name]: values.map(unmapSkill) };
       onChange(newFreak);
     };
   }
 
-  if (loading) return <p>Loading</p>;
-  if (error) return <p>ERROR</p>;
-  if (!data) return <p>Not found</p>;
-
-  const technologyOptions = data.technologies.map(mapTechnology);
+  const skillOptions = skills.skills.map(mapSkill);
 
   return (
     <Form id="add-freak-form" className=" mx-2 p-3" onSubmit={ onSubmit }>
@@ -58,6 +44,7 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           <Col>
             <Form.Control
               type="text"
+              pattern="^[a-zA-Z]+$"
               required
               data-testid="first-name-input"
               placeholder="First name"
@@ -107,14 +94,13 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Select
           required
           data-testid="role-input"
-          value={ freak.role?.id ?? '' }
-          onChange={ triggerObjectChange(FreakModelKeys.role) }
+          value={ freak.role }
+          onChange={ triggerChange(FreakModelKeys.role) }
         >
           <option value="">Pick One</option>
-          <option data-testid="role-option" value="1">Founder</option>
-          <option data-testid="role-option" value="2">IT Sibiu</option>
-          <option data-testid="role-option" value="3">IT Cluj</option>
-          <option data-testid="role-option" value="4">Team assistant</option>
+          <option data-testid="role-option" value="Founder">Founder</option>
+          <option data-testid="role-option" value="Developer">Developer</option>
+          <option data-testid="role-option" value="QA">QA</option>
         </Form.Select>
       </Form.Group>
 
@@ -123,17 +109,16 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Select
           required
           data-testid="level-input"
-          value={ freak.level?.id ?? '' }
-          onChange={ triggerObjectChange(FreakModelKeys.level) }
+          value={ freak.level }
+          onChange={ triggerChange(FreakModelKeys.level) }
         >
           <option value="">Pick One</option>
-          <option data-testid="level-option" value="1">Intern</option>
-          <option data-testid="level-option" value="2">Novice</option>
-          <option data-testid="level-option" value="3">Advanced</option>
-          <option data-testid="level-option" value="4">Competent</option>
-          <option data-testid="level-option" value="5">Proficient</option>
-          <option data-testid="level-option" value="6">Expert</option>
-          <option data-testid="level-option" value="7">Master</option>
+          <option data-testid="level-option" value="Master">Master</option>
+          <option data-testid="level-option" value="Expert">Expert</option>
+          <option data-testid="level-option" value="Proficient">Proficient</option>
+          <option data-testid="level-option" value="Competent">Competent</option>
+          <option data-testid="level-option" value="Advanced">Advanced</option>
+          <option data-testid="level-option" value="Novice">Novice</option>
         </Form.Select>
       </Form.Group>
 
@@ -142,25 +127,25 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
         <Form.Select
           required
           data-testid="norm-input"
-          value={ freak.norm?.id ?? '' }
-          onChange={ triggerObjectChange(FreakModelKeys.norm) }
+          value={ freak.norm }
+          onChange={ triggerChange(FreakModelKeys.norm) }
         >
           <option value="">Pick One</option>
-          <option data-testid="norm-option" value="1">Full time</option>
-          <option data-testid="norm-option" value="2">Part time</option>
+          <option data-testid="norm-option" value="Full time">Full time</option>
+          <option data-testid="norm-option" value="Part time">Part time</option>
         </Form.Select>
       </Form.Group>
 
       <Form.Group className="mb-3">
         <Form.Label>Skills</Form.Label>
         <Select
-          options={ technologyOptions }
+          options={ skillOptions }
           menuPlacement="top"
           testid="skills-input"
           isMulti
           multiple={ true }
-          value={ freak.technologies.map(mapTechnology) }
-          onChange={ handleSelectChange(FreakModelKeys.technologies) }
+          value={ freak.skills.map(mapSkill) }
+          onChange={ handleSelectChange(FreakModelKeys.skills) }
         />
       </Form.Group>
     </Form>

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Button } from 'react-bootstrap';
-import { useQuery } from '@apollo/client';
 import { useParams, useHistory, useLocation, Link } from 'react-router-dom';
+import freaks from '../../mock-data/freaks.json';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
 import './ViewFreakPage.scss';
 import EditFreakModal from '../../components/EditFreakModal/EditFreakModal';
 import ConfirmDeleteModal from '../../components/ConfirmDeleteModal/ConfirmDeleteModal';
-import FreaksQueries from '../../graphql/queries/freaks';
 
-function useQueryParams() {
+function findFreak(id) {
+  return (freak) => freak.id === id;
+}
+
+function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
@@ -19,7 +22,7 @@ const modals = {
 };
 
 function ViewFreakPage() {
-  const query = useQueryParams();
+  const query = useQuery();
   const editQueryParam = query.get('edit');
   const initialModalState = editQueryParam === '' ? modals.EDIT : modals.NONE;
 
@@ -27,14 +30,7 @@ function ViewFreakPage() {
 
   const { id } = useParams();
 
-  const { loading, error, refetch, data } = useQuery(FreaksQueries.getFreak(id));
-
   const history = useHistory();
-
-  const handleSubmit = () => {
-    refetch();
-    setOpenModal(modals.NONE);
-  };
 
   useEffect(() => {
     const editModalIsOpen = openModal === modals.EDIT;
@@ -43,18 +39,12 @@ function ViewFreakPage() {
     history.replace(newUrl);
   }, [ openModal ]);
 
-  const deleteMessage = (
-    <div>
-      <h1>Warning!</h1>
-      <p>Are you sure you want to delete this freak?</p>
-    </div>
-  );
+  const freak = useMemo(() => {
+    const parsedId = parseInt(id, 10);
 
-  if (loading) return <p>Loading</p>;
-  if (error) return <p>ERROR</p>;
-  if (!data) return <p>Not found</p>;
+    return freaks.freaks.find(findFreak(parsedId));
+  }, [ id ]);
 
-  const { freak } = data;
   return (
     <div className="view-freak" data-testid="view-freak">
       <Link to="/freaks">
@@ -80,7 +70,6 @@ function ViewFreakPage() {
         <ConfirmDeleteModal
           freak={ freak }
           title="Delete Freak"
-          deleteMessage={ deleteMessage }
           isOpen={ openModal === modals.DELETE }
           onClose={ () => setOpenModal(modals.NONE) }
         />
@@ -98,7 +87,6 @@ function ViewFreakPage() {
           title="Edit Freak"
           isOpen={ openModal === modals.EDIT }
           onClose={ () => setOpenModal(modals.NONE) }
-          onSubmit={ handleSubmit }
         />
       </div>
     </div>
