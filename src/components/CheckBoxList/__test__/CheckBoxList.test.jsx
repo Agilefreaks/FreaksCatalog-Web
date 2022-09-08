@@ -4,9 +4,9 @@ import CheckBoxList from '../CheckBoxList';
 
 describe('CheckBoxList', () => {
   const keywords = [
-    { id: 1, name: 'Kotlin' },
-    { id: 2, name: 'Elm' },
-    { id: 3, name: 'Elm' },
+    { id: '1', name: 'Kotlin' },
+    { id: '2', name: 'Elm' },
+    { id: '3', name: 'Elm' },
   ];
   const onChange = jest.fn();
 

@@ -9,12 +9,12 @@ describe('FreakDetails', () => {
     [FreakModelKeys.firstName]: 'Marian',
     [FreakModelKeys.lastName]: 'Badea',
     [FreakModelKeys.email]: 'badea@email.com',
-    [FreakModelKeys.picture]: 'https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png',
+    [FreakModelKeys.photo]: { uri: 'https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png' },
     [FreakModelKeys.description]: 'I am Marian',
-    [FreakModelKeys.role]: 'Frontend',
-    [FreakModelKeys.level]: 'Novice',
-    [FreakModelKeys.norm]: 'Full time',
-    [FreakModelKeys.skills]: [ { id: 1, value: 'js', name: 'JS' }, { id: 2, value: 'elm', name: 'Elm' } ],
+    [FreakModelKeys.role]: { id: 'frontend', name: 'Frontend' },
+    [FreakModelKeys.level]: { id: 'Novice', name: 'Novice' },
+    [FreakModelKeys.norm]: { id: 'Full time', name: 'Full time' },
+    [FreakModelKeys.technologies]: [ { id: 1, value: 'js', name: 'JS' }, { id: 2, value: 'elm', name: 'Elm' } ],
     [FreakModelKeys.projects]: [ { value: 'epix', name: 'EPIX' } ],
   };
 
@@ -39,7 +39,7 @@ describe('FreakDetails', () => {
       <FreakDetails freak={ freak } />,
     );
     const freakRole = screen.getByTestId('freak-role-norm');
-    expect(freakRole).toHaveTextContent(`${ freak.role } - ${ freak.norm }`);
+    expect(freakRole).toHaveTextContent(`${ freak.role.name } - ${ freak.norm.name }`);
   });
 
   it('should render the freak description', () => {
@@ -56,7 +56,7 @@ describe('FreakDetails', () => {
     );
 
     const freakSkills = screen.getByTestId('freak-skills');
-    const skillNames = freak.skills.map((skill) => skill.name).join((', '));
+    const skillNames = freak.technologies.map((skill) => skill.name).join((', '));
 
     expect(freakSkills).toHaveTextContent(skillNames);
   });
@@ -77,6 +77,6 @@ describe('FreakDetails', () => {
       <FreakDetails freak={ freak } />,
     );
     const freakLevel = screen.getByTestId('freak-level');
-    expect(freakLevel).toHaveTextContent(freak.level);
+    expect(freakLevel).toHaveTextContent(freak.level.name);
   });
 });

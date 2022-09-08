@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
-import FilterModal from '../../components/FilterModal/FilterModal';
-import skills from '../../mock-data/skills.json';
-import freaks from '../../mock-data/freaks.json';
-import projects from '../../mock-data/projects.json';
+import { useQuery } from '@apollo/client';
+import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
+import FreaksQueries from '../../graphql/queries/freaks';
 
 const modals = {
   SKILLS: 'skills',
@@ -18,38 +17,35 @@ const modals = {
 function ViewFreaks() {
   const [ openModal, setOpenModal ] = useState(null);
 
+  const { loading, error, data } = useQuery(FreaksQueries.getAll());
+
+  if (loading) return <p>Loading</p>;
+  if (error) return <p>ERROR</p>;
+  if (!data) return <p>Not found</p>;
+
+  const freaks = data.freaks.nodes;
+  const { technologies, projects } = data;
+
   return (
-    <div className="home">
-      <div className="home__filter-nav">
-        <button
-          className="home__button"
-          type="button"
-          onClick={ () => setOpenModal(modals.SKILLS) }
-        >
-          Skills
-        </button>
-        <FilterModal
+    <div className="view-freaks">
+      <div className="view-freaks__filter-nav">
+        <QueryFilterModal
           title="Skills"
+          keywords={ technologies }
+          modalId={ modals.SKILLS }
           isOpen={ openModal === modals.SKILLS }
-          keywords={ skills.skills }
-          onClose={ () => setOpenModal(null) }
+          setOpenModal={ setOpenModal }
         />
-        <button
-          className="home__button"
-          type="button"
-          onClick={ () => setOpenModal(modals.PROJECTS) }
-        >
-          Projects
-        </button>
-        <FilterModal
+        <QueryFilterModal
           title="Projects"
+          keywords={ projects }
+          modalId={ modals.PROJECTS }
           isOpen={ openModal === modals.PROJECTS }
-          keywords={ projects.projects }
-          onClose={ () => setOpenModal(null) }
+          setOpenModal={ setOpenModal }
         />
       </div>
-      <div className="home__tiles-content">
-        <FreaksGrid freaks={ freaks.freaks } />
+      <div className="view-freaks__tiles-content">
+        <FreaksGrid freaks={ freaks } />
         <Button
           className="button-add-user"
           variant="outline-secondary"
