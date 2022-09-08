@@ -37,11 +37,11 @@ function AddFreakModal({ title, isOpen, onClose }) {
     error,
   } ] = useMutation(CreateFreakMutation.FreakCreate());
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     mutateFunction({ variables: mapFreak(freak) });
     freak.value = '';
-  }
+  };
 
   const getHeader = () => (
     <Button

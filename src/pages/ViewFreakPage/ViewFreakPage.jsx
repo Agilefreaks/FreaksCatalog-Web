@@ -31,10 +31,10 @@ function ViewFreakPage() {
 
   const history = useHistory();
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     refetch();
     setOpenModal(modals.NONE);
-  }
+  };
 
   useEffect(() => {
     const editModalIsOpen = openModal === modals.EDIT;

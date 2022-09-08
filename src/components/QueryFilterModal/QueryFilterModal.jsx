@@ -25,7 +25,7 @@ function QueryFilterModal({ keywords, title, modalId, isOpen, setOpenModal }) {
 
 QueryFilterModal.propTypes = {
   title: PropTypes.string.isRequired,
-  keywords: PropTypes.arrayOf(PropTypes.object).isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.shape).isRequired,
   isOpen: PropTypes.bool.isRequired,
   setOpenModal: PropTypes.func.isRequired,
   modalId: PropTypes.string.isRequired,

@@ -28,11 +28,11 @@ function EditFreakModal({ title, isOpen, onClose, onSubmit, freak: initialFreak 
     error,
   } ] = useMutation(UpdateFreakMutation.FreakUpdate());
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     await updateFunction({ variables: mapFreak(freak) });
     onSubmit();
-  }
+  };
 
   const getHeader = () => (
     <Button
