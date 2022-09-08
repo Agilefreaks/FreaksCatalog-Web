@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import Modal from '../Modal/Modal';
 import './ConfirmDeleteModal.scss';
 
-function ConfirmDeleteModal({ title, isOpen, onClose, deleteMessage }) {
+function ConfirmDeleteModal({ title, isOpen, onClose }) {
   const getFooter = () => (
     <div>
       <Button
@@ -35,7 +35,8 @@ function ConfirmDeleteModal({ title, isOpen, onClose, deleteMessage }) {
       onClose={ onClose }
     >
       <div className="delete-message">
-        { deleteMessage }
+        <h1>Warning!</h1>
+        <p>Are you sure you want to delete this freak?</p>
       </div>
     </Modal>
   );
@@ -45,7 +46,6 @@ ConfirmDeleteModal.propTypes = {
   title: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  deleteMessage: PropTypes.node.isRequired,
 };
 
 export default ConfirmDeleteModal;

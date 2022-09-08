@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FreakTile from '../FreakTile/FreakTile';
 import './FreaksGrid.scss';
-import { PhotoModelProps } from '../../models/freak';
 
 function FreaksGrid({ freaks }) {
-  const tiles = freaks.map((freak) => (
+  const tiles = freaks.map((user) => (
     <FreakTile
-      id={ freak.id }
-      name={ freak.firstName }
-      photo={ freak.photo }
-      key={ freak.id }
+      id={ user.id }
+      name={ user.firstName }
+      picture={ user.picture }
+      key={ user.id }
     />
   ));
 
@@ -23,9 +22,9 @@ function FreaksGrid({ freaks }) {
 
 FreaksGrid.propTypes = {
   freaks: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    firstName: PropTypes.string,
-    photo: PropTypes.shape(PhotoModelProps),
+    id: PropTypes.number,
+    name: PropTypes.string,
+    picture: PropTypes.string,
   })).isRequired,
 };
 

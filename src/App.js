@@ -1,6 +1,7 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faTasks, faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.scss';
 import './styles/button-add-user.scss';
@@ -8,10 +9,8 @@ import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
 import logo from './images/logo-only-blue.svg';
-import projectLogo from './images/logo-projects.png';
-import homeLogo from './images/home.png';
 
-library.add(faTimes, faUserPlus);
+library.add(faTimes, faUserPlus, faHome, faTasks);
 
 function App() {
   return (
@@ -34,7 +33,7 @@ function App() {
         <div className="app__nav">
           <Link to="/">
             <button type="button" className="nav__button">
-              <img className="nav__button-img" src={ homeLogo } alt="Nav" />
+              <FontAwesomeIcon icon="home" />
               <p>Home</p>
             </button>
           </Link>
@@ -46,7 +45,7 @@ function App() {
           </Link>
           <Link to="/">
             <button type="button" className="nav__button">
-              <img className="nav__button-img" src={ projectLogo } alt="Nav" />
+              <FontAwesomeIcon icon="tasks" />
               <p>Projects</p>
             </button>
           </Link>
