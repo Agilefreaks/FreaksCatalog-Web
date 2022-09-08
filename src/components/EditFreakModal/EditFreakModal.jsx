@@ -1,15 +1,37 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
 import Modal from '../Modal/Modal';
 import EditFreakForm from '../EditFreakForm/EditFreakForm';
 import { FreakModelDefault, FreakModelProps } from '../../models/freak';
+import UpdateFreakMutation from '../../graphql/queries/mutations/Freak';
 
-function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
+function mapFreak(freak) {
+  return {
+    id: freak.id,
+    firstName: freak.firstName,
+    lastName: freak.lastName,
+    description: freak.description,
+    email: freak.email,
+    normId: parseInt(freak.norm.id, 10),
+    roleId: parseInt(freak.role.id, 10),
+    levelId: parseInt(freak.level.id, 10),
+  };
+}
+
+function EditFreakModal({ title, isOpen, onClose, onSubmit, freak: initialFreak }) {
   const [ freak, setFreak ] = useState(initialFreak);
 
-  const handleSubmit = (e) => {
+  const [ updateFunction, {
+    loading,
+    error,
+  } ] = useMutation(UpdateFreakMutation.FreakUpdate());
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await updateFunction({ variables: mapFreak(freak) });
+    onSubmit();
   };
 
   const getHeader = () => (
@@ -33,6 +55,9 @@ function EditFreakModal({ title, isOpen, onClose, freak: initialFreak }) {
     </Button>
   );
 
+  if (loading) return 'Submitting...';
+  if (error) return `Submission error! ${ error.message }`;
+
   return (
     <Modal
       title={ title }
@@ -55,6 +80,7 @@ EditFreakModal.propTypes = {
   title: PropTypes.string.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 EditFreakModal.defaultProps = {
