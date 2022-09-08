@@ -12,9 +12,16 @@ function getHeader(onClose, title, headerContent) {
         </button>
       </div>
       <div className="af-modal__header-center">
-        <h1 className="af-modal__title" data-testid="modal-title">{ title }</h1>
+        <h1 className="af-modal__title" data-testid="modal-title">
+          { title }
+        </h1>
       </div>
-      <div className="af-modal__header-right-corner" data-testid="modal-header-right-corner">{ headerContent }</div>
+      <div
+        className="af-modal__header-right-corner"
+        data-testid="modal-header-right-corner"
+      >
+        { headerContent }
+      </div>
     </div>
   );
 }
@@ -37,16 +44,12 @@ function getFooter(footerContent) {
   );
 }
 
-function Modal({
-  isOpen,
-  onClose,
-  title,
-  headerContent,
-  children,
-  footerContent,
-}) {
+function Modal({ isOpen, onClose, title, headerContent, children, footerContent }) {
   return (
-    <div className={ `af-modal-wrapper ${ isOpen ? '' : '--hidden' }` } data-testid="modal-wrapper">
+    <div
+      className={ `af-modal-wrapper ${ isOpen ? '' : '--hidden' }` }
+      data-testid="modal-wrapper"
+    >
       <div className="af-modal-overlay" />
       <div className="af-modal">
         <div className="af-modal__content">

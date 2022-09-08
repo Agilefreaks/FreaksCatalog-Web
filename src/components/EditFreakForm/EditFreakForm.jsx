@@ -111,10 +111,18 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           onChange={ triggerObjectChange(FreakModelKeys.role) }
         >
           <option value="">Pick One</option>
-          <option data-testid="role-option" value="1">Founder</option>
-          <option data-testid="role-option" value="2">IT Sibiu</option>
-          <option data-testid="role-option" value="3">IT Cluj</option>
-          <option data-testid="role-option" value="4">Team assistant</option>
+          <option data-testid="role-option" value="1">
+            Founder
+          </option>
+          <option data-testid="role-option" value="2">
+            IT Sibiu
+          </option>
+          <option data-testid="role-option" value="3">
+            IT Cluj
+          </option>
+          <option data-testid="role-option" value="4">
+            Team assistant
+          </option>
         </Form.Select>
       </Form.Group>
 
@@ -127,13 +135,27 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           onChange={ triggerObjectChange(FreakModelKeys.level) }
         >
           <option value="">Pick One</option>
-          <option data-testid="level-option" value="1">Intern</option>
-          <option data-testid="level-option" value="2">Novice</option>
-          <option data-testid="level-option" value="3">Advanced</option>
-          <option data-testid="level-option" value="4">Competent</option>
-          <option data-testid="level-option" value="5">Proficient</option>
-          <option data-testid="level-option" value="6">Expert</option>
-          <option data-testid="level-option" value="7">Master</option>
+          <option data-testid="level-option" value="1">
+            Intern
+          </option>
+          <option data-testid="level-option" value="2">
+            Novice
+          </option>
+          <option data-testid="level-option" value="3">
+            Advanced
+          </option>
+          <option data-testid="level-option" value="4">
+            Competent
+          </option>
+          <option data-testid="level-option" value="5">
+            Proficient
+          </option>
+          <option data-testid="level-option" value="6">
+            Expert
+          </option>
+          <option data-testid="level-option" value="7">
+            Master
+          </option>
         </Form.Select>
       </Form.Group>
 
@@ -146,8 +168,12 @@ function EditFreakForm({ freak, onChange, onSubmit }) {
           onChange={ triggerObjectChange(FreakModelKeys.norm) }
         >
           <option value="">Pick One</option>
-          <option data-testid="norm-option" value="1">Full time</option>
-          <option data-testid="norm-option" value="2">Part time</option>
+          <option data-testid="norm-option" value="1">
+            Full time
+          </option>
+          <option data-testid="norm-option" value="2">
+            Part time
+          </option>
         </Form.Select>
       </Form.Group>
 

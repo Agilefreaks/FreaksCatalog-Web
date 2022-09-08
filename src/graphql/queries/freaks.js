@@ -1,6 +1,4 @@
-import {
-  gql,
-} from '@apollo/client';
+import { gql } from '@apollo/client';
 
 const getMetadata = () => gql`
   query GetMetadata {

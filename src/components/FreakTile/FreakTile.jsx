@@ -8,8 +8,15 @@ import logo from '../../images/logo-only-blue.svg';
 function FreakTile({ id, photo, name }) {
   return (
     <Link to={ `/freaks/${ id }` } className="tile" data-testid="freak-tile">
-      <img src={ photo?.uri ?? logo } alt="Face of the Freak" className="tile__img" data-testid="freak-picture" />
-      <h1 className="tile__name" data-testid="freak-name">{ name }</h1>
+      <img
+        src={ photo?.uri ?? logo }
+        alt="Face of the Freak"
+        className="tile__img"
+        data-testid="freak-picture"
+      />
+      <h1 className="tile__name" data-testid="freak-name">
+        { name }
+      </h1>
     </Link>
   );
 }

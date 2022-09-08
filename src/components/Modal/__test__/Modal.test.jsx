@@ -15,11 +15,7 @@ describe('Modal', () => {
 
   it('should render the modal title', () => {
     render(
-      <Modal
-        title={ title }
-        onClose={ onClose }
-        isOpen={ isOpen }
-      >
+      <Modal title={ title } onClose={ onClose } isOpen={ isOpen }>
         { children }
       </Modal>,
     );
@@ -29,11 +25,7 @@ describe('Modal', () => {
 
   it('should render the children in the body modal', () => {
     render(
-      <Modal
-        title={ title }
-        onClose={ onClose }
-        isOpen={ isOpen }
-      >
+      <Modal title={ title } onClose={ onClose } isOpen={ isOpen }>
         { children }
       </Modal>,
     );
@@ -43,11 +35,7 @@ describe('Modal', () => {
 
   it('should be hidden if isOpen is false', () => {
     render(
-      <Modal
-        title={ title }
-        onClose={ onClose }
-        isOpen={ false }
-      >
+      <Modal title={ title } onClose={ onClose } isOpen={ false }>
         { children }
       </Modal>,
     );
@@ -57,11 +45,7 @@ describe('Modal', () => {
 
   it('should not be hidden if isOpen is true', () => {
     render(
-      <Modal
-        title={ title }
-        onClose={ onClose }
-        isOpen
-      >
+      <Modal title={ title } onClose={ onClose } isOpen>
         { children }
       </Modal>,
     );
@@ -72,28 +56,20 @@ describe('Modal', () => {
   it('should render the hederContent', () => {
     const headerString = 'content';
     render(
-      <Modal
-        title={ title }
-        onClose={ onClose }
-        isOpen={ isOpen }
-        headerContent={ headerString }
-      >
+      <Modal title={ title } onClose={ onClose } isOpen={ isOpen } headerContent={ headerString }>
         { children }
       </Modal>,
     );
 
-    expect(screen.getByTestId('modal-header-right-corner')).toHaveTextContent(headerString);
+    expect(screen.getByTestId('modal-header-right-corner')).toHaveTextContent(
+      headerString,
+    );
   });
 
   it('should render the footerContent', () => {
     const footerSring = 'content';
     render(
-      <Modal
-        title={ title }
-        onClose={ onClose }
-        isOpen={ isOpen }
-        footerContent={ footerSring }
-      >
+      <Modal title={ title } onClose={ onClose } isOpen={ isOpen } footerContent={ footerSring }>
         { children }
       </Modal>,
     );
