@@ -12,7 +12,8 @@
   }
 
   &__description {
-    text-align: justify;
+    display: block;
+    text-align: left;
   }
 
   &__img {
