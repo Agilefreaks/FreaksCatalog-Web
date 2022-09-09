@@ -10,7 +10,9 @@
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "npx eslint \"**/*.js\"",
     "lint:css": "npx stylelint \"**/*.scss\"",
-    "format": "prettier-eslint --write 'src/**/*.{js,jsx}' && prettier-stylelint --write 'src/**/*.{css,scss}'"
+    "format": "npm run format:js && npm run format:css",
+    "format:js": "prettier-eslint --write 'src/**/*.{js,jsx}'",
+    "format:css": "prettier-stylelint --write 'src/**/*.{css,scss}'"
   },
   "dependencies": {
     "@apollo/client": "3.6.9",
