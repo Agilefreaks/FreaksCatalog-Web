@@ -18,6 +18,7 @@ function QueryFilterModal({ keywords, title, modalId, isOpen, setOpenModal }) {
         isOpen={ isOpen }
         keywords={ keywords }
         onClose={ () => setOpenModal(null) }
+        setOpenModal={ setOpenModal }
       />
     </div>
   );

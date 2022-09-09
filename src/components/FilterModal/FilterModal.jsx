@@ -6,7 +6,7 @@ import Modal from '../Modal/Modal';
 import CheckBoxList from '../CheckBoxList/CheckBoxList';
 import { setSkillsFilter, resetSkillsFilter, setProjectsFilter, resetProjectsFilter } from '../../slices/filtersSlice';
 
-function FilterModal({ title, isOpen, onClose, keywords }) {
+function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
   const [ checkedState, setCheckedState ] = useState([]);
   const queuedFilters = useRef([]);
 
@@ -36,6 +36,7 @@ function FilterModal({ title, isOpen, onClose, keywords }) {
   const onClickCb = () => {
     const setFilter = getFilterSetter();
     dispatch(setFilter(queuedFilters.current))
+    setOpenModal(false);
   };
 
   const resetFilters = () => {
@@ -88,6 +89,7 @@ FilterModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   keywords: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  setOpenModal: PropTypes.func.isRequired,
 };
 
 export default FilterModal;
