@@ -14,7 +14,7 @@ function QueryFilterModal({ keywords, title, modalId, isOpen, setOpenModal }) {
         { title }
       </button>
       <FilterModal
-        title="Skills"
+        title={ title }
         isOpen={ isOpen }
         keywords={ keywords }
         onClose={ () => setOpenModal(null) }
