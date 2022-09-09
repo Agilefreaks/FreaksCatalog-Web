@@ -4,29 +4,12 @@ import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import CheckBoxList from '../CheckBoxList/CheckBoxList';
-import { setSkillsFilter, resetSkillsFilter, setProjectsFilter, resetProjectsFilter } from '../../slices/filtersSlice';
+import { getFilterSetter, getFilterResetter } from '../../filters/freaksFilter';
 
 function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
   const [ checkedState, setCheckedState ] = useState([]);
   const queuedFilters = useRef([]);
-
   const dispatch = useDispatch();
-
-  const getFilterSetter = () => {
-    switch (title) {
-      case 'Skills' : return setSkillsFilter;
-      case 'Projects': return setProjectsFilter;
-      default: return null;
-    }
-  };
-
-  const getFilterResetter = () => {
-    switch (title) {
-      case 'Skills' : return resetSkillsFilter;
-      case 'Projects': return resetProjectsFilter;
-      default: return null;
-    }
-  };
 
   const onChangeCb = (result, name, checked) => {
     setCheckedState(result, name, checked);
@@ -34,7 +17,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
   };
 
   const onClickCb = () => {
-    const setFilter = getFilterSetter();
+    const setFilter = getFilterSetter(title);
     dispatch(setFilter(queuedFilters.current))
     setOpenModal(false);
   };
@@ -42,7 +25,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
   const resetFilters = () => {
     setCheckedState([]);
     queuedFilters.current = [];
-    const resetFilter = getFilterResetter();
+    const resetFilter = getFilterResetter(title);
     dispatch(resetFilter());
   };
 

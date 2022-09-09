@@ -1,3 +1,5 @@
+import { setSkillsFilter, resetSkillsFilter, setProjectsFilter, resetProjectsFilter } from '../slices/filtersSlice';
+
 export const getFilteredFreaks = (freaks, filters) => {
     const getSkillFilteredFreaks = () => {
       if (filters.skills.length === 0) {
@@ -37,3 +39,19 @@ export const getFilteredFreaks = (freaks, filters) => {
 
     return intersection(getSkillFilteredFreaks(), getProjectFilteredFreaks());
   }
+
+ export const getFilterSetter = (type) => {
+    switch (type) {
+      case 'Skills' : return setSkillsFilter;
+      case 'Projects': return setProjectsFilter;
+      default: return null;
+    }
+  };
+
+export  const getFilterResetter = (type) => {
+    switch (type) {
+      case 'Skills' : return resetSkillsFilter;
+      case 'Projects': return resetProjectsFilter;
+      default: return null;
+    }
+  };
