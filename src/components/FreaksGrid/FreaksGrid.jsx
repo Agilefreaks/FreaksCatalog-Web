@@ -6,7 +6,7 @@ import './FreaksGrid.scss';
 import { PhotoModelProps } from '../../models/freak';
 
 function FreaksGrid({ freaks }) {
-  const filters = useSelector((state) => state.filters.skills);
+  const filters = useSelector((state) => state.filters);
 
   const getTiles = () => {
     const getFreakTiles = freaks => { return freaks.map((freak) => (
@@ -19,12 +19,12 @@ function FreaksGrid({ freaks }) {
       ))};
 
       const getFilteredFreaks = () => {
-        if (filters.length === 0) {
+        if (filters.skills.length === 0) {
           return freaks;
         }
 
         const isFilteredTech = tech => {
-          return filters.some(filter => filter === tech.name)
+          return filters.skills.some(filter => filter === tech.name)
         };
 
         const hasFilteredTech = freak => {
