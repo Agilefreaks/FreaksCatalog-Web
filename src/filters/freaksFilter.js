@@ -1,57 +1,47 @@
 import { setSkillsFilter, resetSkillsFilter, setProjectsFilter, resetProjectsFilter } from '../slices/filtersSlice';
 
 export const getFilteredFreaks = (freaks, filters) => {
-    const getSkillFilteredFreaks = () => {
-      if (filters.skills.length === 0) {
-        return freaks;
-      }
+  const getSkillFilteredFreaks = () => {
+    if (filters.skills.length === 0) {
+      return freaks;
+    }
 
-      const isFilteredTech = tech => {
-        return filters.skills.some(filter => filter === tech.name)
-      };
+    const isFilteredTech = (tech) => filters.skills.some((filter) => filter === tech.name);
 
-      const hasFilteredTech = freak => {
-        return freak.technologies.some(tech => isFilteredTech(tech))
-      };
+    const hasFilteredTech = (freak) => freak.technologies.some((tech) => isFilteredTech(tech));
 
-      return freaks.filter( freak => hasFilteredTech(freak));
-    };
+    return freaks.filter((freak) => hasFilteredTech(freak));
+  };
 
-    const getProjectFilteredFreaks = () => {
-      if (filters.projects.length === 0) {
-        return freaks;
-      }
+  const getProjectFilteredFreaks = () => {
+    if (filters.projects.length === 0) {
+      return freaks;
+    }
 
-      const isFilteredProj = proj => {
-        return filters.projects.some(filter => filter === proj.name)
-      };
+    const isFilteredProj = (proj) => filters.projects.some((filter) => filter === proj.name);
 
-      const hasFilteredProj = freak => {
-        return freak.projects.some(tech => isFilteredProj(tech))
-      };
+    const hasFilteredProj = (freak) => freak.projects.some((tech) => isFilteredProj(tech));
 
-      return freaks.filter( freak => hasFilteredProj(freak));
-    };
+    return freaks.filter((freak) => hasFilteredProj(freak));
+  };
 
-    const intersection = (arr1, arr2) => {
-      return arr1.filter(x => arr2.includes(x));
-    };
+  const intersection = (arr1, arr2) => arr1.filter((x) => arr2.includes(x));
 
-    return intersection(getSkillFilteredFreaks(), getProjectFilteredFreaks());
+  return intersection(getSkillFilteredFreaks(), getProjectFilteredFreaks());
+};
+
+export const getFilterSetter = (type) => {
+  switch (type) {
+    case 'Skills': return setSkillsFilter;
+    case 'Projects': return setProjectsFilter;
+    default: return null;
   }
+};
 
- export const getFilterSetter = (type) => {
-    switch (type) {
-      case 'Skills' : return setSkillsFilter;
-      case 'Projects': return setProjectsFilter;
-      default: return null;
-    }
-  };
-
-export  const getFilterResetter = (type) => {
-    switch (type) {
-      case 'Skills' : return resetSkillsFilter;
-      case 'Projects': return resetProjectsFilter;
-      default: return null;
-    }
-  };
+export const getFilterResetter = (type) => {
+  switch (type) {
+    case 'Skills': return resetSkillsFilter;
+    case 'Projects': return resetProjectsFilter;
+    default: return null;
+  }
+};

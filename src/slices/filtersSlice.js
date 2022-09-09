@@ -5,10 +5,10 @@ const filtersSlice = createSlice({
   initialState: { skills: [], projects: [] },
   reducers: {
     setSkillsFilter(state, action) {
-      return { ...state, skills: [ ...action.payload ]};
+      return { ...state, skills: [ ...action.payload ] };
     },
     resetSkillsFilter(state) {
-      return {...state, skills: []};
+      return { ...state, skills: [] };
     },
     setProjectsFilter(state, action) {
       return { ...state, projects: [ ...action.payload ] };
@@ -19,5 +19,8 @@ const filtersSlice = createSlice({
   },
 });
 
-export const { setSkillsFilter, resetSkillsFilter, setProjectsFilter, resetProjectsFilter } = filtersSlice.actions;
+export const {
+  setSkillsFilter, resetSkillsFilter,
+  setProjectsFilter, resetProjectsFilter,
+} = filtersSlice.actions;
 export default filtersSlice.reducer;
