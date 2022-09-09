@@ -44,14 +44,19 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
     queuedFilters.current = [];
     const resetFilter = getFilterResetter();
     dispatch(resetFilter());
-  }
+  };
+
+  const resetModal = () => {
+    resetFilters();
+    setOpenModal(false);
+  };
 
   const getHeader = () => (
     <Button
       className="app-button -gray"
       type="button"
       variant="default"
-      onClick={ () => resetFilters() }
+      onClick={ () => resetModal() }
     >
       Reset
     </Button>
