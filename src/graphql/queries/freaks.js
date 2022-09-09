@@ -27,6 +27,10 @@ const getAll = () => gql`
           name
           description
         }
+        projects {
+          id
+          name
+        }
       }
     }
     technologies {
