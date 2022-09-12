@@ -9,11 +9,13 @@
     "eject": "react-scripts eject",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "npx eslint \"**/*.js\"",
-    "lint:css": "npx stylelint \"**/*.scss\""
+    "lint:css": "npx stylelint \"**/*.scss\"",
+    "format": "npm run format:js && npm run format:css",
+    "format:js": "prettier-eslint --write 'src/**/*.{js,jsx}'",
+    "format:css": "prettier-stylelint --write 'src/**/*.{css,scss}'"
   },
   "dependencies": {
     "@apollo/client": "3.6.9",
-    "graphql": "16.6.0",
     "@fortawesome/fontawesome-free": "6.2.0",
     "@fortawesome/fontawesome-svg-core": "6.2.0",
     "@fortawesome/free-solid-svg-icons": "6.2.0",
@@ -21,6 +23,7 @@
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "bootstrap": "5.0.2",
+    "graphql": "16.6.0",
     "prop-types": "15.8.1",
     "react": "18.2.0",
     "react-bootstrap": "2.5.0",
@@ -52,6 +55,9 @@
     "@babel/preset-react": "7.18.6",
     "eslint": "8.23.0",
     "eslint-config-airbnb": "19.0.4",
+    "prettier-eslint": "15.0.1",
+    "prettier-eslint-cli": "7.1.0",
+    "prettier-stylelint": "0.4.2",
     "sass": "1.54.8",
     "stylelint": "14.11.0",
     "stylelint-config-standard": "28.0.0"

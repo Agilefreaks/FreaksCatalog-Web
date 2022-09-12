@@ -6,27 +6,20 @@ import { PhotoModelProps } from '../../models/freak';
 
 function FreaksGrid({ freaks }) {
   const tiles = freaks.map((freak) => (
-    <FreakTile
-      id={ freak.id }
-      name={ freak.firstName }
-      photo={ freak.photo }
-      key={ freak.id }
-    />
+    <FreakTile id={ freak.id } name={ freak.firstName } photo={ freak.photo } key={ freak.id } />
   ));
 
-  return (
-    <div className="tiles">
-      { tiles }
-    </div>
-  );
+  return <div className="tiles">{ tiles }</div>;
 }
 
 FreaksGrid.propTypes = {
-  freaks: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    firstName: PropTypes.string,
-    photo: PropTypes.shape(PhotoModelProps),
-  })).isRequired,
+  freaks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      firstName: PropTypes.string,
+      photo: PropTypes.shape(PhotoModelProps),
+    }),
+  ).isRequired,
 };
 
 export default FreaksGrid;

@@ -32,10 +32,9 @@ function mapFreak(freak) {
 function AddFreakModal({ title, isOpen, onClose }) {
   const [ freak, setFreak ] = useState(FreakModelDefault);
 
-  const [ mutateFunction, {
-    loading,
-    error,
-  } ] = useMutation(CreateFreakMutation.FreakCreate());
+  const [ mutateFunction, { loading, error } ] = useMutation(
+    CreateFreakMutation.FreakCreate(),
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,11 +74,7 @@ function AddFreakModal({ title, isOpen, onClose }) {
       footerContent={ getFooter() }
       onClose={ onClose }
     >
-      <EditFreakForm
-        freak={ freak }
-        onChange={ setFreak }
-        onSubmit={ handleSubmit }
-      />
+      <EditFreakForm freak={ freak } onChange={ setFreak } onSubmit={ handleSubmit } />
     </Modal>
   );
 }

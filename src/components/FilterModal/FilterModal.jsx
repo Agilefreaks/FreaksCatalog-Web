@@ -19,11 +19,7 @@ function FilterModal({ title, isOpen, onClose, keywords }) {
   );
 
   const getFooter = () => (
-    <Button
-      className="app-button -large py-2 px-5"
-      variant="primary"
-      disabled
-    >
+    <Button className="app-button -large py-2 px-5" variant="primary" disabled>
       Apply
     </Button>
   );

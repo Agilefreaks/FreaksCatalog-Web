@@ -28,15 +28,8 @@ function ConfirmDeleteModal({ title, isOpen, onClose, deleteMessage }) {
   );
 
   return (
-    <Modal
-      title={ title }
-      isOpen={ isOpen }
-      footerContent={ getFooter() }
-      onClose={ onClose }
-    >
-      <div className="delete-message">
-        { deleteMessage }
-      </div>
+    <Modal title={ title } isOpen={ isOpen } footerContent={ getFooter() } onClose={ onClose }>
+      <div className="delete-message">{ deleteMessage }</div>
     </Modal>
   );
 }
