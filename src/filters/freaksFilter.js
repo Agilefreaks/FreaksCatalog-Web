@@ -1,32 +1,27 @@
 import { setSkillsFilter, resetSkillsFilter, setProjectsFilter, resetProjectsFilter } from '../slices/filtersSlice';
 
 export const getFilteredFreaks = (freaks, filters) => {
-  const getSkillFilteredFreaks = () => {
-    if (filters.skills.length === 0) {
+  const getAttributeFilteredFreaks = (attrName, attrFilters) => {
+    if (attrFilters.length === 0) {
       return freaks;
     }
 
-    const hasAllFilteredTechs = (freak) => {
-      const techs = filters.skills;
-      const skills = freak.technologies.map((tech) => tech.name);
+    const isAttrFiltered = (attrs, filter) => attrs.some((attr) => attr === filter);
 
-      return techs.every((tech) => skills.some((skill) => skill === tech));
+    const matchesFilters = (attrs) => attrFilters.every((filter) => isAttrFiltered(attrs, filter));
+
+    const hasAllFilteredAttrs = (freak) => {
+      const attrs = freak[attrName].map((tech) => tech.name);
+
+      return matchesFilters(attrs);
     };
 
-    return freaks.filter((freak) => hasAllFilteredTechs(freak));
+    return freaks.filter((freak) => hasAllFilteredAttrs(freak));
   };
 
-  const getProjectFilteredFreaks = () => {
-    if (filters.projects.length === 0) {
-      return freaks;
-    }
+  const getSkillFilteredFreaks = () => getAttributeFilteredFreaks('technologies', filters.skills);
 
-    const isFilteredProj = (proj) => filters.projects.some((filter) => filter === proj.name);
-
-    const hasFilteredProj = (freak) => freak.projects.some((tech) => isFilteredProj(tech));
-
-    return freaks.filter((freak) => hasFilteredProj(freak));
-  };
+  const getProjectFilteredFreaks = () => getAttributeFilteredFreaks('projects', filters.projects);
 
   const intersection = (arr1, arr2) => arr1.filter((x) => arr2.includes(x));
 
