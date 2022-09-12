@@ -45,7 +45,7 @@ describe('CheckBoxList', () => {
 
     fireEvent.click(elements[0]);
 
-    expect(onChange).toHaveBeenCalledWith([ 'Kotlin' ], 'Kotlin', true);
+    expect(onChange).toHaveBeenCalledWith([ 'Kotlin' ]);
   });
 
   it('should render the checkboxes as selected depending on the checkedState', () => {
@@ -80,6 +80,6 @@ describe('CheckBoxList', () => {
 
     fireEvent.click(elements[0]);
 
-    expect(onChange).toHaveBeenCalledWith([], 'Kotlin', false);
+    expect(onChange).toHaveBeenCalledWith([]);
   });
 });
