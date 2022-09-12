@@ -6,11 +6,14 @@ export const getFilteredFreaks = (freaks, filters) => {
       return freaks;
     }
 
-    const isFilteredTech = (tech) => filters.skills.some((filter) => filter === tech.name);
+    const hasAllFilteredTechs = (freak) => {
+      const techs = filters.skills;
+      const skills = freak.technologies.map((tech) => tech.name);
 
-    const hasFilteredTech = (freak) => freak.technologies.some((tech) => isFilteredTech(tech));
+      return techs.every((tech) => skills.some((skill) => skill === tech));
+    };
 
-    return freaks.filter((freak) => hasFilteredTech(freak));
+    return freaks.filter((freak) => hasAllFilteredTechs(freak));
   };
 
   const getProjectFilteredFreaks = () => {
