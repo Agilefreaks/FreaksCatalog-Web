@@ -22,15 +22,10 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
     setOpenModal(false);
   };
 
-  const resetFilters = () => {
+  const resetModal = () => {
     setCheckedState([]);
     queuedFilters.current = [];
-    const resetFilter = getFilterResetter(title);
-    dispatch(resetFilter());
-  };
-
-  const resetModal = () => {
-    resetFilters();
+    dispatch(getFilterResetter(title)());
     setOpenModal(false);
   };
 
