@@ -11,8 +11,8 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
 
-  const onChangeCb = (result, name, checked) => {
-    setCheckedState(result, name, checked);
+  const onChangeCb = (result) => {
+    setCheckedState(result);
     queuedFilters.current = [...result];
   };
 
