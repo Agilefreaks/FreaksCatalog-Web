@@ -1,4 +1,9 @@
-import { setSkillsFilter, resetSkillsFilter, setProjectsFilter, resetProjectsFilter } from '../slices/filtersSlice';
+import {
+  setSkillsFilter,
+  resetSkillsFilter,
+  setProjectsFilter,
+  resetProjectsFilter,
+} from '../slices/filtersSlice';
 
 export const getFilteredFreaks = (freaks, filters) => {
   const getAttributeFilteredFreaks = (attrName, attrFilters) => {
@@ -30,16 +35,22 @@ export const getFilteredFreaks = (freaks, filters) => {
 
 export const getFilterSetter = (type) => {
   switch (type) {
-    case 'Skills': return setSkillsFilter;
-    case 'Projects': return setProjectsFilter;
-    default: return null;
+    case 'Skills':
+      return setSkillsFilter;
+    case 'Projects':
+      return setProjectsFilter;
+    default:
+      return null;
   }
 };
 
 export const getFilterResetter = (type) => {
   switch (type) {
-    case 'Skills': return resetSkillsFilter;
-    case 'Projects': return resetProjectsFilter;
-    default: return null;
+    case 'Skills':
+      return resetSkillsFilter;
+    case 'Projects':
+      return resetProjectsFilter;
+    default:
+      return null;
   }
 };

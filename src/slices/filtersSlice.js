@@ -20,7 +20,9 @@ const filtersSlice = createSlice({
 });
 
 export const {
-  setSkillsFilter, resetSkillsFilter,
-  setProjectsFilter, resetProjectsFilter,
+  setSkillsFilter,
+  resetSkillsFilter,
+  setProjectsFilter,
+  resetProjectsFilter,
 } = filtersSlice.actions;
 export default filtersSlice.reducer;

@@ -13,12 +13,12 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
 
   const onChangeCb = (result) => {
     setCheckedState(result);
-    queuedFilters.current = [...result];
+    queuedFilters.current = [ ...result ];
   };
 
   const onClickCb = () => {
     const setFilter = getFilterSetter(title);
-    dispatch(setFilter(queuedFilters.current))
+    dispatch(setFilter(queuedFilters.current));
     setOpenModal(false);
   };
 
@@ -44,7 +44,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
     <Button
       className="app-button -large py-2 px-5"
       variant="primary"
-      onClick={() => onClickCb()}
+      onClick={ () => onClickCb() }
     >
       Apply
     </Button>

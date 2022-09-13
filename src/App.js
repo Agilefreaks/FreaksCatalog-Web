@@ -20,7 +20,9 @@ function App() {
     <Provider store={ store }>
       <Router>
         <div className="app">
-          <div className="app__title"><h1>FREAKS</h1></div>
+          <div className="app__title">
+            <h1>FREAKS</h1>
+          </div>
           <div className="app__content">
             <Switch>
               <Route exact path="/">
