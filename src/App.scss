@@ -6,7 +6,7 @@
   flex-direction: column;
 
   &__title {
-    background-color: rgba(16 95 191 / 80%);
+    background: linear-gradient(to right, rgb(179 198 220) 5%, rgb(16 95 191) 90%);
     margin: 0;
     height: 2.5rem;
     color: white;
