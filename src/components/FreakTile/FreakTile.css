@@ -6,6 +6,15 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 15px 15px -10px rgba(0, 0, 0, 0.75);
+  display: block;
+}
+
+.tile:hover {
+  animation: zoomin 0.3s forwards;
+}
+
+@keyframes zoomin {
+  100% { transform: scale(1.2, 1.2); }
 }
 
 .tile::after {
