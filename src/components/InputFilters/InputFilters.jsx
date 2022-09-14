@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/input-filters.scss';
 
@@ -17,11 +17,19 @@ function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
     setFilteredText(event.target.value);
   };
 
-  const onKeyDownCb = (event) => {
-    if (event.keyCode === 27) {
+  const onKeydownCb = useCallback((event) => {
+    if (event.key === 'Escape') {
       setOpenModal(false);
     }
-  };
+  });
+
+  useEffect(() => {
+    document.addEventListener('keydown', onKeydownCb, false);
+
+    return () => {
+      document.removeEventListener('keydown', onKeydownCb, false);
+    };
+  }, []);
 
   return (
     <input
@@ -29,7 +37,6 @@ function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
       className="input-filters"
       onChange={ onChangeFilteredTextCb }
       ref={ inputRef }
-      onKeyDown={ onKeyDownCb }
     />
   );
 }
