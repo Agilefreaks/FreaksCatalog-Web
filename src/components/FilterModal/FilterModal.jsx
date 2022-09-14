@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -40,6 +40,9 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
     setOpenModal(false);
   };
   const [ filteredText, setFilteredText ] = useState(null);
+  const inputRef = useRef();
+
+  useEffect(() => inputRef.current && inputRef.current.focus(), [ isOpen ]);
 
   const getHeader = () => (
     <Button
@@ -74,7 +77,12 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
       footerContent={ getFooter() }
       onClose={ onClose }
     >
-      <input type="text" className="input-filters" onChange={ onChangeFilteredTextCb } />
+      <input
+        type="text"
+        className="input-filters"
+        onChange={ onChangeFilteredTextCb }
+        ref={ inputRef }
+      />
       <CheckBoxList
         keywords={ keywords }
         checkedState={ checkedState }
