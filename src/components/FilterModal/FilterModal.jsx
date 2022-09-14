@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import CheckBoxList from '../CheckBoxList/CheckBoxList';
+import '../../styles/FilterModal/input-filters.scss';
 import { getFilterSetter, getFilterResetter } from '../../filters/freaksFilter';
 
 function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId }) {
@@ -73,7 +74,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
       footerContent={ getFooter() }
       onClose={ onClose }
     >
-      <input type="text" onChange={ onChangeFilteredTextCb } />
+      <input type="text" className="input-filters" onChange={ onChangeFilteredTextCb } />
       <CheckBoxList
         keywords={ keywords }
         checkedState={ checkedState }
