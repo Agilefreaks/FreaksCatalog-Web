@@ -5,17 +5,7 @@ import '../../styles/input-filters.scss';
 function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
   const inputRef = useRef();
 
-  const focusInputTextbox = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
-
-  useEffect(() => focusInputTextbox(), [ isOpen ]);
-
-  const onChangeFilteredTextCb = (event) => {
-    setFilteredText(event.target.value);
-  };
+  useEffect(() => inputRef.current && inputRef.current.focus(), [ isOpen ]);
 
   const onKeydownCb = useCallback((event) => {
     if (event.key === 'Escape') {
@@ -35,7 +25,9 @@ function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
     <input
       type="text"
       className="input-filters"
-      onChange={ onChangeFilteredTextCb }
+      onChange={ (event) => {
+        setFilteredText(event.target.value);
+      } }
       ref={ inputRef }
     />
   );
