@@ -40,7 +40,7 @@ function CheckBoxList({ checkedState, onChange, keywords, filteredText }) {
 CheckBoxList.propTypes = {
   checkedState: PropTypes.instanceOf(Array).isRequired,
   onChange: PropTypes.func.isRequired,
-  filteredText: PropTypes.string,
+  filteredText: PropTypes.string.isRequired,
   keywords: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
