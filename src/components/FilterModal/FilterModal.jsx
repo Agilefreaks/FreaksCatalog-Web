@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import CheckBoxList from '../CheckBoxList/CheckBoxList';
-import '../../styles/FilterModal/input-filters.scss';
 import { getFilterSetter, getFilterResetter } from '../../filters/freaksFilter';
+import InputFilters from '../InputFilters/InputFilters';
 
 function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId }) {
   const [ checkedState, setCheckedState ] = useState([]);
@@ -40,36 +40,6 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
     setOpenModal(false);
   };
   const [ filteredText, setFilteredText ] = useState(null);
-  const inputRef = useRef();
-
-  const focusInputTextbox = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
-
-  useEffect(() => focusInputTextbox(), [ isOpen ]);
-
-  const clearInputTextbox = () => {
-    inputRef.current.value = null;
-    setFilteredText(null);
-  };
-
-  useEffect(() => {
-    if (!isOpen) {
-      clearInputTextbox();
-    }
-  }, [ isOpen ]);
-
-  const keyDownCb = (event) => {
-    if (event.keyCode === 27) {
-      setOpenModal(false);
-    }
-  };
-
-  const onChangeFilteredTextCb = (event) => {
-    setFilteredText(event.target.value);
-  };
 
   const getHeader = () => (
     <Button
@@ -100,12 +70,10 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
       footerContent={ getFooter() }
       onClose={ onClose }
     >
-      <input
-        type="text"
-        className="input-filters"
-        onChange={ onChangeFilteredTextCb }
-        ref={ inputRef }
-        onKeyDown={ keyDownCb }
+      <InputFilters
+        isOpen={ isOpen }
+        setOpenModal={ setOpenModal }
+        setFilteredText={ setFilteredText }
       />
       <CheckBoxList
         keywords={ keywords }
