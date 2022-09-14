@@ -38,6 +38,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
 
     setOpenModal(false);
   };
+  const [ filteredText, setFilteredText ] = useState(null);
 
   const getHeader = () => (
     <Button
@@ -60,6 +61,10 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
     </Button>
   );
 
+  const onChangeFilteredTextCb = (event) => {
+    setFilteredText(event.target.value);
+  };
+
   return (
     <Modal
       title={ title }
@@ -68,10 +73,12 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
       footerContent={ getFooter() }
       onClose={ onClose }
     >
+      <input type="text" onChange={ onChangeFilteredTextCb } />
       <CheckBoxList
         keywords={ keywords }
         checkedState={ checkedState }
         onChange={ updateSelectedFilters }
+        filteredText={ filteredText }
       />
     </Modal>
   );
