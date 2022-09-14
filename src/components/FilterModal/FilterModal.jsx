@@ -50,10 +50,14 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
 
   useEffect(() => focusInputTextbox(), [ isOpen ]);
 
+  const clearInputTextbox = () => {
+    inputRef.current.value = null;
+    setFilteredText(null);
+  };
+
   useEffect(() => {
     if (!isOpen) {
-      inputRef.current.value = null;
-      setFilteredText(null);
+      clearInputTextbox();
     }
   }, [ isOpen ]);
 
