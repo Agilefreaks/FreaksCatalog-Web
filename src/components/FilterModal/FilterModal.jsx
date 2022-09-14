@@ -44,6 +44,23 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
 
   useEffect(() => inputRef.current && inputRef.current.focus(), [ isOpen ]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      inputRef.current.value = null;
+      setFilteredText(null);
+    }
+  }, [ isOpen ]);
+
+  const keyDownCb = (event) => {
+    if (event.keyCode === 27) {
+      setOpenModal(false);
+    }
+  };
+
+  const onChangeFilteredTextCb = (event) => {
+    setFilteredText(event.target.value);
+  };
+
   const getHeader = () => (
     <Button
       className="app-button -gray"
@@ -65,10 +82,6 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
     </Button>
   );
 
-  const onChangeFilteredTextCb = (event) => {
-    setFilteredText(event.target.value);
-  };
-
   return (
     <Modal
       title={ title }
@@ -82,6 +95,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
         className="input-filters"
         onChange={ onChangeFilteredTextCb }
         ref={ inputRef }
+        onKeyDown={ keyDownCb }
       />
       <CheckBoxList
         keywords={ keywords }
