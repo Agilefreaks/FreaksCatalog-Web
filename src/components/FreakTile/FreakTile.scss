@@ -7,9 +7,10 @@
   overflow: hidden;
   box-shadow: 0 15px 15px -10px rgba(0 0 0 / 75%);
   display: block;
+  transition: transform 0.4s ease-out;
 
   &:hover {
-    animation: zoomin 0.3s forwards ease-in-out;
+    transform: scale(1.1, 1.1);
   }
 
   &::after {
@@ -40,9 +41,4 @@
     transform: translate(-50%, 0%);
     z-index: 1;
   }
-}
-
-@keyframes zoomin {
-  0% { transform: scale(1, 1); }
-  100% { transform: scale(1.2, 1.2); }
 }
