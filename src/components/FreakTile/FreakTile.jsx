@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './FreakTile.css';
+import './FreakTile.scss';
 import { Link } from 'react-router-dom';
 import { PhotoModelProps } from '../../models/freak';
 import logo from '../../images/logo-only-blue.svg';
