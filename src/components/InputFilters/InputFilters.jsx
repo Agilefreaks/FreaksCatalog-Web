@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
 import '../../styles/input-filters.scss';
 
 function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
@@ -24,9 +25,7 @@ function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
   }, []);
 
   return (
-    <input
-      type="text"
-      className="input-filters"
+    <Form.Control
       onChange={ (event) => {
         setFilteredText(event.target.value);
       } }
