@@ -3,26 +3,12 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import '../../styles/input-filters.scss';
 
-function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
+function InputFilters({ isOpen, setFilteredText }) {
   const inputRef = useRef();
 
   useEffect(() => {
     if (isOpen) inputRef.current?.focus();
   }, [ isOpen ]);
-
-  const onKeydownCb = useCallback((event) => {
-    if (event.key === 'Escape') {
-      setOpenModal(false);
-    }
-  });
-
-  useEffect(() => {
-    document.addEventListener('keydown', onKeydownCb, false);
-
-    return () => {
-      document.removeEventListener('keydown', onKeydownCb, false);
-    };
-  }, []);
 
   return (
     <Form.Control

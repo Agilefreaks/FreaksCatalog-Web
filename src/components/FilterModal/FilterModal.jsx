@@ -6,11 +6,17 @@ import Modal from '../Modal/Modal';
 import CheckBoxList from '../CheckBoxList/CheckBoxList';
 import { getFilterSetter, getFilterResetter } from '../../filters/freaksFilter';
 import InputFilters from '../InputFilters/InputFilters';
+import useKeyDownListener from '../../hooks/useKeyDownListener';
 
 function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId }) {
   const [ checkedState, setCheckedState ] = useState([]);
+  const [ filteredText, setFilteredText ] = useState(null);
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
+
+  useKeyDownListener('Escape', () => {
+    setOpenModal(false);
+  });
 
   const updateSelectedFilters = (result) => {
     setCheckedState(result);
@@ -27,6 +33,10 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
     setOpenModal(false);
   };
 
+  useKeyDownListener('Escape', () => {
+    setOpenModal(false);
+  });
+
   const resetModal = () => {
     setCheckedState([]);
     queuedFilters.current = [];
@@ -39,7 +49,6 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
 
     setOpenModal(false);
   };
-  const [ filteredText, setFilteredText ] = useState(null);
 
   const getHeader = () => (
     <Button
