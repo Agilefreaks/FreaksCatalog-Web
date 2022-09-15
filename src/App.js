@@ -19,12 +19,12 @@ function App() {
       <Router>
         <div className="app">
           <div className="app__title">
-            <span className="title-letter">F</span>
-            <span className="title-letter">R</span>
-            <span className="title-letter">E</span>
-            <span className="title-letter">A</span>
-            <span className="title-letter">K</span>
-            <span className="title-letter">S</span>
+            <span className="jelly-letter">F</span>
+            <span className="jelly-letter">R</span>
+            <span className="jelly-letter">E</span>
+            <span className="jelly-letter">A</span>
+            <span className="jelly-letter">K</span>
+            <span className="jelly-letter">S</span>
             <Menu />
           </div>
           <div className="app__content">
