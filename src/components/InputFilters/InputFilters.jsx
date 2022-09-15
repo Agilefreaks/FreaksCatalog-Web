@@ -5,7 +5,9 @@ import '../../styles/input-filters.scss';
 function InputFilters({ isOpen, setOpenModal, setFilteredText }) {
   const inputRef = useRef();
 
-  useEffect(() => inputRef.current && inputRef.current.focus(), [ isOpen ]);
+  useEffect(() => {
+    if (isOpen) inputRef.current?.focus();
+  }, [ isOpen ]);
 
   const onKeydownCb = useCallback((event) => {
     if (event.key === 'Escape') {
