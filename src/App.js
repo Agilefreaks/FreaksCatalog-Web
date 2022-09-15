@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars, faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import JellyText from './components/JellyText/JellyText';
 import { store } from './store/store';
 import './App.scss';
-import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
@@ -19,12 +19,7 @@ function App() {
       <Router>
         <div className="app">
           <div className="app__title">
-            <span className="jelly-letter">F</span>
-            <span className="jelly-letter">R</span>
-            <span className="jelly-letter">E</span>
-            <span className="jelly-letter">A</span>
-            <span className="jelly-letter">K</span>
-            <span className="jelly-letter">S</span>
+            <JellyText text="FREAKS" />
             <Menu />
           </div>
           <div className="app__content">
