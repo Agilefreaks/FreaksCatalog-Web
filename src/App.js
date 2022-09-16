@@ -9,7 +9,6 @@ import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
-import PagesMenu from './components/PagesMenu/PagesMenu';
 import MenuButton from './components/MenuModal/MenuButton';
 
 library.add(faBars, faTimes, faUserPlus);
@@ -36,7 +35,6 @@ function App() {
               </Route>
             </Switch>
           </div>
-          <PagesMenu />
         </div>
       </Router>
     </Provider>
