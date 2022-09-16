@@ -1,19 +1,36 @@
+$opacity-transition-duration: 0.2s;
+$translate-transition-duration: 0.1s;
+
 .drawer {
   &-wrapper {
+    opacity: 1;
+    transition: opacity $opacity-transition-duration linear;
+
     &-hidden {
-      display: none;
+      opacity: 0;
+      transition: opacity $opacity-transition-duration linear;
     }
   }
 
   &-content {
     color: pink;
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 15%;
     right: 0;
     top: 0;
     background-color: white;
     z-index: 4;
+
+    &-opened {
+      animation: transition-in $translate-transition-duration ease-in forwards;
+    }
+
+    &-closed {
+      animation: transition-out $translate-transition-duration ease-in forwards;
+      opacity: 0;
+      transition: opacity 1s linear;
+    }
   }
 
   &-shadow-overlay {
@@ -24,4 +41,14 @@
     left: 0;
     top: 0;
   }
+}
+
+@keyframes transition-out {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes transition-in {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
 }

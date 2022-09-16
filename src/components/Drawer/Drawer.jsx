@@ -11,7 +11,9 @@ function Drawer({ isOpen, setOpenModal, children }) {
           setOpenModal(false);
         } }
       />
-      <div className="drawer-content">{ children }</div>
+      <div className={ `drawer-content drawer-content-${ isOpen ? 'opened' : 'closed' }` }>
+        { children }
+      </div>
     </div>
   );
 }
