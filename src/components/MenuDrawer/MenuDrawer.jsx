@@ -6,7 +6,11 @@ import PagesMenu from '../PagesMenu/PagesMenu';
 function MenuDrawer({ isOpen, setOpenModal }) {
   return (
     <Drawer isOpen={ isOpen } setOpenModal={ setOpenModal }>
-      <PagesMenu />
+      <PagesMenu
+        onClick={ () => {
+          setOpenModal(false);
+        } }
+      />
     </Drawer>
   );
 }
