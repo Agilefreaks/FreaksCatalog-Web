@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
-import './button-menu.scss';
+import './styles/menu-button.scss';
 import PropTypes from 'prop-types';
 
 function MenuButton({ onClick }) {
