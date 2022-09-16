@@ -9,7 +9,7 @@ import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
-import MenuButton from './components/MenuModal/MenuButton';
+import Menu from './components/MenuModal/Menu';
 
 library.add(faBars, faTimes, faUserPlus);
 
@@ -20,7 +20,7 @@ function App() {
         <div className="app">
           <div className="app__title">
             <h1>FREAKS</h1>
-            <MenuButton />
+            <Menu />
           </div>
           <div className="app__content">
             <Switch>
