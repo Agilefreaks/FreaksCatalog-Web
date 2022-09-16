@@ -8,7 +8,8 @@ $translate-transition-duration: 0.1s;
 
     &-hidden {
       opacity: 0;
-      transition: opacity $opacity-transition-duration linear;
+      visibility: hidden;
+      transition: visibility 0.2s, opacity $opacity-transition-duration linear;
     }
   }
 
