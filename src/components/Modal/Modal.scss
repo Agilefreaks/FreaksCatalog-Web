@@ -28,7 +28,7 @@
 }
 
 .af-modal {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
@@ -45,6 +45,7 @@
     width: 100%;
     max-height: 47.5rem;
     background-color: #fff;
+    margin-top: 2%;
   }
 
   &__header {
