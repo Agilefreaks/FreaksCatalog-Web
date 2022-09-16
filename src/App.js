@@ -9,7 +9,8 @@ import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
-import Menu from './components/MenuModal/Menu';
+import PagesMenu from './components/PagesMenu/PagesMenu';
+import Menu from './components/MenuDrawer/Menu';
 
 library.add(faBars, faTimes, faUserPlus);
 

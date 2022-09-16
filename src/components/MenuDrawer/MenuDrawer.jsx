@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../Modal/Modal';
+import Drawer from '../Drawer/Drawer';
 import PagesMenu from '../PagesMenu/PagesMenu';
 
-function MenuModal({ isOpen, onClose }) {
+function MenuDrawer({ isOpen }) {
   const getHeader = () => <></>;
 
   const getFooter = () => <></>;
 
   return (
-    <Modal
+    <Drawer
       title="MENU"
       isOpen={ isOpen }
       headerContent={ getHeader() }
@@ -17,13 +17,13 @@ function MenuModal({ isOpen, onClose }) {
       onClose={ onClose }
     >
       <PagesMenu />
-    </Modal>
+    </Drawer>
   );
 }
 
-MenuModal.propTypes = {
+MenuDrawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
-export default MenuModal;
+export default MenuDrawer;

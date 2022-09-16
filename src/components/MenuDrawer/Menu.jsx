@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MenuButton from './MenuButton';
-import MenuModal from './MenuModal';
+import MenuModal from './MenuDrawer';
 
 function Menu() {
   const [ isOpen, setOpenModal ] = useState(false);
