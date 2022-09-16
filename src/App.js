@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { store } from './store/store';
 import './App.scss';
@@ -10,8 +10,9 @@ import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
 import PagesMenu from './components/PagesMenu/PagesMenu';
+import MenuButton from './components/MenuModal/MenuButton';
 
-library.add(faTimes, faUserPlus);
+library.add(faBars, faTimes, faUserPlus);
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <div className="app">
           <div className="app__title">
             <h1>FREAKS</h1>
+            <MenuButton />
           </div>
           <div className="app__content">
             <Switch>
