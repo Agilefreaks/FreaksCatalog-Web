@@ -3,19 +3,9 @@ import PropTypes from 'prop-types';
 import Drawer from '../Drawer/Drawer';
 import PagesMenu from '../PagesMenu/PagesMenu';
 
-function MenuDrawer({ isOpen }) {
-  const getHeader = () => <></>;
-
-  const getFooter = () => <></>;
-
+function MenuDrawer({ isOpen, setOpenModal }) {
   return (
-    <Drawer
-      title="MENU"
-      isOpen={ isOpen }
-      headerContent={ getHeader() }
-      footerContent={ getFooter() }
-      onClose={ onClose }
-    >
+    <Drawer isOpen={ isOpen } setOpenModal={ setOpenModal }>
       <PagesMenu />
     </Drawer>
   );
@@ -23,7 +13,7 @@ function MenuDrawer({ isOpen }) {
 
 MenuDrawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
+  setOpenModal: PropTypes.func.isRequired,
 };
 
 export default MenuDrawer;

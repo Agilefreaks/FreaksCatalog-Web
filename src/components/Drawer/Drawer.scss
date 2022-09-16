@@ -1,0 +1,27 @@
+.drawer {
+  &-wrapper {
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-content {
+    color: pink;
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    right: 0;
+    top: 0;
+    background-color: white;
+    z-index: 4;
+  }
+
+  &-shadow-overlay {
+    background-color: rgba(0 0 0 / 60%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+}

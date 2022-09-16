@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MenuButton from './MenuButton';
-import MenuModal from './MenuDrawer';
+import MenuDrawer from './MenuDrawer';
 
 function Menu() {
   const [ isOpen, setOpenModal ] = useState(false);
@@ -12,12 +12,7 @@ function Menu() {
           setOpenModal(true);
         } }
       />
-      <MenuModal
-        isOpen={ isOpen }
-        onClose={ () => {
-          setOpenModal(false);
-        } }
-      />
+      <MenuDrawer isOpen={ isOpen } setOpenModal={ setOpenModal } />
     </>
   );
 }
