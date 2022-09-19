@@ -6,7 +6,7 @@ import Modal from '../Modal/Modal';
 import CheckBoxList from '../CheckBoxList/CheckBoxList';
 import { getFilterSetter, getFilterResetter } from '../../filters/freaksFilter';
 
-function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
+function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId }) {
   const [ checkedState, setCheckedState ] = useState([]);
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
   };
 
   const onClickCb = () => {
-    const setFilter = getFilterSetter(title);
+    const setFilter = getFilterSetter(filterId);
     dispatch(setFilter(queuedFilters.current));
     setOpenModal(false);
   };
@@ -73,6 +73,7 @@ FilterModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   keywords: PropTypes.arrayOf(PropTypes.shape).isRequired,
   setOpenModal: PropTypes.func.isRequired,
+  filterId: PropTypes.string.isRequired,
 };
 
 export default FilterModal;
