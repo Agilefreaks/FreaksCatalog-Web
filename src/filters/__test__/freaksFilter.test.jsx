@@ -50,7 +50,7 @@ describe('freaksFilter', () => {
   });
 
   it('filter freaks by a single skill', () => {
-    const freaks = [ ...data.freaks ];
+    const { freaks } = data;
     const filters = makeSkillsFilter('Elm');
     const expectedFreaks = [
       [ 'Anda', 'Hugan' ],
