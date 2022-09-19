@@ -14,13 +14,15 @@ $translate-transition-duration: 0.1s;
   }
 
   &-content {
-    color: pink;
     position: fixed;
     height: 100%;
-    width: 15%;
+    padding-right: 5px;
     right: 0;
     top: 0;
     background-color: white;
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: column;
     z-index: 4;
 
     &-opened {
