@@ -34,7 +34,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal }) {
       className="app-button -gray"
       type="button"
       variant="default"
-      onClick={ () => resetModal() }
+      onClick={ resetModal }
     >
       Reset
     </Button>
