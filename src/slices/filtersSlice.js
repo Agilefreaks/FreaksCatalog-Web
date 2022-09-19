@@ -7,22 +7,20 @@ const filtersSlice = createSlice({
     setSkillsFilter(state, action) {
       return { ...state, skills: action.payload };
     },
-    resetSkillsFilter(state) {
-      return { ...state, skills: [] };
-    },
     setProjectsFilter(state, action) {
       return { ...state, projects: action.payload };
-    },
-    resetProjectsFilter(state) {
-      return { ...state, projects: [] };
     },
   },
 });
 
-export const {
-  setSkillsFilter,
-  resetSkillsFilter,
-  setProjectsFilter,
-  resetProjectsFilter,
-} = filtersSlice.actions;
+export const resetSkillsFilter = () => {
+  filtersSlice.setSkillsFilter([]);
+};
+
+export const resetProjectsFilter = () => {
+  filtersSlice.setProjectsFilter([]);
+};
+
+export const { setSkillsFilter, setProjectsFilter } = filtersSlice.actions;
+
 export default filtersSlice.reducer;
