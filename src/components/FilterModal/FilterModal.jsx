@@ -18,14 +18,24 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
 
   const applyFilters = () => {
     const setFilter = getFilterSetter(filterId);
-    dispatch(setFilter(queuedFilters.current));
+
+    if (setFilter !== null) {
+      dispatch(setFilter(queuedFilters.current));
+    }
+
     setOpenModal(false);
   };
 
   const resetModal = () => {
     setCheckedState([]);
     queuedFilters.current = [];
-    dispatch(getFilterResetter(title)());
+
+    const filterResetter = getFilterResetter(title);
+
+    if (filterResetter !== null) {
+      dispatch(filterResetter());
+    }
+
     setOpenModal(false);
   };
 
