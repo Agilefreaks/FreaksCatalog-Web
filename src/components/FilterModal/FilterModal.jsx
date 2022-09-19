@@ -41,11 +41,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
   );
 
   const getFooter = () => (
-    <Button
-      className="app-button -large py-2 px-5"
-      variant="primary"
-      onClick={ () => onClickCb() }
-    >
+    <Button className="app-button -large py-2 px-5" variant="primary" onClick={ onClickCb }>
       Apply
     </Button>
   );
