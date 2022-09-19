@@ -11,12 +11,12 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
 
-  const onChangeCb = (result) => {
+  const updateSelectedFilters = (result) => {
     setCheckedState(result);
     queuedFilters.current = [ ...result ];
   };
 
-  const onClickCb = () => {
+  const applyFilters = () => {
     const setFilter = getFilterSetter(filterId);
     dispatch(setFilter(queuedFilters.current));
     setOpenModal(false);
@@ -41,7 +41,11 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
   );
 
   const getFooter = () => (
-    <Button className="app-button -large py-2 px-5" variant="primary" onClick={ onClickCb }>
+    <Button
+      className="app-button -large py-2 px-5"
+      variant="primary"
+      onClick={ applyFilters }
+    >
       Apply
     </Button>
   );
@@ -57,7 +61,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
       <CheckBoxList
         keywords={ keywords }
         checkedState={ checkedState }
-        onChange={ onChangeCb }
+        onChange={ updateSelectedFilters }
       />
     </Modal>
   );
