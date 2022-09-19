@@ -13,11 +13,7 @@ function FreaksGrid({ freaks }) {
     <FreakTile id={ freak.id } name={ freak.firstName } photo={ freak.photo } key={ freak.id } />
   );
 
-  const getTiles = () => {
-    const getFreakTiles = (selectedFreaks) => selectedFreaks.map(renderFreakTile);
-
-    return getFreakTiles(getFilteredFreaks(freaks, filters));
-  };
+  const getTiles = () => getFilteredFreaks(freaks, filters).map(renderFreakTile);
 
   const [ tiles, setTiles ] = useState(getTiles);
 
