@@ -13,7 +13,7 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
 
   const updateSelectedFilters = (result) => {
     setCheckedState(result);
-    queuedFilters.current = [ ...result ];
+    queuedFilters.current = result;
   };
 
   const applyFilters = () => {
