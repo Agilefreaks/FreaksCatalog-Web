@@ -5,13 +5,13 @@ const filtersSlice = createSlice({
   initialState: { skills: [], projects: [] },
   reducers: {
     setSkillsFilter(state, action) {
-      return { ...state, skills: [ ...action.payload ] };
+      return { ...state, skills: action.payload };
     },
     resetSkillsFilter(state) {
       return { ...state, skills: [] };
     },
     setProjectsFilter(state, action) {
-      return { ...state, projects: [ ...action.payload ] };
+      return { ...state, projects: action.payload };
     },
     resetProjectsFilter(state) {
       return { ...state, projects: [] };
