@@ -9,15 +9,12 @@ import { PhotoModelProps } from '../../models/freak';
 function FreaksGrid({ freaks }) {
   const filters = useSelector((state) => state.filters);
 
+  const renderFreakTile = (freak) => (
+    <FreakTile id={ freak.id } name={ freak.firstName } photo={ freak.photo } key={ freak.id } />
+  );
+
   const getTiles = () => {
-    const getFreakTiles = (selectedFreaks) => selectedFreaks.map((freak) => (
-      <FreakTile
-        id={ freak.id }
-        name={ freak.firstName }
-        photo={ freak.photo }
-        key={ freak.id }
-      />
-    ));
+    const getFreakTiles = (selectedFreaks) => selectedFreaks.map(renderFreakTile);
 
     return getFreakTiles(getFilteredFreaks(freaks, filters));
   };
