@@ -6,11 +6,12 @@ import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
+import FilterType from '../../filters/FilterType';
 import FreaksQueries from '../../graphql/queries/freaks';
 
 const modals = {
-  SKILLS: 'skills',
-  PROJECTS: 'projects',
+  SKILLS: FilterType.skills,
+  PROJECTS: FilterType.projects,
   ADD: 'addFreak',
 };
 

@@ -4,6 +4,7 @@ import {
   setProjectsFilter,
   resetProjectsFilter,
 } from '../slices/filtersSlice';
+import FilterType from './FilterType';
 
 export const getFilteredFreaks = (freaks, filters) => {
   const getAttributeFilteredFreaks = (attrName, attrFilters) => {
@@ -35,9 +36,9 @@ export const getFilteredFreaks = (freaks, filters) => {
 
 export const getFilterSetter = (type) => {
   switch (type) {
-    case 'Skills':
+    case FilterType.skills:
       return setSkillsFilter;
-    case 'Projects':
+    case FilterType.projects:
       return setProjectsFilter;
     default:
       return null;
@@ -46,9 +47,9 @@ export const getFilterSetter = (type) => {
 
 export const getFilterResetter = (type) => {
   switch (type) {
-    case 'Skills':
+    case FilterType.skills:
       return resetSkillsFilter;
-    case 'Projects':
+    case FilterType.projects:
       return resetProjectsFilter;
     default:
       return null;
