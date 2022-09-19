@@ -22,7 +22,7 @@ export const getFilteredFreaks = (freaks, filters) => {
       return matchesFilters(attrs);
     };
 
-    return freaks.filter((freak) => hasAllFilteredAttrs(freak));
+    return freaks.filter(hasAllFilteredAttrs);
   };
 
   const getSkillFilteredFreaks = () => getAttributeFilteredFreaks('technologies', filters.skills);
