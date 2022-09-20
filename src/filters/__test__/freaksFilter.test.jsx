@@ -2,9 +2,9 @@ import React from 'react';
 import { getFilteredFreaks } from '../freaksFilter';
 import data from '../../mock-data/freaks.json';
 
-const makeSkillsFilter = (...args) => ({ skills: [ ...args ], projects: [] });
+const makeSkillsFilter = (...args) => ({ skills: args, projects: [] });
 
-const makeProjFilter = (...args) => ({ skills: [], projects: [ ...args ] });
+const makeProjFilter = (...args) => ({ skills: [], projects: args });
 
 const catFilters = (f1, f2) => ({
   skills: [ ...f1.skills, ...f2.skills ],
@@ -68,7 +68,7 @@ describe('freaksFilter', () => {
   });
 
   it('filter freaks by a multiple skills', () => {
-    const freaks = [ ...data.freaks ];
+    const { freaks } = data;
     const filters = makeSkillsFilter('Elm', 'Java');
 
     const filteredFreaks = getFilteredFreaks(freaks, filters);
@@ -78,7 +78,7 @@ describe('freaksFilter', () => {
   });
 
   it('filter freaks by a single project', () => {
-    const freaks = [ ...data.freaks ];
+    const { freaks } = data;
     const filters = makeProjFilter('reAsign');
     const expectedFreaks = [
       [ 'Jim', 'Gather' ],
@@ -96,7 +96,7 @@ describe('freaksFilter', () => {
   });
 
   it('filter freaks by a multiple projects', () => {
-    const freaks = [ ...data.freaks ];
+    const { freaks } = data;
     const filters = makeProjFilter('reAsign', 'UNGC');
 
     const filteredFreaks = getFilteredFreaks(freaks, filters);
@@ -106,7 +106,7 @@ describe('freaksFilter', () => {
   });
 
   it('filter freaks by skills and projects', () => {
-    const freaks = [ ...data.freaks ];
+    const { freaks } = data;
     const skillFilters = makeSkillsFilter('Elm');
     const projFilters = makeProjFilter('EPIX');
     const filters = catFilters(skillFilters, projFilters);
