@@ -11,33 +11,30 @@ const catFilters = (f1, f2) => ({
   projects: [ ...f1.projects, ...f2.projects ],
 });
 
-const includesFreak = (freaks, firstName, lastName) => freaks.some((fr) => fr.firstName === firstName && fr.lastName === lastName);
-
-const includesFreaksArray = (freaks, expectedFreaksArray) => {
-  const filteredArray = expectedFreaksArray.filter((freak) => includesFreak(freaks, freak[0], freak[1]));
-
-  return filteredArray.length === expectedFreaksArray.length;
-};
+const getNamesOfFilteredFreaks = (freaks, filters) => getFilteredFreaks(freaks, filters).map((freak) => [
+  freak.firstName,
+  freak.lastName,
+]);
 
 describe('freaksFilter', () => {
   it('filter a single freak by a single skill', () => {
     const freaks = [ data.freaks[0] ];
     const filters = makeSkillsFilter('JavaScript');
 
-    const filteredFreaks = getFilteredFreaks(freaks, filters);
+    const filteredFreaks = getNamesOfFilteredFreaks(freaks, filters);
 
     expect(filteredFreaks.length).toBe(1);
-    expect(includesFreak(filteredFreaks, 'Bob', 'Dingo')).toBe(true);
+    expect(filteredFreaks).toEqual([ [ 'Bob', 'Dingo' ] ]);
   });
 
   it('filter a single freak by multiple skills', () => {
     const freaks = [ data.freaks[1] ];
     const filters = makeSkillsFilter('JavaScript', 'Elm', 'CSS');
 
-    const filteredFreaks = getFilteredFreaks(freaks, filters);
+    const filteredFreaks = getNamesOfFilteredFreaks(freaks, filters);
 
     expect(filteredFreaks.length).toBe(1);
-    expect(includesFreak(filteredFreaks, 'Anda', 'Hugan')).toBe(true);
+    expect(filteredFreaks).toEqual([ [ 'Anda', 'Hugan' ] ]);
   });
 
   it('filter a single freak by a not present skill', () => {
@@ -61,20 +58,20 @@ describe('freaksFilter', () => {
       [ 'Olivia', 'Grace' ],
     ];
 
-    const filteredFreaks = getFilteredFreaks(freaks, filters);
+    const filteredFreaks = getNamesOfFilteredFreaks(freaks, filters);
 
     expect(filteredFreaks.length).toBe(6);
-    expect(includesFreaksArray(filteredFreaks, expectedFreaks)).toBe(true);
+    expect(filteredFreaks).toEqual(expect.arrayContaining(expectedFreaks));
   });
 
   it('filter freaks by a multiple skills', () => {
     const { freaks } = data;
     const filters = makeSkillsFilter('Elm', 'Java');
 
-    const filteredFreaks = getFilteredFreaks(freaks, filters);
+    const filteredFreaks = getNamesOfFilteredFreaks(freaks, filters);
 
     expect(filteredFreaks.length).toBe(1);
-    expect(includesFreak(filteredFreaks, 'Oliver', 'Knights')).toBe(true);
+    expect(filteredFreaks).toEqual([ [ 'Oliver', 'Knights' ] ]);
   });
 
   it('filter freaks by a single project', () => {
@@ -89,20 +86,20 @@ describe('freaksFilter', () => {
       [ 'Olivia', 'Grace' ],
     ];
 
-    const filteredFreaks = getFilteredFreaks(freaks, filters);
+    const filteredFreaks = getNamesOfFilteredFreaks(freaks, filters);
 
     expect(filteredFreaks.length).toBe(6);
-    expect(includesFreaksArray(filteredFreaks, expectedFreaks)).toBe(true);
+    expect(filteredFreaks).toEqual(expect.arrayContaining(expectedFreaks));
   });
 
   it('filter freaks by a multiple projects', () => {
     const { freaks } = data;
     const filters = makeProjFilter('reAsign', 'UNGC');
 
-    const filteredFreaks = getFilteredFreaks(freaks, filters);
+    const filteredFreaks = getNamesOfFilteredFreaks(freaks, filters);
 
     expect(filteredFreaks.length).toBe(1);
-    expect(includesFreak(filteredFreaks, 'Olivia', 'Grace')).toBe(true);
+    expect(filteredFreaks).toEqual([ [ 'Olivia', 'Grace' ] ]);
   });
 
   it('filter freaks by skills and projects', () => {
@@ -118,9 +115,9 @@ describe('freaksFilter', () => {
       [ 'Oliver', 'Knights' ],
     ];
 
-    const filteredFreaks = getFilteredFreaks(freaks, filters);
+    const filteredFreaks = getNamesOfFilteredFreaks(freaks, filters);
 
     expect(filteredFreaks.length).toBe(5);
-    expect(includesFreaksArray(filteredFreaks, expectedFreaks)).toBe(true);
+    expect(filteredFreaks).toEqual(expect.arrayContaining(expectedFreaks));
   });
 });
