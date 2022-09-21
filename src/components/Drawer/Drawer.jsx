@@ -21,6 +21,7 @@ function Drawer({ isOpen, setOpenModal, children }) {
 Drawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   setOpenModal: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 export default Drawer;
