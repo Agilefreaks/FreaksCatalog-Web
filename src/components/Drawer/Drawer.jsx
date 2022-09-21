@@ -10,6 +10,7 @@ function Drawer({ isOpen, setOpenModal, children }) {
         onClick={ () => {
           setOpenModal(false);
         } }
+        role="presentation"
       />
       <div className={ `drawer-content drawer-content-${ isOpen ? 'opened' : 'closed' }` }>
         { children }
