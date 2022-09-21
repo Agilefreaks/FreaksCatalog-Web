@@ -22,7 +22,6 @@ function InputFilters({ isOpen, setFilteredText }) {
 
 InputFilters.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  setOpenModal: PropTypes.func.isRequired,
   setFilteredText: PropTypes.func.isRequired,
 };
 
