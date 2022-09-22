@@ -13,13 +13,9 @@ const filtersSlice = createSlice({
   },
 });
 
-export const resetSkillsFilter = () => {
-  filtersSlice.setSkillsFilter([]);
-};
+export const resetSkillsFilter = () => filtersSlice.actions.setSkillsFilter([]);
 
-export const resetProjectsFilter = () => {
-  filtersSlice.setProjectsFilter([]);
-};
+export const resetProjectsFilter = () => filtersSlice.actions.setProjectsFilter([]);
 
 export const { setSkillsFilter, setProjectsFilter } = filtersSlice.actions;
 
