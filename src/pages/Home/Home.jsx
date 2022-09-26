@@ -1,11 +1,11 @@
 import React from 'react';
 import './Home.scss';
 import homeImg from '../../images/homeIMG.jpeg';
-import { FadeTransitionAnimatedPage } from '../../components/AnimatedPages/AnimatedPages';
+import FadeTransition from '../../components/AnimatedPages/FadeTransition';
 
 function Home() {
   return (
-    <FadeTransitionAnimatedPage>
+    <FadeTransition>
       <div className="home">
         <div className="home__content">
           <h1 className="home__title">Who are we?</h1>
@@ -23,7 +23,7 @@ function Home() {
           <img className="home__img" src={ homeImg } alt="home" />
         </div>
       </div>
-    </FadeTransitionAnimatedPage>
+    </FadeTransition>
   );
 }
 

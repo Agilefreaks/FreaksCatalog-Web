@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
-import { VerticalTransitionAnimatedPage } from '../../components/AnimatedPages/AnimatedPages';
+import VerticalTransition from '../../components/AnimatedPages/VerticalTransition';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal';
 import FilterType from '../../filters/FilterType';
@@ -29,7 +29,7 @@ function ViewFreaks() {
   const { technologies, projects } = data;
 
   return (
-    <VerticalTransitionAnimatedPage>
+    <VerticalTransition>
       <div className="view-freaks">
         <div className="view-freaks__filter-nav">
           <QueryFilterModal
@@ -65,7 +65,7 @@ function ViewFreaks() {
           />
         </div>
       </div>
-    </VerticalTransitionAnimatedPage>
+    </VerticalTransition>
   );
 }
 
