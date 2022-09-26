@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
 import Menu from './components/MenuDrawer/Menu';
+import AnimatedRoutes from './components/AnimatedRoutes/AnimatedRoutes';
 
 library.add(faBars, faTimes, faUserPlus);
 
