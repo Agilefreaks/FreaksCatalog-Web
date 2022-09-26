@@ -1,11 +1,11 @@
 import { useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal';
-import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
+import { VerticalTransitionAnimatedPage } from '../../components/AnimatedPages/AnimatedPages';
+import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
+import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal';
 import FilterType from '../../filters/FilterType';
 import FreaksQueries from '../../graphql/queries/freaks';
 import './ViewFreaks.scss';
@@ -29,11 +29,7 @@ function ViewFreaks() {
   const { technologies, projects } = data;
 
   return (
-    <motion.div
-      className="view-freaks"
-      initial={ { width: 0 } }
-      animate={ { width: '100%', transition: { duration: 0.25 } } }
-    >
+    <VerticalTransitionAnimatedPage className="view-freaks">
       <div className="view-freaks__filter-nav">
         <QueryFilterModal
           title="Skills"
@@ -67,7 +63,7 @@ function ViewFreaks() {
           onClose={ () => setOpenModal(null) }
         />
       </div>
-    </motion.div>
+    </VerticalTransitionAnimatedPage>
   );
 }
 

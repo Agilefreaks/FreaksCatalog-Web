@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
-import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
+import { HorizontalTransitionAnimatedPage } from '../../components/AnimatedPages/AnimatedPages';
 import ConfirmDeleteModal from '../../components/ConfirmDeleteModal/ConfirmDeleteModal';
 import EditFreakModal from '../../components/EditFreakModal/EditFreakModal';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
@@ -57,12 +57,7 @@ function ViewFreakPage() {
 
   const { freak } = data;
   return (
-    <motion.div
-      className="view-freak"
-      data-testid="view-freak"
-      initial={ { y: '-100%' } }
-      animate={ { y: 0, transition: { duration: 0.25 } } }
-    >
+    <HorizontalTransitionAnimatedPage className="view-freak">
       <Link to="/freaks">
         <Button
           type="button"
@@ -107,7 +102,7 @@ function ViewFreakPage() {
           onSubmit={ handleSubmit }
         />
       </div>
-    </motion.div>
+    </HorizontalTransitionAnimatedPage>
   );
 }
 

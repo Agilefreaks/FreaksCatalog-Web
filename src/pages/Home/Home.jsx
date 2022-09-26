@@ -1,15 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import './Home.scss';
 import homeImg from '../../images/homeIMG.jpeg';
+import { FadeTransitionAnimatedPage } from '../../components/AnimatedPages/AnimatedPages';
 
 function Home() {
   return (
-    <motion.div
-      className="home"
-      initial={ { opacity: 0 } }
-      animate={ { opacity: 1, transition: { duration: 0.2 } } }
-    >
+    <FadeTransitionAnimatedPage className="home">
       <div className="home__content">
         <h1 className="home__title">Who are we?</h1>
         <p className="home__description">
@@ -25,7 +21,7 @@ function Home() {
         </p>
         <img className="home__img" src={ homeImg } alt="home" />
       </div>
-    </motion.div>
+    </FadeTransitionAnimatedPage>
   );
 }
 
