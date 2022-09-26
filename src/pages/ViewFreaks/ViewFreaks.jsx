@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
-import './ViewFreaks.scss';
 import FilterType from '../../filters/FilterType';
 import FreaksQueries from '../../graphql/queries/freaks';
+import './ViewFreaks.scss';
 
 const modals = {
   SKILLS: FilterType.skills,
@@ -28,7 +29,11 @@ function ViewFreaks() {
   const { technologies, projects } = data;
 
   return (
-    <div className="view-freaks">
+    <motion.div
+      className="view-freaks"
+      initial={ { width: 0 } }
+      animate={ { width: '100%', transition: { duration: 0.25 } } }
+    >
       <div className="view-freaks__filter-nav">
         <QueryFilterModal
           title="Skills"
@@ -62,7 +67,7 @@ function ViewFreaks() {
           onClose={ () => setOpenModal(null) }
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 
