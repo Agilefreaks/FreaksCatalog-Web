@@ -11,10 +11,7 @@ const catFilters = (f1, f2) => ({
   projects: [ ...f1.projects, ...f2.projects ],
 });
 
-const getNamesOfFilteredFreaks = (freaks, filters) => getFilteredFreaks(freaks, filters).map((freak) => [
-  freak.firstName,
-  freak.lastName,
-]);
+const getNamesOfFilteredFreaks = (freaks, filters) => getFilteredFreaks(freaks, filters).map((freak) => [ freak.firstName, freak.lastName ]);
 
 describe('freaksFilter', () => {
   it('filter a single freak by a single skill', () => {

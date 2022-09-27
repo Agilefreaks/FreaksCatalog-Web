@@ -3,8 +3,17 @@ import AnimatedPage from './AnimatedPages';
 
 function VerticalTransition({ children }) {
   return AnimatedPage({
-    initial: { width: 0 },
-    animate: { width: '100%', transition: { duration: 0.25 } },
+    initial: { opacity: 0, y: '200%' },
+    animate: {
+      opacity: [ 0, 0, 0, 1 ],
+      y: 0,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
+    exit: {
+      opacity: [ 1, 1, 0, 0 ],
+      y: '200%',
+      transition: { duration: 0.5, ease: 'easeIn' },
+    },
     children,
   });
 }

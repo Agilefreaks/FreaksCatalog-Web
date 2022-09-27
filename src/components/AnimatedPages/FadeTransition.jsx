@@ -4,7 +4,8 @@ import AnimatedPage from './AnimatedPages';
 function FadeTransition({ children }) {
   return AnimatedPage({
     initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { duration: 0.2 } },
+    animate: { opacity: [ 0, 0, 0, 1 ], transition: { duration: 1, ease: 'easeOut' } },
+    exit: { opacity: 0, transition: { duration: 0.5, ease: 'easeIn' } },
     children,
   });
 }
