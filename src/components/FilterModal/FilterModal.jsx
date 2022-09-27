@@ -14,10 +14,6 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
 
-  useKeyDownListener('Escape', () => {
-    setOpenModal(false);
-  });
-
   const updateSelectedFilters = (result) => {
     setCheckedState(result);
     queuedFilters.current = result;
