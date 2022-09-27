@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'react-uuid';
 import './jellyLetter.scss';
 
 function JellyText({ text }) {
-  let ct = 0;
-
   return (
     <>
       { [ ...text ].map((letter) => (
-        <span className="jelly-letter" key={ `jellyLetter${ ct++ }` }>
+        <span className="jelly-letter" key={ `jellyLetter${ uuid() }` }>
           { letter }
         </span>
       )) }
