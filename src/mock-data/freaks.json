@@ -10,8 +10,8 @@
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "6", "name": "JavaScript"}],
+      "projects" : [{"id": "1", "name": "EPIX"}]
     },
     {
       "id" : 2,
@@ -23,8 +23,8 @@
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "6", "name": "JavaScript"}, {"id": "7", "name": "Elm"}, {"id": "5", "name": "CSS"}],
+      "projects" : [{"id": "1", "name": "EPIX"}, {"id": "2", "name": "EPIX NOW"}]
     },
     {
       "id" : 3,
@@ -36,8 +36,8 @@
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "6", "name": "JavaScript"}, {"id": "1", "name": "Java"}],
+      "projects" : [{"id": "1", "name": "EPIX"}, {"id": "4", "name": "reAsign"}]
     },
     {
       "id" : 4,
@@ -49,60 +49,60 @@
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "2", "name": "Ruby"}, {"id": "3", "name": "Swift"}, {"id": "7", "name": "Elm"}],
+      "projects" : [{"id": "1", "name": "EPIX"}, {"id": "4", "name": "reAsign"}]
     },
     {
       "id" : 5,
-      "firstName" : "Bob",
-      "lastName": "Dingo",
-      "email": "bob@gmail.com",
+      "firstName" : "James",
+      "lastName": "Robert",
+      "email": "james@gmail.com",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "role": "Developer",
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "3", "name": "Swift"}, {"id": "4", "name": "Kotlin"}, {"id": "7", "name": "Elm"}],
+      "projects" : [{"id": "1", "name": "EPIX"}, {"id": "4", "name": "reAsign"}]
     },
     {
       "id" : 6,
-      "firstName" : "Anda",
-      "lastName": "Hugan",
-      "email": "anda@gmail.com",
+      "firstName" : "Mary",
+      "lastName": "Jane",
+      "email": "mjane@gmail.com",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "role": "Developer",
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "5", "name": "CSS"}, {"id": "7", "name": "Elm"}],
+      "projects" : [{"id": "1", "name": "EPIX"}, {"id": "4", "name": "reAsign"}]
     },
     {
       "id" : 7,
-      "firstName" : "Jim",
-      "lastName": "Gather",
-      "email": "jim@gmail.com",
+      "firstName" : "Oliver",
+      "lastName": "Knights",
+      "email": "oliver@gmail.com",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "role": "Developer",
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "1", "name": "Java"}, {"id": "7", "name": "Elm"}],
+      "projects" : [{"id": "1", "name": "EPIX"}, {"id": "4", "name": "reAsign"}]
     },
     {
       "id" : 8,
-      "firstName" : "Mike",
-      "lastName": "Hunt",
-      "email": "Mike@gmail.com",
+      "firstName" : "Olivia",
+      "lastName": "Grace",
+      "email": "olivia@gmail.com",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       "role": "Developer",
       "level": "Novice",
       "norm": "Full time",
       "picture" : "https://d30anih4i5atxe.cloudfront.net/uploads/bc2a1f67-7297-4ad4-ba62-d70042ad43cc.png",
-      "skills" : [{"value": "javascript", "name": "JavaScript"}, {"value": "elm", "name": "Elm"}],
-      "projects" : [{"value": "epix", "name": "EPIX"}, {"value": "reasig", "name": "reAsig"}]
+      "technologies" : [{"id": "2", "name": "Ruby"}, {"id": "7", "name": "Elm"}],
+      "projects" : [{"id": "1", "name": "UNGC"}, {"id": "4", "name": "reAsign"}]
     }
   ]
 }

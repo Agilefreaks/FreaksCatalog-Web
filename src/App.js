@@ -1,7 +1,9 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { store } from './store/store';
 import './App.scss';
 import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
@@ -15,46 +17,48 @@ library.add(faTimes, faUserPlus);
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <div className="app__title">
-          <h1>FREAKS</h1>
+    <Provider store={ store }>
+      <Router>
+        <div className="app">
+          <div className="app__title">
+            <h1>FREAKS</h1>
+          </div>
+          <div className="app__content">
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/freaks">
+                <ViewFreaks />
+              </Route>
+              <Route exact path="/freaks/:id">
+                <ViewFreakPage />
+              </Route>
+            </Switch>
+          </div>
+          <div className="app__nav">
+            <Link to="/">
+              <button type="button" className="nav__button">
+                <img className="nav__button-img" src={ homeLogo } alt="Nav" />
+                <p>Home</p>
+              </button>
+            </Link>
+            <Link to="/freaks">
+              <button type="button" className="nav__button">
+                <img className="nav__button-img" src={ logo } alt="Nav" />
+                <p>Freaks</p>
+              </button>
+            </Link>
+            <Link to="/">
+              <button type="button" className="nav__button">
+                <img className="nav__button-img" src={ projectLogo } alt="Nav" />
+                <p>Projects</p>
+              </button>
+            </Link>
+          </div>
         </div>
-        <div className="app__content">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/freaks">
-              <ViewFreaks />
-            </Route>
-            <Route exact path="/freaks/:id">
-              <ViewFreakPage />
-            </Route>
-          </Switch>
-        </div>
-        <div className="app__nav">
-          <Link to="/">
-            <button type="button" className="nav__button">
-              <img className="nav__button-img" src={ homeLogo } alt="Nav" />
-              <p>Home</p>
-            </button>
-          </Link>
-          <Link to="/freaks">
-            <button type="button" className="nav__button">
-              <img className="nav__button-img" src={ logo } alt="Nav" />
-              <p>Freaks</p>
-            </button>
-          </Link>
-          <Link to="/">
-            <button type="button" className="nav__button">
-              <img className="nav__button-img" src={ projectLogo } alt="Nav" />
-              <p>Projects</p>
-            </button>
-          </Link>
-        </div>
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   );
 }
 

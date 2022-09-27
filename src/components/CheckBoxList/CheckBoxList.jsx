@@ -8,7 +8,7 @@ function CheckBoxList({ checkedState, onChange, keywords }) {
       ? checkedState.concat(name)
       : checkedState.filter((item) => item !== name);
 
-    onChange(result, name, checked);
+    onChange(result);
   };
 
   const checkboxes = keywords.map((item) => (

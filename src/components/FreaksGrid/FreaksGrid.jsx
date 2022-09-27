@@ -1,15 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import FreakTile from '../FreakTile/FreakTile';
 import './FreaksGrid.scss';
+import { getFilteredFreaks } from '../../filters/freaksFilter';
 import { PhotoModelProps } from '../../models/freak';
 
 function FreaksGrid({ freaks }) {
-  const tiles = freaks.map((freak) => (
-    <FreakTile id={ freak.id } name={ freak.firstName } photo={ freak.photo } key={ freak.id } />
-  ));
+  const filters = useSelector((state) => state.filters);
 
-  return <div className="tiles">{ tiles }</div>;
+  const renderFreakTile = (freak) => (
+    <FreakTile id={ freak.id } name={ freak.firstName } photo={ freak.photo } key={ freak.id } />
+  );
+
+  return (
+    <div className="tiles">{ getFilteredFreaks(freaks, filters).map(renderFreakTile) }</div>
+  );
 }
 
 FreaksGrid.propTypes = {

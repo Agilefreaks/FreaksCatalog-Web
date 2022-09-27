@@ -22,6 +22,15 @@ const getAll = () => gql`
         photo {
           uri
         }
+        technologies {
+          id
+          name
+          description
+        }
+        projects {
+          id
+          name
+        }
       }
     }
     technologies {

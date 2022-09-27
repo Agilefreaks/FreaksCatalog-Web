@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FreakModelDefault, FreakModelProps } from '../../models/freak';
 import './FreakDetails.scss';
+import logo from '../../images/logo-only-blue.svg';
 
 function FreakDetails({ freak }) {
   const freakTechnologies = freak.technologies
@@ -15,7 +16,7 @@ function FreakDetails({ freak }) {
       <img
         className="freak-details__img"
         data-testid="freak-img"
-        src={ freak.photo.uri }
+        src={ freak.photo?.uri ?? logo }
         alt={ freak.firstName }
       />
       <h2 data-testid="freak-role-norm">{ `${ freak.role.name } - ${ freak.norm.name }` }</h2>

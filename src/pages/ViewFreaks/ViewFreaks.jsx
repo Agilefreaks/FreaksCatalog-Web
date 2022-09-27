@@ -6,11 +6,12 @@ import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
+import FilterType from '../../filters/FilterType';
 import FreaksQueries from '../../graphql/queries/freaks';
 
 const modals = {
-  SKILLS: 'skills',
-  PROJECTS: 'projects',
+  SKILLS: FilterType.skills,
+  PROJECTS: FilterType.projects,
   ADD: 'addFreak',
 };
 
@@ -35,6 +36,7 @@ function ViewFreaks() {
           modalId={ modals.SKILLS }
           isOpen={ openModal === modals.SKILLS }
           setOpenModal={ setOpenModal }
+          filterId={ FilterType.skills }
         />
         <QueryFilterModal
           title="Projects"
@@ -42,6 +44,7 @@ function ViewFreaks() {
           modalId={ modals.PROJECTS }
           isOpen={ openModal === modals.PROJECTS }
           setOpenModal={ setOpenModal }
+          filterId={ FilterType.projects }
         />
       </div>
       <div className="view-freaks__tiles-content">
