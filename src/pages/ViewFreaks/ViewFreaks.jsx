@@ -36,7 +36,7 @@ function ViewFreaks() {
           modalId={ modals.SKILLS }
           isOpen={ openModal === modals.SKILLS }
           setOpenModal={ setOpenModal }
-          filterId="Skills"
+          filterId={ FilterType.skills }
         />
         <QueryFilterModal
           title="Projects"
@@ -44,7 +44,7 @@ function ViewFreaks() {
           modalId={ modals.PROJECTS }
           isOpen={ openModal === modals.PROJECTS }
           setOpenModal={ setOpenModal }
-          filterId="Projects"
+          filterId={ FilterType.projects }
         />
       </div>
       <div className="view-freaks__tiles-content">
