@@ -27,7 +27,7 @@ function FilterCard({ title, keywords, filterId }) {
       <div className="filtercard__title-container">
         <span className="filtercard__title">{ title }</span>
         <Button
-          className="filtercard__dropdown-btn"
+          className={ `filtercard__dropdown-btn${ active ? '--active' : '' }` }
           variant="outline-secondary"
           onClick={ () => setActive(!active) }
         >

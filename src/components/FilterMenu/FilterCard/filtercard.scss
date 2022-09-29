@@ -19,5 +19,9 @@
 
   &__dropdown-btn {
     margin-left: 10px;
+
+    &--active {
+      transform: rotate(90deg);
+    }
   }
 }
