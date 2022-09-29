@@ -22,7 +22,7 @@
     margin-left: 10px;
 
     &--active {
-      transform: rotate(90deg);
+      transform: translate(-1px, -1px) rotate(90deg);
     }
   }
 }
