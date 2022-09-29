@@ -1,11 +1,23 @@
 .filtercard {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   border: 1px solid black;
 
+  &__title-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &__title {
+    padding-left: 3px;
     color: blue;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  &__dropdown-btn {
+    margin-left: 10px;
   }
 }

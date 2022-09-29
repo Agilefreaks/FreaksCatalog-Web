@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import CheckBoxList from '../../CheckBoxList/CheckBoxList';
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { getFilterSetter } from '../../../filters/freaksFilter';
+import CheckBoxList from '../../CheckBoxList/CheckBoxList';
 import './filtercard.scss';
 
 function FilterCard({ title, keywords, filterId }) {
@@ -22,7 +23,16 @@ function FilterCard({ title, keywords, filterId }) {
 
   return (
     <div className="filtercard">
-      <span className="filtercard__title">{ title }</span>
+      <div className="filtercard__title-container">
+        <span className="filtercard__title">{ title }</span>
+        <Button
+          className="filtercard__dropdown-btn"
+          variant="outline-secondary"
+          onClick={ () => {} }
+        >
+          <FontAwesomeIcon icon="fa-caret-down" />
+        </Button>
+      </div>
       <CheckBoxList
         keywords={ keywords }
         checkedState={ checkedState }

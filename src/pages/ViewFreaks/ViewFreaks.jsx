@@ -6,7 +6,6 @@ import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import FadeTransition from '../../components/AnimatedPages/FadeTransition';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import './ViewFreaks.scss';
-import FilterType from '../../filters/FilterType';
 import FreaksQueries from '../../graphql/queries/freaks';
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
 
