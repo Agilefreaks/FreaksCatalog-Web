@@ -1,14 +1,14 @@
-import { useQuery } from '@apollo/client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'react-bootstrap';
-import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
-import FadeTransition from '../../components/AnimatedPages/FadeTransition';
+import { useQuery } from '@apollo/client';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
-import QueryFilterModal from '../../components/QueryFilterModal/QueryFilterModal';
+import FadeTransition from '../../components/AnimatedPages/FadeTransition';
+import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
+import './ViewFreaks.scss';
 import FilterType from '../../filters/FilterType';
 import FreaksQueries from '../../graphql/queries/freaks';
-import './ViewFreaks.scss';
+import FilterMenu from '../../components/FilterMenu/FilterMenu';
 
 const modals = {
   SKILLS: FilterType.skills,
@@ -26,30 +26,13 @@ function ViewFreaks() {
   if (!data) return <p>Not found</p>;
 
   const freaks = data.freaks.nodes;
-  const { technologies, projects } = data;
+  const filters = (({ technologies, projects }) => ({ technologies, projects }))(data);
 
   return (
     <FadeTransition>
       <div className="view-freaks">
-        <div className="view-freaks__filter-nav">
-          <QueryFilterModal
-            title="Skills"
-            keywords={ technologies }
-            modalId={ modals.SKILLS }
-            isOpen={ openModal === modals.SKILLS }
-            setOpenModal={ setOpenModal }
-            filterId={ FilterType.skills }
-          />
-          <QueryFilterModal
-            title="Projects"
-            keywords={ projects }
-            modalId={ modals.PROJECTS }
-            isOpen={ openModal === modals.PROJECTS }
-            setOpenModal={ setOpenModal }
-            filterId={ FilterType.projects }
-          />
-        </div>
         <div className="view-freaks__tiles-content">
+          <FilterMenu keywords={ filters } />
           <FreaksGrid freaks={ freaks } />
           <Button
             className="button-add-user"
