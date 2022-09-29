@@ -10,6 +10,7 @@ import './filtercard.scss';
 function FilterCard({ title, keywords, filterId }) {
   const filters = useSelector((state) => state.filters);
   const [ checkedState, setCheckedState ] = useState(filters[filterId]);
+  const [ active, setActive ] = useState(true);
   const dispatch = useDispatch();
 
   const applyFilters = (result) => {
@@ -28,13 +29,13 @@ function FilterCard({ title, keywords, filterId }) {
         <Button
           className="filtercard__dropdown-btn"
           variant="outline-secondary"
-          onClick={ () => {} }
+          onClick={ () => setActive(!active) }
         >
           <FontAwesomeIcon icon="fa-caret-down" />
         </Button>
       </div>
       <CheckBoxList
-        keywords={ keywords }
+        keywords={ active ? keywords : [] }
         checkedState={ checkedState }
         onChange={ applyFilters }
       />
