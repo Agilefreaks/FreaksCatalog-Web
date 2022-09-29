@@ -28,7 +28,7 @@ function FilterCard({ title, keywords, filterId }) {
         <span className="filtercard__title">{ title }</span>
         <Button
           className={ `filtercard__dropdown-btn${ active ? '--active' : '' }` }
-          variant="outline-secondary"
+          variant="btn-secondary shadow-none"
           onClick={ () => setActive(!active) }
         >
           <FontAwesomeIcon icon="fa-caret-down" />
