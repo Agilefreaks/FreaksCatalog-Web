@@ -11,8 +11,6 @@ import FreaksQueries from '../../graphql/queries/freaks';
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
 
 const modals = {
-  SKILLS: FilterType.skills,
-  PROJECTS: FilterType.projects,
   ADD: 'addFreak',
 };
 

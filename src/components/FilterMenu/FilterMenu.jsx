@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FilterType from '../../filters/FilterType';
 import FilterCard from './FilterCard/FilterCard';
 import './filtermenu.scss';
 
 function FilterMenu({ keywords }) {
-  const formatTitle = (title) => title[0].toUpperCase() + title.substring(1);
-
   return (
     <div className="filtermenu">
-      { Object.keys(keywords).map((key) => (
-        <FilterCard title={ formatTitle(key) } keywords={ keywords[key] } />
-      )) }
+      <FilterCard
+        title="Technologies"
+        keywords={ keywords.technologies }
+        filterId={ FilterType.skills }
+      />
+      <FilterCard
+        title="Projects"
+        keywords={ keywords.projects }
+        filterId={ FilterType.projects }
+      />
     </div>
   );
 }
