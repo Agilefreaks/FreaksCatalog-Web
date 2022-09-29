@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import CheckBoxList from '../../CheckBoxList/CheckBoxList';
@@ -6,7 +7,8 @@ import { getFilterSetter } from '../../../filters/freaksFilter';
 import './filtercard.scss';
 
 function FilterCard({ title, keywords, filterId }) {
-  const [ checkedState, setCheckedState ] = useState([]);
+  const filters = useSelector((state) => state.filters);
+  const [ checkedState, setCheckedState ] = useState(filters[filterId]);
   const dispatch = useDispatch();
 
   const applyFilters = (result) => {

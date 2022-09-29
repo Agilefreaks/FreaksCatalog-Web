@@ -1,6 +1,6 @@
 const FilterType = {
-  skills: 'Skills',
-  projects: 'Projects',
+  skills: 'skills',
+  projects: 'projects',
 };
 
 export default FilterType;
