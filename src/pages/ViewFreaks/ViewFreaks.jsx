@@ -25,14 +25,16 @@ function ViewFreaks() {
 
   const freaks = data.freaks.nodes;
   const filters = (({ technologies, projects }) => ({ technologies, projects }))(data);
+
+  const SCREEN_WIDTH_THRESHOLD = 500;
   const width = window.innerWidth;
 
   return (
     <FadeTransition>
       <div className="view-freaks">
-        { width < 500 && <OptionsBar /> }
+        { width < SCREEN_WIDTH_THRESHOLD && <OptionsBar /> }
         <div className="view-freaks__tiles-content">
-          { width >= 500 && <FilterMenu keywords={ filters } /> }
+          { width >= SCREEN_WIDTH_THRESHOLD && <FilterMenu keywords={ filters } /> }
           <FreaksGrid freaks={ freaks } />
           <Button
             className="button-add-user"
