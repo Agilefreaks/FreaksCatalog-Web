@@ -4,20 +4,17 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1.87rem;
   margin: 0 10%;
-  max-width: 30.62rem;
 }
 
 @media screen and (min-width: 900px) {
   .tiles {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 46.875rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .tiles {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 80rem;
   }
 }
 
