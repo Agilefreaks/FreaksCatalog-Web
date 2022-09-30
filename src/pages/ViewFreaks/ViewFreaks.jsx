@@ -5,9 +5,10 @@ import { useQuery } from '@apollo/client';
 import FreaksGrid from '../../components/FreaksGrid/FreaksGrid';
 import FadeTransition from '../../components/AnimatedPages/FadeTransition';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
-import './ViewFreaks.scss';
-import FreaksQueries from '../../graphql/queries/freaks';
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
+import FreaksQueries from '../../graphql/queries/freaks';
+import OptionsBar from './OptionsBar/OptionsBar';
+import './ViewFreaks.scss';
 
 const modals = {
   ADD: 'addFreak',
@@ -29,6 +30,7 @@ function ViewFreaks() {
   return (
     <FadeTransition>
       <div className="view-freaks">
+        { width < 500 && <OptionsBar /> }
         <div className="view-freaks__tiles-content">
           { width >= 500 && <FilterMenu keywords={ filters } /> }
           <FreaksGrid freaks={ freaks } />
