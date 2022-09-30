@@ -25,7 +25,6 @@ function FilterCard({ title, keywords, filterId }) {
   return (
     <div className="filtercard">
       <div className="filtercard__title-container">
-        <span className="filtercard__title">{ title }</span>
         <Button
           className={ `filtercard__dropdown-btn${ active ? '--active' : '' }` }
           variant="btn-secondary shadow-none"
@@ -33,6 +32,7 @@ function FilterCard({ title, keywords, filterId }) {
         >
           <FontAwesomeIcon icon="fa-caret-down" />
         </Button>
+        <span className="filtercard__title">{ title }</span>
       </div>
       <CheckBoxList
         keywords={ active ? keywords : [] }
