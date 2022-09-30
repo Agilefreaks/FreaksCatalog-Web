@@ -7,7 +7,7 @@ import FadeTransition from '../../components/AnimatedPages/FadeTransition';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
 import FreaksQueries from '../../graphql/queries/freaks';
-import OptionsBar from './OptionsBar/OptionsBar';
+import OptionsBar from '../../components/OptionsBar/OptionsBar';
 import './ViewFreaks.scss';
 
 const modals = {
