@@ -24,12 +24,13 @@ function ViewFreaks() {
 
   const freaks = data.freaks.nodes;
   const filters = (({ technologies, projects }) => ({ technologies, projects }))(data);
+  const width = window.innerWidth;
 
   return (
     <FadeTransition>
       <div className="view-freaks">
         <div className="view-freaks__tiles-content">
-          <FilterMenu keywords={ filters } />
+          { width >= 500 && <FilterMenu keywords={ filters } /> }
           <FreaksGrid freaks={ freaks } />
           <Button
             className="button-add-user"
