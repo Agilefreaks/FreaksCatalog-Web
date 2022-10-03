@@ -1,7 +1,10 @@
-import React, { useState, useRef } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap';
+import React, { useRef } from 'react';
+import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { getFilterSetter, getFilterResetter } from '../../../filters/freaksFilter';
+import FilterModalHeader from './FilterModalPage/FilterModalHeader';
+import FilterModalBody from './FilterModalPage/FilterModalBody';
+import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 
 function FilterModal({ label, filters, filterId, show, setShow }) {
   const queuedFilters = useRef([]);
@@ -43,32 +46,13 @@ function FilterModal({ label, filters, filterId, show, setShow }) {
 
   return (
     <Modal show={ show } onHide={ () => setShow(false) }>
-      <Modal.Header closeButton>
-        <Modal.Title>{ label }</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form>
-          { filters.map((filter) => (
-            <div key={ `${ filterId }-${ filter.name }` } className="mb-3">
-              <Form.Check
-                type="checkbox"
-                id={ filter.name }
-                defaultChecked={ !!queuedFilters.current.includes(filter.name) }
-                label={ filter.name }
-                onChange={ updateSelectedFilters }
-              />
-            </div>
-          )) }
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={ applyFilters }>
-          Apply filters
-        </Button>
-        <Button variant="secondary" onClick={ resetModal }>
-          Reset filters
-        </Button>
-      </Modal.Footer>
+      <FilterModalHeader title={ label } />
+      <FilterModalBody
+        filters={ filters }
+        queuedFilters={ queuedFilters }
+        onChange={ updateSelectedFilters }
+      />
+      <FilterModalFooter applyFilters={ applyFilters } resetModal={ resetModal } />
     </Modal>
   );
 }
