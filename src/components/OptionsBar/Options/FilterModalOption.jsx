@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import OptionButton from '../OptionButton';
-import QueryFilterModal from '../../QueryFilterModal/QueryFilterModal';
+import FilterModal from './FilterModal';
 
 function FilterModalOption({ label, filterId, filters }) {
-  const [ openModal, setOpenModal ] = useState(false);
+  const [ show, setShow ] = useState(false);
 
   return (
     <>
-      <QueryFilterModal
-        title={ label }
-        keywords={ filters }
-        isOpen={ openModal }
-        setOpenModal={ setOpenModal }
-        filterId={ filterId }
-      />
-      <OptionButton label={ label } onClick={ () => setOpenModal(!openModal) } />
+      <FilterModal label={label} filters={filters} filterId={filterId} show={show} setShow={setShow} />
+      <OptionButton label={ label } onClick={ () => setShow(!show) } />
     </>
   );
 }
