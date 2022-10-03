@@ -8,7 +8,13 @@ function FilterModalOption({ label, filterId, filters }) {
 
   return (
     <>
-      <FilterModal label={label} filters={filters} filterId={filterId} show={show} setShow={setShow} />
+      <FilterModal
+        label={ label }
+        filters={ filters }
+        filterId={ filterId }
+        show={ show }
+        setShow={ setShow }
+      />
       <OptionButton label={ label } onClick={ () => setShow(!show) } />
     </>
   );
