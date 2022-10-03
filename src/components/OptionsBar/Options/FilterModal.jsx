@@ -15,9 +15,9 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
     const filter = event.target.id;
     queuedFilters.current = [ ...queuedFilters.current ];
 
-    const index = queuedFilters.current.indexOf(filter);
-    if (index !== -1) {
-      queuedFilters.current.splice(index, 1);
+    const filterIndex = queuedFilters.current.indexOf(filter);
+    if (filterIndex !== -1) {
+      queuedFilters.current.splice(filterIndex, 1);
     } else {
       queuedFilters.current.push(filter);
     }
