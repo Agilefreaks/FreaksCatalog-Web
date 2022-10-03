@@ -1,12 +1,13 @@
 import React from 'react';
-import OptionButton from './OptionButton';
+import PropTypes from 'prop-types';
+import { ButtonGroup } from 'react-bootstrap';
 
-function OptionsBar() {
-  return (
-    <div className="options-bar">
-      <OptionButton label="Filters" onClick={ () => {} } />
-    </div>
-  );
+function OptionsBar({ children }) {
+  return <ButtonGroup className="w-100">{ children }</ButtonGroup>;
 }
+
+OptionsBar.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default OptionsBar;

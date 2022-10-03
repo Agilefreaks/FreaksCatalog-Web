@@ -3,16 +3,9 @@ import PropTypes from 'prop-types';
 import FilterModal from '../FilterModal/FilterModal';
 import './QueryFilterModal.scss';
 
-function QueryFilterModal({ keywords, title, modalId, isOpen, setOpenModal, filterId }) {
+function QueryFilterModal({ keywords, title, isOpen, setOpenModal, filterId }) {
   return (
     <div className="query-modal">
-      <button
-        className="query-modal__button"
-        type="button"
-        onClick={ () => setOpenModal(modalId) }
-      >
-        { title }
-      </button>
       <FilterModal
         title={ title }
         isOpen={ isOpen }
@@ -30,7 +23,6 @@ QueryFilterModal.propTypes = {
   keywords: PropTypes.arrayOf(PropTypes.shape).isRequired,
   isOpen: PropTypes.bool.isRequired,
   setOpenModal: PropTypes.func.isRequired,
-  modalId: PropTypes.string.isRequired,
   filterId: PropTypes.string.isRequired,
 };
 

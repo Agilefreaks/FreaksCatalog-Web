@@ -7,7 +7,7 @@ import FadeTransition from '../../components/AnimatedPages/FadeTransition';
 import AddFreakModal from '../../components/AddFreakModal/AddFreakModal';
 import FilterMenu from '../../components/FilterMenu/FilterMenu';
 import FreaksQueries from '../../graphql/queries/freaks';
-import OptionsBar from '../../components/OptionsBar/OptionsBar';
+import ViewFreaksOptionsBar from './ViewFreaksOptionsBar';
 import './ViewFreaks.scss';
 
 const modals = {
@@ -32,7 +32,12 @@ function ViewFreaks() {
   return (
     <FadeTransition>
       <div className="view-freaks">
-        { width < SCREEN_WIDTH_THRESHOLD && <OptionsBar /> }
+        { width < SCREEN_WIDTH_THRESHOLD && (
+          <ViewFreaksOptionsBar
+            technologies={ filters.technologies }
+            projects={ filters.projects }
+          />
+        ) }
         <div className="view-freaks__tiles-content">
           { width >= SCREEN_WIDTH_THRESHOLD && <FilterMenu keywords={ filters } /> }
           <FreaksGrid freaks={ freaks } />
