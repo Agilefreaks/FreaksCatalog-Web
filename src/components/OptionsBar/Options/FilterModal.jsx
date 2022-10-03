@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { getFilterSetter, getFilterResetter } from '../../../filters/freaksFilter';
@@ -6,9 +6,10 @@ import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 
-function FilterModal({ label, filters, filterId, show, setShow }) {
+function FilterModal({ labels, filters, filterId, show, setShow }) {
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
+  const [ index, setIndex ] = useState(0);
 
   const updateSelectedFilters = (event) => {
     const filter = event.target.id;
@@ -23,7 +24,7 @@ function FilterModal({ label, filters, filterId, show, setShow }) {
   };
 
   const applyFilters = () => {
-    const setFilter = getFilterSetter(filterId);
+    const setFilter = getFilterSetter(filterId[index]);
 
     if (setFilter !== null) {
       dispatch(setFilter(queuedFilters.current));
@@ -35,7 +36,7 @@ function FilterModal({ label, filters, filterId, show, setShow }) {
   const resetModal = () => {
     queuedFilters.current = [];
 
-    const filterResetter = getFilterResetter(filterId);
+    const filterResetter = getFilterResetter(filterId[index]);
 
     if (filterResetter !== null) {
       dispatch(filterResetter());
@@ -46,9 +47,9 @@ function FilterModal({ label, filters, filterId, show, setShow }) {
 
   return (
     <Modal show={ show } onHide={ () => setShow(false) }>
-      <FilterModalHeader title={ label } />
+      <FilterModalHeader labels={ labels } index={ index } setIndex={ setIndex } />
       <FilterModalBody
-        filters={ filters }
+        filters={ filters[index] }
         queuedFilters={ queuedFilters }
         onChange={ updateSelectedFilters }
       />

@@ -3,26 +3,26 @@ import PropTypes from 'prop-types';
 import OptionButton from '../OptionButton';
 import FilterModal from './FilterModal';
 
-function FilterModalOption({ label, filterId, filters }) {
+function FilterModalOption({ labels, filterIds, filters }) {
   const [ show, setShow ] = useState(false);
 
   return (
     <>
       <FilterModal
-        label={ label }
+        labels={ labels }
         filters={ filters }
-        filterId={ filterId }
+        filterId={ filterIds }
         show={ show }
         setShow={ setShow }
       />
-      <OptionButton label={ label } onClick={ () => setShow(!show) } />
+      <OptionButton label="Filters" onClick={ () => setShow(!show) } />
     </>
   );
 }
 
 FilterModalOption.propTypes = {
-  label: PropTypes.string.isRequired,
-  filterId: PropTypes.string.isRequired,
+  labels: PropTypes.array.isRequired,
+  filterIds: PropTypes.array.isRequired,
   filters: PropTypes.array.isRequired,
 };
 

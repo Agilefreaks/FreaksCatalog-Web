@@ -8,14 +8,9 @@ function ViewFreaksOptionsBar({ technologies, projects }) {
   return (
     <OptionsBar>
       <FilterModalOption
-        label="Skills"
-        filters={ technologies }
-        filterId={ FilterType.skills }
-      />
-      <FilterModalOption
-        label="Projects"
-        filters={ projects }
-        filterId={ FilterType.projects }
+        labels={ [ 'Skills', 'Projects' ] }
+        filters={ [ technologies, projects ] }
+        filterIds={ [ FilterType.skills, FilterType.projects ] }
       />
     </OptionsBar>
   );
