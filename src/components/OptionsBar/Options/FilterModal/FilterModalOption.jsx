@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import OptionButton from '../OptionButton';
+import OptionButton from '../../OptionButton';
 import FilterModal from './FilterModal';
 
 function FilterModalOption({ labels, filterIds, filters }) {

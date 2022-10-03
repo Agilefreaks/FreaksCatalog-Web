@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilterModalOption from '../../components/OptionsBar/Options/FilterModalOption';
+import FilterModalOption from '../../components/OptionsBar/Options/FilterModal/FilterModalOption';
 import FilterType from '../../filters/FilterType';
 import OptionsBar from '../../components/OptionsBar/OptionsBar';
 

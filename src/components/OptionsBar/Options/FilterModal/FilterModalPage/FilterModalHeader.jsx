@@ -6,7 +6,7 @@ function FilterModalHeader({ labels, index: listIndex, setIndex }) {
     <Modal.Header closeButton>
       <Modal.Title>
         { labels.map((label, index) => (
-          <div key={labels[index]} style={{display: "inline"}} >
+          <div key={ labels[index] } style={ { display: 'inline' } }>
             <Button
               variant={ index === listIndex ? 'light' : 'link' }
               onClick={ () => {

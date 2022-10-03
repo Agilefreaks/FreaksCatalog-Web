@@ -10,7 +10,9 @@ function FilterModalBody({ filters, queuedFilters, onChange }) {
             <Form.Check
               type="checkbox"
               id={ filter.name }
-              defaultChecked={ queuedFilters && !!queuedFilters.current.includes(filter.name) }
+              defaultChecked={
+                queuedFilters && !!queuedFilters.current.includes(filter.name)
+              }
               label={ filter.name }
               onChange={ onChange }
             />

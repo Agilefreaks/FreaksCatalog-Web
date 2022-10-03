@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilterSetter, getFilterResetter } from '../../../filters/freaksFilter';
+import { getFilterSetter, getFilterResetter } from '../../../../filters/freaksFilter';
 import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
@@ -47,10 +47,10 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
   };
 
   useEffect(() => {
-    if(globalFilters[filterId[index]]) {
-        queuedFilters.current = globalFilters[filterId[index]];
+    if (globalFilters[filterId[index]]) {
+      queuedFilters.current = globalFilters[filterId[index]];
     }
-  }, [index]);
+  }, [ index ]);
 
   return (
     <Modal show={ show } onHide={ () => setShow(false) }>
