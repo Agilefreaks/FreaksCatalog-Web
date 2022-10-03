@@ -8,7 +8,7 @@ function FilterModalHeader({ labels, index: listIndex, setIndex }) {
         { labels.map((label, index) => (
           <div key={labels[index]} style={{display: "inline"}} >
             <Button
-              variant={ index === listIndex ? 'dark' : 'light' }
+              variant={ index === listIndex ? 'light' : 'link' }
               onClick={ () => {
                 setIndex(index);
               } }
