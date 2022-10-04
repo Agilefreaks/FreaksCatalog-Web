@@ -7,11 +7,11 @@ import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 
-function FilterModal({ labels, filters, filterId, show, setShow }) {
+function FilterModal({ labels, filters, filterIds, show, setShow }) {
   const globalFilters = useSelector((state) => state.filters);
   const [ index, setIndex ] = useState(0);
 
-  const actions = filterActions(filterId, index);
+  const actions = filterActions(filterIds, index);
 
   const applyFilters = () => {
     actions.applyFilters();
@@ -24,8 +24,8 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
   };
 
   useEffect(() => {
-    if (globalFilters[filterId[index]]) {
-      actions.getQueuedFilters().current = globalFilters[filterId[index]];
+    if (globalFilters[filterIds[index]]) {
+      actions.getQueuedFilters().current = globalFilters[filterIds[index]];
     }
   }, [ index ]);
 
@@ -45,7 +45,7 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
 FilterModal.propTypes = {
   labels: PropTypes.arrayOf(PropTypes.string).isRequired,
   filters: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape())).isRequired,
-  filterId: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filterIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
 };

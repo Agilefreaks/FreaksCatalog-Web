@@ -11,7 +11,7 @@ function FilterModalOption({ labels, filterIds, filters }) {
       <FilterModal
         labels={ labels }
         filters={ filters }
-        filterId={ filterIds }
+        filterIds={ filterIds }
         show={ show }
         setShow={ setShow }
       />
