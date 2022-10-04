@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
 import filterActions from './FilterActions';
 import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 
 function FilterModal({ labels, filters, filterIds, show, setShow }) {
-  const globalFilters = useSelector((state) => state.filters);
   const [ index, setIndex ] = useState(0);
 
   const actions = filterActions(filterIds, index);
@@ -22,12 +20,6 @@ function FilterModal({ labels, filters, filterIds, show, setShow }) {
     actions.resetFilters();
     setShow(false);
   };
-
-  useEffect(() => {
-    if (globalFilters[filterIds[index]]) {
-      actions.getQueuedFilters().current = globalFilters[filterIds[index]];
-    }
-  }, [ index ]);
 
   return (
     <Modal show={ show } onHide={ () => setShow(false) }>

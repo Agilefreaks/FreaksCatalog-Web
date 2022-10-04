@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, { string } from 'prop-types';
 import React from 'react';
 import { Form, Modal } from 'react-bootstrap';
 
@@ -11,9 +11,7 @@ function FilterModalBody({ filters, queuedFilters, onChange }) {
             <Form.Check
               type="checkbox"
               id={ filter.name }
-              defaultChecked={
-                queuedFilters && !!queuedFilters.current.includes(filter.name)
-              }
+              defaultChecked={ queuedFilters && !!queuedFilters.includes(filter.name) }
               label={ filter.name }
               onChange={ onChange }
             />
@@ -26,7 +24,7 @@ function FilterModalBody({ filters, queuedFilters, onChange }) {
 
 FilterModalBody.propTypes = {
   filters: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  queuedFilters: PropTypes.shape().isRequired,
+  queuedFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
