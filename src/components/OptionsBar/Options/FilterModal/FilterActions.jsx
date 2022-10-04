@@ -1,8 +1,10 @@
 import { useDispatch } from 'react-redux';
+import { useRef } from 'react';
 import { getFilterResetter, getFilterSetter } from '../../../../filters/freaksFilter';
 
-const filterActions = (filterId, index, queuedFilters) => {
+const filterActions = (filterId, index) => {
   const dispatch = useDispatch();
+  const queuedFilters = useRef([]);
 
   const applyFilters = () => {
     const setFilter = getFilterSetter(filterId[index]);
@@ -38,6 +40,7 @@ const filterActions = (filterId, index, queuedFilters) => {
     applyFilters,
     resetFilters,
     updateSelectedFilters,
+    getQueuedFilters: () => queuedFilters,
   };
 };
 

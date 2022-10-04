@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import filterActions from './FilterActions';
@@ -8,11 +8,10 @@ import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 
 function FilterModal({ labels, filters, filterId, show, setShow }) {
-  const queuedFilters = useRef([]);
   const globalFilters = useSelector((state) => state.filters);
   const [ index, setIndex ] = useState(0);
 
-  const actions = filterActions(filterId, index, queuedFilters);
+  const actions = filterActions(filterId, index);
 
   const applyFilters = () => {
     actions.applyFilters();
@@ -26,7 +25,7 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
 
   useEffect(() => {
     if (globalFilters[filterId[index]]) {
-      queuedFilters.current = globalFilters[filterId[index]];
+      actions.getQueuedFilters().current = globalFilters[filterId[index]];
     }
   }, [ index ]);
 
@@ -35,7 +34,7 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
       <FilterModalHeader labels={ labels } index={ index } setIndex={ setIndex } />
       <FilterModalBody
         filters={ filters[index] }
-        queuedFilters={ queuedFilters }
+        queuedFilters={ actions.getQueuedFilters() }
         onChange={ actions.updateSelectedFilters }
       />
       <FilterModalFooter applyFilters={ applyFilters } resetModal={ resetModal } />
