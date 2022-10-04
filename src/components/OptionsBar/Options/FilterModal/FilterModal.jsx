@@ -1,49 +1,26 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { getFilterResetter, getFilterSetter } from '../../../../filters/freaksFilter';
+import { useSelector } from 'react-redux';
+import filterActions from './FilterActions';
 import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 
 function FilterModal({ labels, filters, filterId, show, setShow }) {
   const queuedFilters = useRef([]);
-  const dispatch = useDispatch();
   const globalFilters = useSelector((state) => state.filters);
   const [ index, setIndex ] = useState(0);
 
-  const updateSelectedFilters = (event) => {
-    const filter = event.target.id;
-    queuedFilters.current = [ ...queuedFilters.current ];
-
-    const filterIndex = queuedFilters.current.indexOf(filter);
-    if (filterIndex !== -1) {
-      queuedFilters.current.splice(filterIndex, 1);
-    } else {
-      queuedFilters.current.push(filter);
-    }
-  };
+  const actions = filterActions(filterId, index, queuedFilters);
 
   const applyFilters = () => {
-    const setFilter = getFilterSetter(filterId[index]);
-
-    if (setFilter !== null) {
-      dispatch(setFilter(queuedFilters.current));
-    }
-
+    actions.applyFilters();
     setShow(false);
   };
 
   const resetModal = () => {
-    queuedFilters.current = [];
-
-    const filterResetter = getFilterResetter(filterId[index]);
-
-    if (filterResetter !== null) {
-      dispatch(filterResetter());
-    }
-
+    actions.resetFilters();
     setShow(false);
   };
 
@@ -59,7 +36,7 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
       <FilterModalBody
         filters={ filters[index] }
         queuedFilters={ queuedFilters }
-        onChange={ updateSelectedFilters }
+        onChange={ actions.updateSelectedFilters }
       />
       <FilterModalFooter applyFilters={ applyFilters } resetModal={ resetModal } />
     </Modal>
