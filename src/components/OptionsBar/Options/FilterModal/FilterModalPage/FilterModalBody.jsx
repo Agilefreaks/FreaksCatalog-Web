@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Form, Modal } from 'react-bootstrap';
 
@@ -22,5 +23,11 @@ function FilterModalBody({ filters, queuedFilters, onChange }) {
     </Modal.Body>
   );
 }
+
+FilterModalBody.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  queuedFilters: PropTypes.shape().isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default FilterModalBody;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
@@ -22,5 +23,11 @@ function FilterModalHeader({ labels, index: listIndex, setIndex }) {
     </Modal.Header>
   );
 }
+
+FilterModalHeader.propTypes = {
+  labels: PropTypes.arrayOf(PropTypes.string).isRequired,
+  index: PropTypes.number.isRequired,
+  setIndex: PropTypes.func.isRequired,
+};
 
 export default FilterModalHeader;

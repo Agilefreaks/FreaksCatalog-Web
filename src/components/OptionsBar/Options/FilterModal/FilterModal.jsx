@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilterSetter, getFilterResetter } from '../../../../filters/freaksFilter';
-import FilterModalHeader from './FilterModalPage/FilterModalHeader';
+import { getFilterResetter, getFilterSetter } from '../../../../filters/freaksFilter';
 import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
+import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 
 function FilterModal({ labels, filters, filterId, show, setShow }) {
   const queuedFilters = useRef([]);
@@ -64,5 +65,13 @@ function FilterModal({ labels, filters, filterId, show, setShow }) {
     </Modal>
   );
 }
+
+FilterModal.propTypes = {
+  labels: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filters: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape())).isRequired,
+  filterId: PropTypes.arrayOf(PropTypes.string).isRequired,
+  show: PropTypes.bool.isRequired,
+  setShow: PropTypes.func.isRequired,
+};
 
 export default FilterModal;

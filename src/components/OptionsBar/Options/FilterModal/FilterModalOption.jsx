@@ -21,9 +21,9 @@ function FilterModalOption({ labels, filterIds, filters }) {
 }
 
 FilterModalOption.propTypes = {
-  labels: PropTypes.array.isRequired,
-  filterIds: PropTypes.array.isRequired,
-  filters: PropTypes.array.isRequired,
+  labels: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filterIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filters: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape())).isRequired,
 };
 
 export default FilterModalOption;
