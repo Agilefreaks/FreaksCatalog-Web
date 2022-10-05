@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
@@ -13,5 +14,10 @@ function FilterModalFooter({ applyFilters, resetModal }) {
     </Modal.Footer>
   );
 }
+
+FilterModalFooter.propTypes = {
+  applyFilters: PropTypes.func.isRequired,
+  resetModal: PropTypes.func.isRequired,
+};
 
 export default FilterModalFooter;
