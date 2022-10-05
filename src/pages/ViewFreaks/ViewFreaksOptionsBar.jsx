@@ -17,8 +17,8 @@ function ViewFreaksOptionsBar({ technologies, projects }) {
 }
 
 ViewFreaksOptionsBar.propTypes = {
-  technologies: PropTypes.array.isRequired,
-  projects: PropTypes.array.isRequired,
+  technologies: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  projects: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default ViewFreaksOptionsBar;
