@@ -2,14 +2,14 @@ import { useDispatch } from 'react-redux';
 import { useRef } from 'react';
 import { getFilterResetter, getFilterSetter } from '../../../../filters/freaksFilter';
 
-const filterActions = (filterIds, index) => {
+const filterActions = (filterIds, tabIndex) => {
   const dispatch = useDispatch();
 
   const getInitialFilterMatrix = (len) => Array.from(Array(len), () => new Array(0));
 
   const queuedFilters = useRef(getInitialFilterMatrix(filterIds.length));
 
-  const getRelativeFilters = () => queuedFilters.current[index];
+  const getRelativeFilters = () => queuedFilters.current[tabIndex];
 
   const pushRelativeFilters = (filter) => getRelativeFilters().push(filter);
 
@@ -22,11 +22,11 @@ const filterActions = (filterIds, index) => {
   };
 
   const resetRelativeFilters = () => {
-    queuedFilters.current[index] = [];
+    queuedFilters.current[tabIndex] = [];
   };
 
   const applyFilters = () => {
-    const setFilter = getFilterSetter(filterIds[index]);
+    const setFilter = getFilterSetter(filterIds[tabIndex]);
 
     if (setFilter !== null) {
       dispatch(setFilter(getRelativeFilters()));
@@ -36,7 +36,7 @@ const filterActions = (filterIds, index) => {
   const resetFilters = () => {
     resetRelativeFilters();
 
-    const filterResetter = getFilterResetter(filterIds[index]);
+    const filterResetter = getFilterResetter(filterIds[tabIndex]);
 
     if (filterResetter !== null) {
       dispatch(filterResetter());
