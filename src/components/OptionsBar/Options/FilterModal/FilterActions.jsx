@@ -16,9 +16,9 @@ const filterActions = (filterIds, index) => {
   const spliceRelativeFiltersAt = (index) => getRelativeFilters().splice(index, 1);
 
   const rebuildAllFilters = () => {
-    queuedFilters.current.map(
-      (filters, index) => (queuedFilters.current[index] = [ ...queuedFilters.current[index] ]),
-    );
+    queuedFilters.current.forEach((filters, index) => {
+      queuedFilters.current[index] = [ ...queuedFilters.current[index] ];
+    });
   };
 
   const resetRelativeFilters = () => {
