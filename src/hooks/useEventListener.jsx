@@ -10,10 +10,11 @@ function useEventListener(eventName, handler, element = document) {
   useEffect(() => {
     const isSupported = element && element.addEventListener;
 
-    if (!isSupported) return undefined;
-
     const eventListener = (event) => savedHandler.current(event);
-    element.addEventListener(eventName, eventListener);
+
+    if (isSupported) {
+      element.addEventListener(eventName, eventListener);
+    }
 
     return () => {
       element.removeEventListener(eventName, eventListener);
