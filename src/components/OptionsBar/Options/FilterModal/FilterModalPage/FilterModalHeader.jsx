@@ -1,24 +1,23 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal, Tab, Tabs } from 'react-bootstrap';
 
 function FilterModalHeader({ labels, index: listIndex, setIndex }) {
   return (
     <Modal.Header closeButton>
       <Modal.Title>
-        { labels.map((label, index) => (
-          <div key={ labels[index] } style={ { display: 'inline' } }>
-            <Button
-              variant={ index === listIndex ? 'light' : 'link' }
-              onClick={ () => {
-                setIndex(index);
-              } }
-            >
-              { label }
-            </Button>
-            { index === labels.length - 1 ? '' : <span>/</span> }
-          </div>
-        )) }
+        <Tabs
+          defaultActiveKey={ listIndex }
+          id="filter-tabs"
+          className="mb-3"
+          onSelect={ (i) => {
+            setIndex(Number(i));
+          } }
+        >
+          { labels.map((label, tabIndex) => (
+            <Tab key={ label } eventKey={ tabIndex } title={ label } />
+          )) }
+        </Tabs>
       </Modal.Title>
     </Modal.Header>
   );
