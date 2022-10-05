@@ -7,7 +7,9 @@ function InputFilters({ isOpen, setFilteredText }) {
   const inputRef = useRef();
 
   useEffect(() => {
-    if (isOpen) inputRef.current?.focus();
+    if (isOpen) {
+      inputRef.current?.focus();
+    }
   }, [ isOpen ]);
 
   return (
