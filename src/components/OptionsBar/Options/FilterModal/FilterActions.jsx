@@ -26,11 +26,13 @@ const filterActions = (filterIds, tabIndex) => {
   };
 
   const applyFilters = () => {
-    const setFilter = getFilterSetter(filterIds[tabIndex]);
+    queuedFilters.current.forEach((filterCategory, index) => {
+      const setFilter = getFilterSetter(filterIds[index]);
 
-    if (setFilter !== null) {
-      dispatch(setFilter(getRelativeFilters()));
-    }
+      if (setFilter !== null) {
+        dispatch(setFilter(filterCategory));
+      }
+    });
   };
 
   const resetFilters = () => {
