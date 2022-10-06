@@ -14,6 +14,7 @@ function InputFilters({ isOpen, setFilteredText }) {
 
   return (
     <Form.Control
+      id='filters-input'
       onChange={ (event) => {
         setFilteredText(event.target.value);
       } }
