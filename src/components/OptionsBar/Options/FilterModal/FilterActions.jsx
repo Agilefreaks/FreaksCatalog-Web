@@ -7,7 +7,7 @@ const filterActions = (filterIds, tabIndex) => {
 
   const filters = useSelector((state) => state.filters);
 
-  const getInitialFilterMatrix = (len) => {
+  const getInitialFilterMatrix = () => {
     const filterMatrix = new Array(filterIds.length);
 
     filterIds.forEach((id, index) => {
@@ -17,7 +17,7 @@ const filterActions = (filterIds, tabIndex) => {
     return filterMatrix;
   };
 
-  const queuedFilters = useRef(getInitialFilterMatrix(filterIds.length));
+  const queuedFilters = useRef(getInitialFilterMatrix());
 
   const getRelativeFilters = () => queuedFilters.current[tabIndex];
 
