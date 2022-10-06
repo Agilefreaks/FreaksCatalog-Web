@@ -4,25 +4,22 @@ import FilterType from '../../filters/FilterType';
 import FilterCard from './FilterCard/FilterCard';
 import './filtermenu.scss';
 
-function FilterMenu({ keywords }) {
+function FilterMenu({ technologies, projects }) {
   return (
     <div className="filtermenu">
       <FilterCard
         title="Technologies"
-        keywords={ keywords.technologies }
+        keywords={ technologies }
         filterId={ FilterType.skills }
       />
-      <FilterCard
-        title="Projects"
-        keywords={ keywords.projects }
-        filterId={ FilterType.projects }
-      />
+      <FilterCard title="Projects" keywords={ projects } filterId={ FilterType.projects } />
     </div>
   );
 }
 
 FilterMenu.propTypes = {
-  keywords: PropTypes.shape().isRequired,
+  technologies: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  projects: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default FilterMenu;

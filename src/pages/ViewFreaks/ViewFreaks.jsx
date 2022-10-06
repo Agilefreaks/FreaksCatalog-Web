@@ -39,7 +39,9 @@ function ViewFreaks() {
           />
         ) }
         <div className="view-freaks__tiles-content">
-          { width >= SCREEN_WIDTH_THRESHOLD && <FilterMenu keywords={ filters } /> }
+          { width >= SCREEN_WIDTH_THRESHOLD && (
+            <FilterMenu technologies={ filters.technologies } projects={ filters.projects } />
+          ) }
           <FreaksGrid freaks={ freaks } />
           <Button
             className="button-add-user"
