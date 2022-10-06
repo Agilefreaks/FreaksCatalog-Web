@@ -1,11 +1,21 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
 import { getFilterResetter, getFilterSetter } from '../../../../filters/freaksFilter';
 
 const filterActions = (filterIds, tabIndex) => {
   const dispatch = useDispatch();
 
-  const getInitialFilterMatrix = (len) => Array.from(Array(len), () => new Array(0));
+  const filters = useSelector((state) => state.filters);
+
+  const getInitialFilterMatrix = (len) => {
+    const filterMatrix = new Array(filterIds.length);
+
+    filterIds.forEach((id, index) => {
+      filterMatrix[index] = filters[id];
+    });
+
+    return filterMatrix;
+  };
 
   const queuedFilters = useRef(getInitialFilterMatrix(filterIds.length));
 
