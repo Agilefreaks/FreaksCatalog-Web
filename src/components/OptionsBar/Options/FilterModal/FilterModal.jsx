@@ -6,10 +6,18 @@ import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 
-function FilterModal({ labels, filters, filterIds, show, setShow }) {
+function FilterModal({ filtersData, show, setShow }) {
   const [ index, setIndex ] = useState(0);
 
-  const actions = filterActions(filterIds, index);
+  const extractFromFilters = (filters) => (category) => filters.map((filter) => filter[category]);
+
+  const extract = extractFromFilters(filtersData);
+
+  const labels = extract('label');
+  const filters = extract('filters');
+  const ids = extract('id');
+
+  const actions = filterActions(ids, index);
 
   const applyFilters = () => {
     actions.applyFilters();
@@ -35,9 +43,13 @@ function FilterModal({ labels, filters, filterIds, show, setShow }) {
 }
 
 FilterModal.propTypes = {
-  labels: PropTypes.arrayOf(PropTypes.string).isRequired,
-  filters: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape())).isRequired,
-  filterIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filtersData: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      filters: PropTypes.arrayOf(PropTypes.shape()),
+      id: PropTypes.string,
+    }),
+  ).isRequired,
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
 };

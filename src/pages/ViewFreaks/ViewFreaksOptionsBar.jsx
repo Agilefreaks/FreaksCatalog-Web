@@ -5,13 +5,14 @@ import FilterType from '../../filters/FilterType';
 import OptionsBar from '../../components/OptionsBar/OptionsBar';
 
 function ViewFreaksOptionsBar({ technologies, projects }) {
+  const filtersData = [
+    { label: 'Skills', filters: technologies, id: FilterType.skills },
+    { label: 'Projects', filters: projects, id: FilterType.projects },
+  ];
+
   return (
     <OptionsBar>
-      <FilterModalOption
-        labels={ [ 'Skills', 'Projects' ] }
-        filters={ [ technologies, projects ] }
-        filterIds={ [ FilterType.skills, FilterType.projects ] }
-      />
+      <FilterModalOption filtersData={ filtersData } />
     </OptionsBar>
   );
 }
