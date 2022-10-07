@@ -12,7 +12,7 @@
     color: white;
     flex: 0 0 4rem;
     padding: 1rem;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     display: flex;
     align-items: center;
@@ -25,33 +25,5 @@
   &__content {
     height: 100%;
     overflow: auto;
-  }
-
-  &__nav {
-    display: flex;
-    justify-content: space-around;
-    background: white;
-    width: 100%;
-    flex: 0 0 3rem;
-    margin: 0;
-    color: black;
-    border-top: 2px solid black;
-  }
-}
-
-.nav {
-  &__button {
-    border: none;
-    background: white;
-    font-size: 1.5rem;
-
-    &-img {
-      height: 2rem;
-    }
-
-    p {
-      font-size: 0.7rem;
-      margin: 0;
-    }
   }
 }

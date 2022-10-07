@@ -1,19 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { faBars, faTimes, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { store } from './store/store';
 import './App.scss';
 import './styles/button-add-user.scss';
 import Home from './pages/Home/Home';
 import ViewFreaks from './pages/ViewFreaks/ViewFreaks';
 import ViewFreakPage from './pages/ViewFreakPage/ViewFreakPage';
-import logo from './images/logo-only-blue.svg';
-import projectLogo from './images/logo-projects.png';
-import homeLogo from './images/home.png';
+import Menu from './components/MenuDrawer/Menu';
 
-library.add(faTimes, faUserPlus);
+library.add(faBars, faTimes, faUserPlus);
 
 function App() {
   return (
@@ -22,6 +20,7 @@ function App() {
         <div className="app">
           <div className="app__title">
             <h1>FREAKS</h1>
+            <Menu />
           </div>
           <div className="app__content">
             <Switch>
@@ -35,26 +34,6 @@ function App() {
                 <ViewFreakPage />
               </Route>
             </Switch>
-          </div>
-          <div className="app__nav">
-            <Link to="/">
-              <button type="button" className="nav__button">
-                <img className="nav__button-img" src={ homeLogo } alt="Nav" />
-                <p>Home</p>
-              </button>
-            </Link>
-            <Link to="/freaks">
-              <button type="button" className="nav__button">
-                <img className="nav__button-img" src={ logo } alt="Nav" />
-                <p>Freaks</p>
-              </button>
-            </Link>
-            <Link to="/">
-              <button type="button" className="nav__button">
-                <img className="nav__button-img" src={ projectLogo } alt="Nav" />
-                <p>Projects</p>
-              </button>
-            </Link>
           </div>
         </div>
       </Router>

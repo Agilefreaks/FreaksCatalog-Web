@@ -1,0 +1,43 @@
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: white;
+  width: 100%;
+  flex: 0 0 3rem;
+  margin: 0;
+  color: black;
+  gap: 1rem;
+
+  &__item {
+    background: white;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1%;
+    padding: 1.5rem;
+    width: 100%;
+    border: none;
+
+    &:hover {
+      background-color: rgb(224 221 221);
+    }
+
+    &-img {
+      height: 5vh;
+    }
+
+    &-label {
+      font-size: 1.5vh;
+      margin: 0 2vw 0 1vw;
+      border: none;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
