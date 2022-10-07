@@ -1,3 +1,9 @@
-#filters-input {
-  background-color: rgba(159 194 232 / 20%);
+$filters-input-color: rgba(159 194 232 / 20%);
+
+.form-control.filters-input {
+  background-color: $filters-input-color;
+
+  &:focus {
+    background-color: $filters-input-color;
+  }
 }
