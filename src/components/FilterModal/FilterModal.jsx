@@ -5,9 +5,12 @@ import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import CheckBoxList from '../CheckBoxList/CheckBoxList';
 import { getFilterSetter, getFilterResetter } from '../../filters/freaksFilter';
+import InputFilters from '../InputFilters/InputFilters';
+import useKeyDownListener from '../../hooks/useKeyDownListener';
 
 function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId }) {
   const [ checkedState, setCheckedState ] = useState([]);
+  const [ filteredText, setFilteredText ] = useState(null);
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
 
@@ -25,6 +28,10 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
 
     setOpenModal(false);
   };
+
+  useKeyDownListener('Escape', () => {
+    setOpenModal(false);
+  });
 
   const resetModal = () => {
     setCheckedState([]);
@@ -68,10 +75,16 @@ function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId 
       footerContent={ getFooter() }
       onClose={ onClose }
     >
+      <InputFilters
+        isOpen={ isOpen }
+        setOpenModal={ setOpenModal }
+        setFilteredText={ setFilteredText }
+      />
       <CheckBoxList
         keywords={ keywords }
         checkedState={ checkedState }
         onChange={ updateSelectedFilters }
+        filteredText={ filteredText }
       />
     </Modal>
   );
