@@ -31,7 +31,8 @@ const relativeFilters = (filterIds, tabIndex) => {
   };
 
   const resetRelativeFilters = () => {
-    queuedFilters.current[tabIndex] = [];
+    rebuildFilters();
+    getRelativeFilters().splice(0, getRelativeFilters().length);
   };
 
   return {
