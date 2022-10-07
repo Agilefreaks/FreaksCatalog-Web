@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
-import { getFilterResetter, getFilterSetter } from '../../../../filters/freaksFilter';
+import { getFilterResetter, getFilterSetter } from '../../../../../filters/freaksFilter';
 
 const filterActions = (filterIds, tabIndex) => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import filterActions from './FilterActions';
+import filterActions from './Filters/FilterActions';
 import FilterModalBody from './FilterModalPage/FilterModalBody';
 import FilterModalFooter from './FilterModalPage/FilterModalFooter';
 import FilterModalHeader from './FilterModalPage/FilterModalHeader';
