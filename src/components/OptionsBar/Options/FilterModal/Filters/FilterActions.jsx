@@ -1,42 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import relativeFilters from './RelativeFilters';
 import { getFilterResetter, getFilterSetter } from '../../../../../filters/freaksFilter';
 
 const filterActions = (filterIds, tabIndex) => {
   const dispatch = useDispatch();
 
-  const filters = useSelector((state) => state.filters);
-
-  const getFilterMatrix = () => {
-    const filterMatrix = new Array(filterIds.length);
-
-    filterIds.forEach((id, index) => {
-      filterMatrix[index] = filters[id];
-    });
-
-    return filterMatrix;
-  };
-
-  const queuedFilters = useRef(getFilterMatrix());
-
-  const getRelativeFilters = () => queuedFilters.current[tabIndex];
-
-  const pushRelativeFilters = (filter) => getRelativeFilters().push(filter);
-
-  const spliceRelativeFiltersAt = (index) => getRelativeFilters().splice(index, 1);
-
-  const rebuildAllFilters = () => {
-    queuedFilters.current.forEach((queuedFilter, index) => {
-      queuedFilters.current[index] = [ ...queuedFilters.current[index] ];
-    });
-  };
-
-  const resetRelativeFilters = () => {
-    queuedFilters.current[tabIndex] = [];
-  };
+  const filters = relativeFilters(filterIds, tabIndex);
 
   const applyFilters = () => {
-    queuedFilters.current.forEach((filterCategory, index) => {
+    filters.getFilters().forEach((filterCategory, index) => {
       const setFilter = getFilterSetter(filterIds[index]);
 
       if (setFilter !== null) {
@@ -46,7 +18,7 @@ const filterActions = (filterIds, tabIndex) => {
   };
 
   const resetFilters = () => {
-    resetRelativeFilters();
+    filters.resetRelativeFilters();
 
     const filterResetter = getFilterResetter(filterIds[tabIndex]);
 
@@ -57,13 +29,13 @@ const filterActions = (filterIds, tabIndex) => {
 
   const updateSelectedFilters = (event) => {
     const filter = event.target.id;
-    rebuildAllFilters();
+    filters.rebuildFilters();
 
-    const filterIndex = getRelativeFilters().indexOf(filter);
+    const filterIndex = filters.getRelativeFilters().indexOf(filter);
     if (filterIndex !== -1) {
-      spliceRelativeFiltersAt(filterIndex);
+      filters.spliceRelativeFiltersAt(filterIndex);
     } else {
-      pushRelativeFilters(filter);
+      filters.pushRelativeFilters(filter);
     }
   };
 
@@ -71,7 +43,7 @@ const filterActions = (filterIds, tabIndex) => {
     applyFilters,
     resetFilters,
     updateSelectedFilters,
-    getQueuedFilters: getRelativeFilters,
+    getQueuedFilters: filters.getRelativeFilters,
   };
 };
 
