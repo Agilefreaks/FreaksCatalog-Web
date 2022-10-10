@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import '../../styles/input-filters.scss';
 
-function InputFilters({ isOpen, setFilteredText }) {
+function InputFilters({ setFilteredText }) {
   const inputRef = useRef();
 
   useEffect(() => {
-    if (isOpen) {
-      inputRef.current?.focus();
-    }
-  }, [ isOpen ]);
+    inputRef.current?.focus();
+    setFilteredText('');
+  }, []);
 
   return (
     <Form.Control
@@ -24,7 +23,6 @@ function InputFilters({ isOpen, setFilteredText }) {
 }
 
 InputFilters.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
   setFilteredText: PropTypes.func.isRequired,
 };
 

@@ -8,6 +8,7 @@ import FilterModalHeader from './FilterModalPage/FilterModalHeader';
 
 function FilterModal({ filtersData, show, setShow }) {
   const [ index, setIndex ] = useState(0);
+  const [ inputPattern, setInputPattern ] = useState('');
 
   const extractFromFilters = (filters) => (category) => filters.map((filter) => filter[category]);
 
@@ -31,11 +32,17 @@ function FilterModal({ filtersData, show, setShow }) {
 
   return (
     <Modal show={ show } onHide={ () => setShow(false) }>
-      <FilterModalHeader labels={ labels } index={ index } setIndex={ setIndex } />
+      <FilterModalHeader
+        labels={ labels }
+        index={ index }
+        setIndex={ setIndex }
+        setInputPattern={ setInputPattern }
+      />
       <FilterModalBody
         filters={ filters[index] }
         queuedFilters={ actions.getQueuedFilters() }
         onChange={ actions.updateSelectedFilters }
+        inputPattern={ inputPattern }
       />
       <FilterModalFooter applyFilters={ applyFilters } resetModal={ resetModal } />
     </Modal>

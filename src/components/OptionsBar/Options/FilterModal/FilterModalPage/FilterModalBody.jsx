@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Modal } from 'react-bootstrap';
-import InputFilters from '../../../../InputFilters/InputFilters';
 
-function FilterModalBody({ filters, queuedFilters, onChange }) {
-  const [ inputPattern, setInputPattern ] = useState('');
-
+function FilterModalBody({ filters, queuedFilters, onChange, inputPattern }) {
   const filterTest = (filter) => {
     const filterName = filter.name.toLowerCase();
     const filterPattern = inputPattern.toLowerCase();
@@ -15,7 +12,6 @@ function FilterModalBody({ filters, queuedFilters, onChange }) {
 
   return (
     <Modal.Body>
-      <InputFilters isOpen={ true } setFilteredText={ setInputPattern } />
       <Form>
         { filters.filter(filterTest).map((filter) => (
           <div key={ filter.name } className="mb-3">
