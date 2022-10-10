@@ -3,7 +3,7 @@ import React from 'react';
 import { Modal, Tab, Tabs } from 'react-bootstrap';
 import InputFilters from '../../../../InputFilters/InputFilters';
 
-function FilterModalHeader({ labels, index: listIndex, setIndex, setInputPattern }) {
+function FilterModalHeader({ labels, index: listIndex, setIndex, setFilteredText }) {
   return (
     <>
       <Modal.Header className="pb-0" closeButton>
@@ -22,7 +22,7 @@ function FilterModalHeader({ labels, index: listIndex, setIndex, setInputPattern
           </Tabs>
         </Modal.Title>
       </Modal.Header>
-      <InputFilters setFilteredText={ setInputPattern } initialFocus={ true } />
+      <InputFilters setFilteredText={ setFilteredText } initialFocus={ true } />
     </>
   );
 }
@@ -31,6 +31,7 @@ FilterModalHeader.propTypes = {
   labels: PropTypes.arrayOf(PropTypes.string).isRequired,
   index: PropTypes.number.isRequired,
   setIndex: PropTypes.func.isRequired,
+  setFilteredText: PropTypes.func.isRequired,
 };
 
 export default FilterModalHeader;

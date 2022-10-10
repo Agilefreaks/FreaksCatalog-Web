@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Form, Modal } from 'react-bootstrap';
 
-function FilterModalBody({ filters, queuedFilters, onChange, inputPattern }) {
+function FilterModalBody({ filters, queuedFilters, onChange, filteredText }) {
   const filterTest = (filter) => {
     const filterName = filter.name.toLowerCase();
-    const filterPattern = inputPattern.toLowerCase();
+    const filterPattern = filteredText.toLowerCase();
 
     return filterName.includes(filterPattern);
   };
@@ -33,6 +33,7 @@ FilterModalBody.propTypes = {
   filters: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   queuedFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
+  filteredText: PropTypes.string,
 };
 
 export default FilterModalBody;
