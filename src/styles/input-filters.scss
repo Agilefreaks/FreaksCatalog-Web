@@ -11,6 +11,16 @@
   &,
   &:focus {
     background-color: rgba(255 255 255 / 20%);
+    margin-left: 20px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: width 0.8s ease-out, height 0.8s ease-out, opacity 0.4s ease-out;
+  }
+
+  &__hovered {
+    opacity: 1;
+    transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
     height: 30px;
     width: 135px;
     margin-left: 20px;

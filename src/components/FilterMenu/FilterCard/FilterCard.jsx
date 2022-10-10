@@ -13,6 +13,7 @@ function FilterCard({ title, keywords, filterId }) {
   const [ checkedState, setCheckedState ] = useState(filters[filterId]);
   const [ active, setActive ] = useState(true);
   const [ filteredText, setFilteredText ] = useState('');
+  const [ isHovering, setIsHovering ] = useState(false);
   const dispatch = useDispatch();
 
   const applyFilters = (result) => {
@@ -25,7 +26,7 @@ function FilterCard({ title, keywords, filterId }) {
   };
 
   return (
-    <div className="filtercard">
+    <div className="filtercard" onMouseLeave={ () => setIsHovering(false) }>
       <div className="filtercard__title-container">
         <Button
           className={ `filtercard__dropdown-btn${ active ? '--active' : '' }` }
@@ -34,10 +35,12 @@ function FilterCard({ title, keywords, filterId }) {
         >
           <FontAwesomeIcon icon="fa-caret-down" />
         </Button>
-        <span className="filtercard__title">{ title }</span>
+        <span className="filtercard__title" onMouseOver={ () => setIsHovering(true) }>
+          { title }
+        </span>
       </div>
       <InputFilters
-        className="filtercard-input"
+        className={ `filtercard-input${ isHovering ? '__hovered' : '' }` }
         setFilteredText={ setFilteredText }
         active={ active }
       />
