@@ -6,7 +6,7 @@ import InputFilters from '../../../../InputFilters/InputFilters';
 function FilterModalHeader({ labels, index: listIndex, setIndex, setInputPattern }) {
   return (
     <>
-      <Modal.Header className='pb-0' closeButton >
+      <Modal.Header className="pb-0" closeButton>
         <Modal.Title>
           <Tabs
             defaultActiveKey={ listIndex }

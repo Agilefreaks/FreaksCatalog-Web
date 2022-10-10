@@ -5,12 +5,14 @@ import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilterSetter } from '../../../filters/freaksFilter';
 import CheckBoxList from '../../CheckBoxList/CheckBoxList';
+import InputFilters from '../../InputFilters/InputFilters';
 import './filtercard.scss';
 
 function FilterCard({ title, keywords, filterId }) {
   const filters = useSelector((state) => state.filters);
   const [ checkedState, setCheckedState ] = useState(filters[filterId]);
   const [ active, setActive ] = useState(true);
+  const [ filteredText, setFilteredText ] = useState('');
   const dispatch = useDispatch();
 
   const applyFilters = (result) => {
@@ -34,8 +36,10 @@ function FilterCard({ title, keywords, filterId }) {
         </Button>
         <span className="filtercard__title">{ title }</span>
       </div>
+      <InputFilters setFilteredText={ setFilteredText } />
       <CheckBoxList
         keywords={ active ? keywords : [] }
+        filteredText={ filteredText }
         checkedState={ checkedState }
         onChange={ applyFilters }
       />
