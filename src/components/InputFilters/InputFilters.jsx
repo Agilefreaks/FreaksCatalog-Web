@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import '../../styles/input-filters.scss';
 
-function InputFilters({ setFilteredText, initialFocus, active }) {
+function InputFilters({ className, setFilteredText, initialFocus, active }) {
   const inputRef = useRef();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function InputFilters({ setFilteredText, initialFocus, active }) {
   return (
     active && (
       <Form.Control
-        className="filters-input"
+        className={ className }
         onChange={ (event) => {
           setFilteredText(event.target.value);
         } }
@@ -25,12 +25,14 @@ function InputFilters({ setFilteredText, initialFocus, active }) {
 }
 
 InputFilters.propTypes = {
+  className: PropTypes.string,
   setFilteredText: PropTypes.func.isRequired,
   initialFocus: PropTypes.bool,
   active: PropTypes.bool,
 };
 
 InputFilters.defaultProps = {
+  className: "filters-input",
   initialFocus: false,
   active: true,
 };
