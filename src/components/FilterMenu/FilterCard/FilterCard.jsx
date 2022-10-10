@@ -36,7 +36,11 @@ function FilterCard({ title, keywords, filterId }) {
         </Button>
         <span className="filtercard__title">{ title }</span>
       </div>
-      <InputFilters setFilteredText={ setFilteredText } active={ active } />
+      <InputFilters
+        className="filtercard-input"
+        setFilteredText={ setFilteredText }
+        active={ active }
+      />
       <CheckBoxList
         keywords={ active ? keywords : [] }
         filteredText={ filteredText }

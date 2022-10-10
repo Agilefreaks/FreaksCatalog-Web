@@ -32,7 +32,7 @@ InputFilters.propTypes = {
 };
 
 InputFilters.defaultProps = {
-  className: "filters-input",
+  className: 'filters-input',
   initialFocus: false,
   active: true,
 };
