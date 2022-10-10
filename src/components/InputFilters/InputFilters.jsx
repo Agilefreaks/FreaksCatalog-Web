@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import '../../styles/input-filters.scss';
 
-function InputFilters({ setFilteredText }) {
+function InputFilters({ setFilteredText, initialFocus }) {
   const inputRef = useRef();
 
   useEffect(() => {
-    inputRef.current?.focus();
+    initialFocus && inputRef.current?.focus();
     setFilteredText('');
   }, []);
 
@@ -24,6 +24,11 @@ function InputFilters({ setFilteredText }) {
 
 InputFilters.propTypes = {
   setFilteredText: PropTypes.func.isRequired,
+  initialFocus: PropTypes.bool,
+};
+
+InputFilters.defaultProps = {
+  initialFocus: false,
 };
 
 export default InputFilters;
