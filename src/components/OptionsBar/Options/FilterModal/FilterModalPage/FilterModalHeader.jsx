@@ -22,7 +22,7 @@ function FilterModalHeader({ labels, index: listIndex, setIndex, setInputPattern
           </Tabs>
         </Modal.Title>
       </Modal.Header>
-      <InputFilters setFilteredText={ setInputPattern } initialFocus={true }/>
+      <InputFilters setFilteredText={ setInputPattern } initialFocus={ true } />
     </>
   );
 }
