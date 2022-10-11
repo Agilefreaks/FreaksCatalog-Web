@@ -35,7 +35,11 @@ function FilterCard({ title, keywords, filterId }) {
         >
           <FontAwesomeIcon icon="fa-caret-down" />
         </Button>
-        <span className="filtercard__title" onMouseOver={ () => setIsHovering(true) }>
+        <span
+          className="filtercard__title"
+          onMouseOver={ () => setIsHovering(true) }
+          onFocus={ () => {} }
+        >
           { title }
         </span>
       </div>
