@@ -1,9 +1,24 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Modal, Tab, Tabs } from 'react-bootstrap';
 import InputFilters from '../../../../InputFilters/InputFilters';
 
 function FilterModalHeader({ labels, index, setIndex, setFilteredText }) {
+  const filteredTextTabs = useRef([]);
+
+  const updateRelativeFilteredText = (text) => {
+    filteredTextTabs[index] = text;
+    setFilteredText(text);
+  };
+
+  useEffect(() => {
+    if (filteredTextTabs[index]) {
+      setFilteredText(filteredTextTabs[index]);
+    } else {
+      setFilteredText('');
+    }
+  }, [ index ]);
+
   return (
     <>
       <Modal.Header className="pb-0" closeButton>
@@ -22,7 +37,11 @@ function FilterModalHeader({ labels, index, setIndex, setFilteredText }) {
           </Tabs>
         </Modal.Title>
       </Modal.Header>
-      <InputFilters setFilteredText={ setFilteredText } initialFocus={ true } />
+      <InputFilters
+        setFilteredText={ updateRelativeFilteredText }
+        initialFocus={ true }
+        currentText={ filteredTextTabs[index] }
+      />
     </>
   );
 }
