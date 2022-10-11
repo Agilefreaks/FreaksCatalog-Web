@@ -33,7 +33,7 @@ FilterModalBody.propTypes = {
   filters: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   queuedFilters: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
-  filteredText: PropTypes.string,
+  filteredText: PropTypes.string.isRequired,
 };
 
 export default FilterModalBody;
