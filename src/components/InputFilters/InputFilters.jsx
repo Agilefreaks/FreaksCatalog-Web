@@ -7,7 +7,10 @@ function InputFilters({ className, setFilteredText, initialFocus, active }) {
   const inputRef = useRef();
 
   useEffect(() => {
-    initialFocus && inputRef.current?.focus();
+    if (initialFocus) {
+      inputRef.current?.focus();
+    }
+
     setFilteredText('');
   }, []);
 
