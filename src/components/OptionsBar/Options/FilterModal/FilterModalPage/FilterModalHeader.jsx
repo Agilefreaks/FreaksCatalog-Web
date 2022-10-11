@@ -3,13 +3,13 @@ import React from 'react';
 import { Modal, Tab, Tabs } from 'react-bootstrap';
 import InputFilters from '../../../../InputFilters/InputFilters';
 
-function FilterModalHeader({ labels, index: listIndex, setIndex, setFilteredText }) {
+function FilterModalHeader({ labels, index, setIndex, setFilteredText }) {
   return (
     <>
       <Modal.Header className="pb-0" closeButton>
         <Modal.Title>
           <Tabs
-            defaultActiveKey={ listIndex }
+            defaultActiveKey={ index }
             id="filter-tabs"
             className="mb-3"
             onSelect={ (i) => {
