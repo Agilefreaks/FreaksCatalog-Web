@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
-import HorizontalTransition from '../../components/AnimatedPages/HorizontalTransition';
+import FadeTransition from '../../components/AnimatedPages/FadeTransition';
 import ConfirmDeleteModal from '../../components/ConfirmDeleteModal/ConfirmDeleteModal';
 import EditFreakModal from '../../components/EditFreakModal/EditFreakModal';
 import FreakDetails from '../../components/FreakDetails/FreakDetails';
@@ -57,7 +57,7 @@ function ViewFreakPage() {
 
   const { freak } = data;
   return (
-    <HorizontalTransition>
+    <FadeTransition>
       <div className="view-freak" data-testid="view-freak">
         <Link to="/freaks">
           <Button
@@ -104,7 +104,7 @@ function ViewFreakPage() {
           />
         </div>
       </div>
-    </HorizontalTransition>
+    </FadeTransition>
   );
 }
 
