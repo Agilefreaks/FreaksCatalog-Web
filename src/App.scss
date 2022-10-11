@@ -33,19 +33,6 @@
     color: black;
     border-top: 2px solid black;
   }
-
-  .jelly-letter {
-    color: white;
-    display: inline-block;
-    font-size: 250%;
-    margin: 1px;
-    width: auto;
-    font-weight: bold;
-
-    &:hover {
-      animation: jelly 0.7s;
-    }
-  }
 }
 
 .nav {
