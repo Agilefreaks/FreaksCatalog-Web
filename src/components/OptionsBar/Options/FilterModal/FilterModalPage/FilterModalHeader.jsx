@@ -12,11 +12,7 @@ function FilterModalHeader({ labels, index, setIndex, setFilteredText }) {
   };
 
   useEffect(() => {
-    if (filteredTextTabs[index]) {
-      setFilteredText(filteredTextTabs[index]);
-    } else {
-      setFilteredText('');
-    }
+    setFilteredText(filteredTextTabs[index] ?? '');
   }, [ index ]);
 
   return (
