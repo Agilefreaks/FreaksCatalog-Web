@@ -4,15 +4,7 @@ import { useRef } from 'react';
 const relativeFilters = (filterIds, tabIndex) => {
   const filters = useSelector((state) => state.filters);
 
-  const getFilterMatrix = () => {
-    const filterMatrix = new Array(filterIds.length);
-
-    filterIds.forEach((id, index) => {
-      filterMatrix[index] = filters[id];
-    });
-
-    return filterMatrix;
-  };
+  const getFilterMatrix = () => (filters ? filterIds.map((id) => filters?.[id]) : []);
 
   const queuedFilters = useRef(getFilterMatrix());
 
