@@ -11,7 +11,7 @@ const catFilters = (f1, f2) => ({
   projects: [ ...f1.projects, ...f2.projects ],
 });
 
-const makeNameTuple = (freak) => ([ freak.firstName, freak.lastName ]);
+const makeNameTuple = (freak) => [ freak.firstName, freak.lastName ];
 
 const makeFreaksNames = (freaks) => freaks.map(makeNameTuple);
 
