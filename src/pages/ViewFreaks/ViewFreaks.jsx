@@ -24,7 +24,6 @@ function ViewFreaks() {
   if (!data) return <p>Not found</p>;
 
   const freaks = data.freaks.nodes;
-  const filters = (({ technologies, projects }) => ({ technologies, projects }))(data);
 
   const SCREEN_WIDTH_THRESHOLD = 500;
   const width = window.innerWidth;
@@ -34,13 +33,13 @@ function ViewFreaks() {
       <div className="view-freaks">
         { width < SCREEN_WIDTH_THRESHOLD && (
           <ViewFreaksOptionsBar
-            technologies={ filters.technologies }
-            projects={ filters.projects }
+            technologies={ data.technologies }
+            projects={ data.projects }
           />
         ) }
         <div className="view-freaks__tiles-content">
           { width >= SCREEN_WIDTH_THRESHOLD && (
-            <FilterMenu technologies={ filters.technologies } projects={ filters.projects } />
+            <FilterMenu technologies={ data.technologies } projects={ data.projects } />
           ) }
           <FreaksGrid freaks={ freaks } />
           <Button
