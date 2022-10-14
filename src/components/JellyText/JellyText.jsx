@@ -6,7 +6,7 @@ import './jellyLetter.scss';
 function JellyText({ text }) {
   return (
     <>
-      { [ ...text ].map((letter) => (
+      { text.split('').map((letter) => (
         <span className="jelly-letter" key={ `jellyLetter${ uuid() }` }>
           { letter }
         </span>
