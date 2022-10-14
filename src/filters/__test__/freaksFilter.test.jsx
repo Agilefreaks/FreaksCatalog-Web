@@ -11,7 +11,9 @@ const catFilters = (f1, f2) => ({
   projects: [ ...f1.projects, ...f2.projects ],
 });
 
-const makeFreaksNames = (freaks) => freaks.map((freak) => [ freak.firstName, freak.lastName ]);
+const makeNameTuple = (freak) => ([ freak.firstName, freak.lastName ]);
+
+const makeFreaksNames = (freaks) => freaks.map(makeNameTuple);
 
 describe('freaksFilter', () => {
   it('filter a single freak by a single skill', () => {
