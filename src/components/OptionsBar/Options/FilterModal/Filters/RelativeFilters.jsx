@@ -12,27 +12,28 @@ const relativeFilters = (filterIds, tabIndex) => {
 
   const getRelativeFilters = () => getFilters()[tabIndex];
 
+  const setRelativeFilters = (value) => {
+    queuedFilters.current[tabIndex] = value;
+
+    return getRelativeFilters();
+  };
+
   const pushRelativeFilters = (filter) => {
-    getRelativeFilters().push(filter);
+    setRelativeFilters([ ...getRelativeFilters(), filter ]);
 
     return getRelativeFilters();
   };
 
   const spliceRelativeFiltersAt = (index) => {
-    getRelativeFilters().splice(index, 1);
+    setRelativeFilters([ ...getRelativeFilters().filter((filter, i) => i !== index) ]);
 
     return getRelativeFilters();
   };
 
-  const rebuildFilters = () => {
-    getFilters().forEach((queuedFilter, index) => {
-      getFilters()[index] = [ ...getFilters()[index] ];
-    });
-  };
-
   const resetRelativeFilters = () => {
-    rebuildFilters();
-    getRelativeFilters().splice(0, getRelativeFilters().length);
+    setRelativeFilters([]);
+
+    return getRelativeFilters();
   };
 
   return {
@@ -40,7 +41,6 @@ const relativeFilters = (filterIds, tabIndex) => {
     getRelativeFilters,
     pushRelativeFilters,
     spliceRelativeFiltersAt,
-    rebuildFilters,
     resetRelativeFilters,
   };
 };

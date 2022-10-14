@@ -29,7 +29,6 @@ const filterActions = (filterIds, tabIndex) => {
 
   const updateSelectedFilters = (event) => {
     const filter = event.target.id;
-    filters.rebuildFilters();
 
     const filterIndex = filters.getRelativeFilters().indexOf(filter);
     if (filterIndex !== -1) {
