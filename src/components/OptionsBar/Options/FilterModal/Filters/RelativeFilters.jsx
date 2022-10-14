@@ -12,9 +12,17 @@ const relativeFilters = (filterIds, tabIndex) => {
 
   const getRelativeFilters = () => getFilters()[tabIndex];
 
-  const pushRelativeFilters = (filter) => getRelativeFilters().push(filter);
+  const pushRelativeFilters = (filter) => {
+    getRelativeFilters().push(filter);
 
-  const spliceRelativeFiltersAt = (index) => getRelativeFilters().splice(index, 1);
+    return getRelativeFilters();
+  };
+
+  const spliceRelativeFiltersAt = (index) => {
+    getRelativeFilters().splice(index, 1);
+
+    return getRelativeFilters();
+  };
 
   const rebuildFilters = () => {
     getFilters().forEach((queuedFilter, index) => {
