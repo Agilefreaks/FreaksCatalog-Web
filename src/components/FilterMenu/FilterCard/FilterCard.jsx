@@ -45,6 +45,7 @@ function FilterCard({ title, keywords, filterId }) {
       </div>
       <InputFilters
         className={ `filtercard-input${ isHovering ? '__hovered' : '' }` }
+        currentText={ filteredText }
         setFilteredText={ setFilteredText }
         active={ active }
       />
