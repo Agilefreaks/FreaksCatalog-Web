@@ -19,9 +19,11 @@ const relativeFilters = (filterIds, tabIndex) => {
   };
 
   const pushRelativeFilters = (filter) => {
-    setRelativeFilters([ ...getRelativeFilters(), filter ]);
+    const extendedRelativeFilters = [ ...getRelativeFilters(), filter ];
 
-    return getRelativeFilters();
+    setRelativeFilters(extendedRelativeFilters);
+
+    return extendedRelativeFilters;
   };
 
   const spliceRelativeFiltersAt = (index) => {
