@@ -25,7 +25,8 @@ const relativeFilters = (filterIds, tabIndex) => {
   };
 
   const spliceRelativeFiltersAt = (index) => {
-    setRelativeFilters([ ...getRelativeFilters().filter((filter, i) => i !== index) ]);
+    const matchingFilters = getRelativeFilters().filter((filter, i) => i !== index);
+    setRelativeFilters(matchingFilters);
 
     return getRelativeFilters();
   };
