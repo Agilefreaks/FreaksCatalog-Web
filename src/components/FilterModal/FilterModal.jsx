@@ -10,7 +10,7 @@ import useKeyDownListener from '../../hooks/useKeyDownListener';
 
 function FilterModal({ title, isOpen, onClose, keywords, setOpenModal, filterId }) {
   const [ checkedState, setCheckedState ] = useState([]);
-  const [ filteredText, setFilteredText ] = useState(null);
+  const [ filteredText, setFilteredText ] = useState('');
   const queuedFilters = useRef([]);
   const dispatch = useDispatch();
 

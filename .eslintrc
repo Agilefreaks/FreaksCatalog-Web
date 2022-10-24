@@ -28,7 +28,8 @@
       "react/jsx-curly-spacing": [2, { "when": "always", "children": true }],
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "react/jsx-boolean-value": [0],
-      "max-len": [2, { "code": 100 }]
+      "max-len": [2, { "code": 100 }],
+      "import/no-named-as-default": 0
     },
     "ignorePatterns": ["node_modules/**/*", "build/**/*"]
   }
