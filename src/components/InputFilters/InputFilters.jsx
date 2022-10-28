@@ -3,29 +3,44 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import '../../styles/input-filters.scss';
 
-function InputFilters({ isOpen, setFilteredText }) {
+function InputFilters({ className, setFilteredText, initialFocus, active, currentText }) {
   const inputRef = useRef();
 
   useEffect(() => {
-    if (isOpen) {
+    if (initialFocus) {
       inputRef.current?.focus();
     }
-  }, [ isOpen ]);
+
+    setFilteredText('');
+  }, []);
 
   return (
-    <Form.Control
-      className="filters-input"
-      onChange={ (event) => {
-        setFilteredText(event.target.value);
-      } }
-      ref={ inputRef }
-    />
+    active && (
+      <Form.Control
+        className={ className }
+        value={ currentText }
+        onChange={ (event) => {
+          setFilteredText(event.target.value);
+        } }
+        ref={ inputRef }
+      />
+    )
   );
 }
 
 InputFilters.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  className: PropTypes.string,
+  currentText: PropTypes.string,
   setFilteredText: PropTypes.func.isRequired,
+  initialFocus: PropTypes.bool,
+  active: PropTypes.bool,
+};
+
+InputFilters.defaultProps = {
+  className: 'filters-input',
+  currentText: '',
+  initialFocus: false,
+  active: true,
 };
 
 export default InputFilters;

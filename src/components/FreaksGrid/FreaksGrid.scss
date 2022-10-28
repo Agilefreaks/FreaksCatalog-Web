@@ -1,22 +1,25 @@
 .tiles {
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1.87rem;
-  margin: 0 auto;
-  max-width: 30.62rem;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 900px) {
   .tiles {
     grid-template-columns: repeat(3, 1fr);
-    margin: auto;
-    max-width: 46.875rem;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   .tiles {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 64rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .tiles {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 150rem;
   }
 }
