@@ -49,6 +49,17 @@ or
 $ docker-compose up
 ```
 
+## Helm chart
+
+```
+$ helm install freakscatalog-web .
+```
+#### Note: Be sure to have running K8s proxy
+```
+kubectl proxy
+```
+#### New you can access the app on port 8080
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
